@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Quantum Tech Healing Centre</title>
+  <meta name="description" content="Get in touch with Quantum Tech Healing Centre — book a session, ask a question, or find out more about quantum healing in the UK." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">QTHC</a>
+      <ul class="nav-links" role="list">
+        <li><a href="rasha.html" class="nav-link">The RASHA</a></li>
+        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+        <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+        <li><a href="operator.html" class="nav-link">The Operator</a></li>
+        <li><a href="science.html" class="nav-link">Science &amp; Pricing</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" role="dialog" aria-label="Mobile navigation">
+    <a href="rasha.html" class="overlay-link">The RASHA</a>
+    <a href="treatments.html" class="overlay-link">Treatments</a>
+    <a href="testimonials.html" class="overlay-link">Testimonials</a>
+    <a href="operator.html" class="overlay-link">The Operator</a>
+    <a href="science.html" class="overlay-link">Science</a>
+    <a href="faq.html" class="overlay-link">FAQ</a>
+    <a href="contact.html" class="overlay-link">Contact</a>
+  </div>
+
+  <!-- ── Page Hero ────────────────────────────────────────── -->
+  <header class="page-hero section-dark">
+    <p class="page-label">Get in touch</p>
+    <h1 class="page-title animate-in">
+      <span class="title-mask"><span class="title-line">Contact</span></span>
+      <span class="title-mask"><span class="title-line">Us</span></span>
+    </h1>
+    <p class="page-desc fade-up">
+      We welcome all enquiries — whether you are ready to book your first session,
+      have questions about the RASHA machine, or simply want to find out more.
+      We typically respond within 24&ndash;48 hours.
+    </p>
+  </header>
+
+  <!-- ── Contact Details ──────────────────────────────────── -->
+  <section class="section-dark">
+    <div class="contact-details">
+      <div class="contact-item fade-up">
+        <p class="contact-label">Address</p>
+        <p class="contact-value">
+          [Street address]<br>
+          [Town / City]<br>
+          United Kingdom<br>
+          [Postcode]
+        </p>
+        <p class="body mt-sm" style="color:var(--color-light-grey-04);font-size:var(--font-label);">
+          Address to be confirmed. Sessions by appointment only.
+        </p>
+      </div>
+      <div class="contact-item fade-up">
+        <p class="contact-label">Email &amp; Phone</p>
+        <p class="contact-value">
+          <a href="mailto:info@qthc.co.uk">info@qthc.co.uk</a><br>
+          <br>
+          <a href="tel:+441234567890">+44 [number to be added]</a>
+        </p>
+        <p class="body mt-sm" style="color:var(--color-light-grey-04);font-size:var(--font-label);">
+          Email is the best way to reach us. We aim to respond within 48 hours.
+        </p>
+      </div>
+      <div class="contact-item fade-up">
+        <p class="contact-label">Opening Hours</p>
+        <p class="contact-value">
+          [Days &amp; hours to be confirmed]
+        </p>
+        <p class="body mt-sm" style="color:var(--color-light-grey-04);font-size:var(--font-label);">
+          All sessions are by appointment only. Please contact us to check availability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Map placeholder ──────────────────────────────────── -->
+  <div class="map-placeholder section-dark fade-up">
+    <!-- Replace this div with a Google Maps iframe when ready:
+         <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen loading="lazy"></iframe> -->
+    Map — location to be added
+  </div>
+
+  <!-- ── Contact Form ──────────────────────────────────────── -->
+  <section class="section-dark">
+    <div class="section-label">
+      <span class="label">Send us a message</span>
+    </div>
+
+    <!-- NOTE: To activate form, update action with your Formspree URL or email handler -->
+    <form class="form-section" action="#" method="POST" data-validate>
+      <div class="form-grid">
+        <div class="form-group fade-up">
+          <label class="form-label" for="contact-name">Your Name *</label>
+          <input class="form-input" type="text" id="contact-name" name="name" required placeholder="Full name" />
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="contact-email">Email Address *</label>
+          <input class="form-input" type="email" id="contact-email" name="email" required placeholder="your@email.com" />
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="contact-phone">Phone Number (optional)</label>
+          <input class="form-input" type="tel" id="contact-phone" name="phone" placeholder="+44 7xxx xxxxxx" />
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="contact-subject">Subject</label>
+          <select class="form-select" id="contact-subject" name="subject">
+            <option value="" disabled selected>What is your enquiry about?</option>
+            <option value="booking">Booking a session</option>
+            <option value="treatments">Questions about treatments</option>
+            <option value="rasha">Questions about the RASHA machine</option>
+            <option value="pricing">Pricing enquiry</option>
+            <option value="testimonial">Sharing a testimonial</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group full-width fade-up">
+          <label class="form-label" for="contact-message">Message *</label>
+          <textarea class="form-textarea" id="contact-message" name="message" required
+            placeholder="Tell us what you would like to know or discuss..."></textarea>
+        </div>
+        <div class="form-group full-width fade-up">
+          <label class="checkbox-item" style="align-items:flex-start;gap:1.5rem;">
+            <input type="checkbox" name="consent" required style="margin-top:0.3rem;flex-shrink:0;" />
+            <span class="checkbox-label">
+              I consent to Quantum Tech Healing Centre using my contact details to respond to
+              my enquiry, in accordance with the <a href="legislation.html" style="color:var(--color-sand);">privacy policy</a>. *
+            </span>
+          </label>
+        </div>
+      </div>
+      <div style="margin-top:4vw;" class="fade-up">
+        <button type="submit" class="btn btn-primary">Send Message &rarr;</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ── Pre-session CTA ───────────────────────────────────── -->
+  <section class="section-sand">
+    <div class="page-hero" style="min-height:auto;padding-top:8vw;background:var(--color-sand);">
+      <p class="page-label" style="color:var(--color-dark-grey-04);">Ready to book?</p>
+      <h2 class="page-title" style="color:var(--color-dark-grey);">
+        Start with the questionnaire
+      </h2>
+      <p class="page-desc fade-up" style="color:var(--color-dark-grey-06);">
+        New clients are asked to complete our short questionnaire before their first session.
+        It only takes around 10 minutes and helps us create the best possible experience for you.
+      </p>
+      <div class="hero-ctas mt-md fade-up">
+        <a href="questionnaire.html" class="btn" style="background:var(--color-dark-grey);color:var(--color-sand);border-color:var(--color-dark-grey);">
+          Complete Questionnaire
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Quantum Tech<br>Healing Centre</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
+          <li><a href="treatments.html" class="footer-link">Treatments</a></li>
+          <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
+          <li><a href="operator.html" class="footer-link">The Operator</a></li>
+          <li><a href="science.html" class="footer-link">Science &amp; Pricing</a></li>
+          <li><a href="questionnaire.html" class="footer-link">Questionnaire</a></li>
+          <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="legislation.html" class="footer-link">Legislation</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li class="footer-link">United Kingdom</li>
+          <li><a href="mailto:info@qthc.co.uk" class="footer-link">info@qthc.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2025 Quantum Tech Healing Centre. All rights reserved.</p>
+      <p class="footer-disclaimer">
+        Not medical advice. <a href="legislation.html" style="color:var(--color-dark-grey);text-decoration:underline;">See full legislation.</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

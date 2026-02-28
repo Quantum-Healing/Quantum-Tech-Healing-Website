@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Tech Healing Centre — Advanced Healing with Technology &amp; Spirituality</title>
+  <meta name="description" content="Quantum Tech Healing Centre combines cutting-edge quantum technology with spiritual wisdom. Experience the RASHA machine — scalar energy healing in the UK." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Home-specific styles ─────────────────────────────── */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      filter: saturate(0.3);
+    }
+    .hero-bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        var(--color-dark-grey) 100%
+      );
+    }
+    .section-hero {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Intro statement section */
+    .intro-statement {
+      padding: var(--section-pad-v) var(--margin-h);
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .intro-statement .intro-label {
+      font-size: var(--font-label);
+      font-weight: 500;
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+      color: var(--color-light-grey-04);
+      margin-bottom: 4vw;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .intro-statement .intro-label::before {
+      content: '';
+      display: block;
+      width: 2vw;
+      height: 1px;
+      background: var(--color-light-grey-04);
+    }
+    .intro-statement .intro-text {
+      font-size: var(--font-h2);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: var(--ls-heading);
+      color: var(--color-light-grey);
+      max-width: 80vw;
+    }
+    .intro-statement .intro-body {
+      margin-top: 5vw;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--grid-gap);
+      align-items: start;
+    }
+    .intro-statement .intro-body p {
+      font-size: var(--font-body-lg);
+      line-height: var(--lh-body);
+      color: var(--color-light-grey-06);
+    }
+
+    /* Features strip */
+    .features-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .features-strip .strip-item {
+      padding: 4vw var(--margin-h);
+      border-right: 1px solid var(--color-light-grey-02);
+    }
+    .features-strip .strip-item:last-child {
+      border-right: none;
+    }
+    .features-strip .strip-num {
+      font-size: var(--font-label);
+      color: var(--color-light-grey-04);
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+      margin-bottom: 2vw;
+      font-weight: 500;
+    }
+    .features-strip .strip-text {
+      font-size: var(--font-h4);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      line-height: 1.3;
+    }
+
+    /* RASHA highlight section */
+    .rasha-highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--color-light-grey-02);
+      min-height: 70vh;
+    }
+    .rasha-highlight .rasha-text {
+      padding: 8vw var(--margin-h);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--color-light-grey-02);
+    }
+    .rasha-highlight .rasha-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .rasha-highlight .rasha-image .img-placeholder {
+      height: 100%;
+      min-height: 40vw;
+      border-radius: 0;
+    }
+
+    /* Section teasers */
+    .teaser-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .teaser-4 .teaser-item {
+      border-right: 1px solid var(--color-light-grey-02);
+    }
+    .teaser-4 .teaser-item:last-child {
+      border-right: none;
+    }
+
+    /* CTA strip */
+    .cta-strip {
+      padding: 8vw var(--margin-h);
+      text-align: center;
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .cta-strip .cta-title {
+      font-size: var(--font-h2);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      text-transform: uppercase;
+      margin-bottom: 3vw;
+    }
+    .cta-strip .cta-sub {
+      font-size: var(--font-body-lg);
+      font-weight: 300;
+      color: var(--color-light-grey-06);
+      max-width: 40vw;
+      margin: 0 auto 3vw;
+      line-height: var(--lh-body);
+    }
+
+    @media (max-width: 600px) {
+      .intro-statement .intro-text { max-width: 90vw; }
+      .intro-statement .intro-body { grid-template-columns: 1fr; }
+      .features-strip { grid-template-columns: 1fr 1fr; }
+      .features-strip .strip-item { padding: 8vw var(--margin-h); }
+      .features-strip .strip-item:nth-child(2) { border-right: none; }
+      .rasha-highlight { grid-template-columns: 1fr; }
+      .rasha-highlight .rasha-text { border-right: none; border-bottom: 1px solid var(--color-light-grey-02); }
+      .teaser-4 { grid-template-columns: 1fr 1fr; }
+      .teaser-4 .teaser-item:nth-child(2) { border-right: none; }
+      .teaser-4 .teaser-item:nth-child(4) { border-right: none; }
+      .cta-strip .cta-sub { max-width: 85vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">QTHC</a>
+      <ul class="nav-links" role="list">
+        <li><a href="rasha.html" class="nav-link">The RASHA</a></li>
+        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+        <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+        <li><a href="operator.html" class="nav-link">The Operator</a></li>
+        <li><a href="science.html" class="nav-link">Science &amp; Pricing</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay menu -->
+  <div class="nav-overlay" role="dialog" aria-label="Mobile navigation">
+    <a href="rasha.html" class="overlay-link">The RASHA</a>
+    <a href="treatments.html" class="overlay-link">Treatments</a>
+    <a href="testimonials.html" class="overlay-link">Testimonials</a>
+    <a href="operator.html" class="overlay-link">The Operator</a>
+    <a href="science.html" class="overlay-link">Science</a>
+    <a href="faq.html" class="overlay-link">FAQ</a>
+    <a href="contact.html" class="overlay-link">Contact</a>
+  </div>
+
+  <!-- ── Hero ────────────────────────────────────────────── -->
+  <section class="section-hero section-dark" aria-label="Hero">
+    <!-- Background image placeholder — replace src with your photo -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="img-placeholder hero-bg-image" style="height:100%;border-radius:0;">Photo of centre</div>
+      <div class="hero-bg-gradient"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">Quantum Tech Healing Centre &mdash; United Kingdom</p>
+
+      <h1 class="hero-title">
+        <span class="title-mask animate-in">
+          <span class="title-line">Advanced</span>
+        </span>
+        <span class="title-mask animate-in">
+          <span class="title-line">Healing</span>
+        </span>
+        <span class="title-mask animate-in">
+          <span class="title-line">Centre</span>
+        </span>
+      </h1>
+
+      <p class="hero-subtitle fade-up">
+        Where quantum science meets the wisdom of energy healing.
+        Experience the transformative power of scalar technology —
+        bringing body, mind, and energy field into balance.
+      </p>
+
+      <div class="hero-ctas fade-up">
+        <a href="contact.html" class="btn btn-primary">Book a Session</a>
+        <a href="rasha.html" class="btn btn-outline">Discover the RASHA</a>
+      </div>
+
+      <div class="scroll-indicator fade-up" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Intro Statement ─────────────────────────────────── -->
+  <section class="intro-statement section-dark">
+    <p class="intro-label fade-up">What we do</p>
+
+    <h2 class="intro-text animate-in">
+      <span class="title-mask">
+        <span class="title-line">Where technology</span>
+      </span>
+      <span class="title-mask">
+        <span class="title-line">meets the quantum</span>
+      </span>
+      <span class="title-mask">
+        <span class="title-line">field of healing.</span>
+      </span>
+    </h2>
+
+    <div class="intro-body">
+      <div></div>
+      <div class="fade-up">
+        <p>
+          At the Quantum Tech Healing Centre, we believe that true wellness goes beyond the physical body.
+          Every cell in your body communicates through energy — invisible frequencies that science is only
+          beginning to understand. Our centre uses the <strong class="highlight">RASHA machine</strong>,
+          a remarkable piece of quantum technology, to work directly with your body&rsquo;s energy field,
+          helping to restore harmony at a deep level.
+        </p>
+        <p class="mt-sm">
+          Think of it like tuning a musical instrument. When one string is out of tune, the whole piece
+          sounds off. The RASHA helps your body &ldquo;find its note&rdquo; again — naturally, gently,
+          and without any invasive procedures.
+        </p>
+        <div class="mt-md">
+          <a href="rasha.html" class="btn-arrow">
+            Learn how it works
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features Strip ──────────────────────────────────── -->
+  <div class="features-strip section-dark" aria-label="Key features">
+    <div class="strip-item fade-up">
+      <span class="strip-num">01</span>
+      <p class="strip-text">Scalar Energy Technology</p>
+    </div>
+    <div class="strip-item fade-up">
+      <span class="strip-num">02</span>
+      <p class="strip-text">Quantum Field Alignment</p>
+    </div>
+    <div class="strip-item fade-up">
+      <span class="strip-num">03</span>
+      <p class="strip-text">Spiritual &amp; Scientific Integration</p>
+    </div>
+    <div class="strip-item fade-up">
+      <span class="strip-num">04</span>
+      <p class="strip-text">Holistic Wellbeing Support</p>
+    </div>
+  </div>
+
+  <!-- ── RASHA Machine Highlight ─────────────────────────── -->
+  <section class="rasha-highlight section-dark">
+    <div class="rasha-text">
+      <div>
+        <p class="label text-label mb-sm">The Technology</p>
+        <h2 class="h2 fade-up" style="text-transform:uppercase;letter-spacing:var(--ls-display);">
+          The RASHA<br>Machine
+        </h2>
+        <p class="body-lg text-muted mt-md fade-up">
+          The RASHA (Resonance &amp; Atomic Scalar Harmonics Assembly) is a state-of-the-art
+          quantum device that works with scalar waves — a form of energy first explored by
+          Nikola Tesla over a century ago. Users consistently describe sessions as deeply relaxing,
+          clarity-bringing, and profoundly restorative.
+        </p>
+        <p class="body-lg text-muted mt-sm fade-up">
+          Unlike conventional medical devices, the RASHA does not diagnose or treat illness.
+          Instead, it creates the optimal energetic conditions for your body&rsquo;s own natural
+          healing intelligence to do what it does best.
+        </p>
+      </div>
+      <div class="mt-lg fade-up">
+        <a href="rasha.html" class="btn btn-outline">Explore the RASHA</a>
+      </div>
+    </div>
+    <div class="rasha-image">
+      <div class="img-placeholder" style="height:100%;min-height:40vw;border-radius:0;">
+        Photo — RASHA Machine
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pull Quote ───────────────────────────────────────── -->
+  <div class="pull-quote section-dark fade-up">
+    <span class="quote-mark">&ldquo;</span>
+    The quantum field is not something separate from us &mdash; we are part of it.
+    Every session with the RASHA is an invitation to remember that.
+    <em class="label text-label" style="display:block;margin-top:2vw;">Quantum Tech Healing Centre</em>
+  </div>
+
+  <!-- ── Section Teasers ─────────────────────────────────── -->
+  <nav class="teaser-4 section-dark" aria-label="Site sections">
+    <a href="treatments.html" class="teaser-item">
+      <span class="teaser-num">01</span>
+      <span class="teaser-title">Treatments</span>
+      <span class="teaser-cta">View treatments →</span>
+    </a>
+    <a href="testimonials.html" class="teaser-item">
+      <span class="teaser-num">02</span>
+      <span class="teaser-title">Testimonials</span>
+      <span class="teaser-cta">Read &amp; watch →</span>
+    </a>
+    <a href="science.html" class="teaser-item">
+      <span class="teaser-num">03</span>
+      <span class="teaser-title">Science &amp; Pricing</span>
+      <span class="teaser-cta">Learn more →</span>
+    </a>
+    <a href="faq.html" class="teaser-item">
+      <span class="teaser-num">04</span>
+      <span class="teaser-title">FAQ</span>
+      <span class="teaser-cta">Get answers →</span>
+    </a>
+  </nav>
+
+  <!-- ── Intro to Quantum Field ───────────────────────────── -->
+  <section class="section-light">
+    <div class="page-hero" style="min-height:auto; padding-top:8vw; background:var(--color-off-white);">
+      <p class="page-label" style="color:var(--color-dark-grey-04);">
+        An introduction
+      </p>
+      <h2 class="page-title" style="color:var(--color-dark-grey);max-width:70vw;">
+        What is the Quantum Field?
+      </h2>
+      <p class="page-desc" style="color:var(--color-dark-grey-06);max-width:55vw;" class="fade-up">
+        Quantum physics shows us that everything in the universe — including your body — is made of
+        energy vibrating at different frequencies. The &ldquo;quantum field&rdquo; is the invisible web of
+        energy that connects everything. When your body&rsquo;s energy field is balanced and flowing freely,
+        you tend to feel well. When it becomes disrupted — through stress, trauma, poor diet or emotional
+        upset — this can show up as physical or emotional discomfort.
+      </p>
+      <div class="mt-md fade-up">
+        <a href="rasha.html" class="btn btn-sand" style="color:var(--color-dark-grey);background:var(--color-sand);border-color:var(--color-sand);">
+          Discover the full story
+        </a>
+      </div>
+    </div>
+
+    <div class="card-grid" style="padding-top:0;background:var(--color-off-white);" data-stagger="0.1">
+      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
+        <span class="card-number" style="color:var(--color-dark-grey-04);">Nikola Tesla</span>
+        <h3 class="card-title" style="color:var(--color-dark-grey);">The Pioneer of Scalar Waves</h3>
+        <p class="card-body" style="color:var(--color-dark-grey-06);">
+          In the late 1800s, Nikola Tesla discovered that energy could be transmitted through space
+          without wires — what we now call scalar waves. His work laid the foundation for quantum
+          energy technology used in healing today.
+        </p>
+      </div>
+      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
+        <span class="card-number" style="color:var(--color-dark-grey-04);">Royal Rife</span>
+        <h3 class="card-title" style="color:var(--color-dark-grey);">Frequency Healing Rediscovered</h3>
+        <p class="card-body" style="color:var(--color-dark-grey-06);">
+          Dr Royal Rife developed a microscope powerful enough to see living viruses, and discovered
+          that specific electromagnetic frequencies could neutralise pathogens. His RIFE machine
+          was one of the earliest examples of frequency-based healing technology.
+        </p>
+      </div>
+      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
+        <span class="card-number" style="color:var(--color-dark-grey-04);">Today</span>
+        <h3 class="card-title" style="color:var(--color-dark-grey);">The RASHA — Modern Quantum Healing</h3>
+        <p class="card-body" style="color:var(--color-dark-grey-06);">
+          Building on a century of scalar energy research, the RASHA machine brings these
+          principles into a sophisticated, user-friendly system — delivering quantum field support
+          safely and effectively in a modern wellness setting.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ────────────────────────────────────────── -->
+  <section class="cta-strip section-dark">
+    <h2 class="cta-title fade-up">Ready to begin?</h2>
+    <p class="cta-sub fade-up">
+      Your journey toward quantum wellness starts with a single session.
+      Book your appointment today, or get in touch to learn more.
+    </p>
+    <div class="hero-ctas" style="justify-content:center;" class="fade-up">
+      <a href="questionnaire.html" class="btn btn-primary">Fill in the questionnaire</a>
+      <a href="contact.html" class="btn btn-outline">Contact us</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Quantum Tech<br>Healing Centre</p>
+        <p class="body mt-sm" style="color:var(--color-dark-grey-06);max-width:20vw;line-height:1.7;">
+          Advanced healing through quantum technology and the wisdom of energy medicine.
+        </p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
+          <li><a href="treatments.html" class="footer-link">Treatments</a></li>
+          <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
+          <li><a href="operator.html" class="footer-link">The Operator</a></li>
+          <li><a href="science.html" class="footer-link">Science &amp; Pricing</a></li>
+          <li><a href="questionnaire.html" class="footer-link">Questionnaire</a></li>
+          <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="legislation.html" class="footer-link">Legislation</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li class="footer-link">[Address — coming soon]</li>
+          <li class="footer-link">[City], United Kingdom</li>
+          <li><a href="mailto:info@qthc.co.uk" class="footer-link">info@qthc.co.uk</a></li>
+          <li><a href="tel:+441234567890" class="footer-link">+44 [number]</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2025 Quantum Tech Healing Centre. All rights reserved.</p>
+      <p class="footer-disclaimer">
+        The RASHA machine is not a medical device and is not intended to diagnose, treat, cure or prevent any medical condition.
+        See our <a href="legislation.html" style="color:var(--color-dark-grey);text-decoration:underline;">Legislation page</a> for full details.
+      </p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questionnaire — Quantum Tech Healing Centre</title>
+  <meta name="description" content="Complete our pre-session questionnaire to help us create the best possible RASHA quantum healing experience for you." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .form-section-title {
+      font-size: var(--font-h4);
+      font-weight: 400;
+      letter-spacing: var(--ls-heading);
+      color: var(--color-light-grey);
+      margin-bottom: 3vw;
+      padding-bottom: 1.5vw;
+      border-bottom: 1px solid var(--color-light-grey-02);
+    }
+    .form-block {
+      padding: var(--section-pad-v-sm) var(--margin-h);
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .form-submit-row {
+      padding: var(--section-pad-v-sm) var(--margin-h);
+      border-top: 1px solid var(--color-light-grey-02);
+      display: flex;
+      align-items: flex-start;
+      gap: 4vw;
+      flex-wrap: wrap;
+    }
+    .form-rating {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .form-rating input[type="radio"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 2.5vw;
+      height: 2.5vw;
+      min-width: 32px;
+      min-height: 32px;
+      border: 1px solid var(--color-light-grey-04);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+      font-size: var(--font-label);
+    }
+    .form-rating input[type="radio"]:checked {
+      background: var(--color-sand);
+      border-color: var(--color-sand);
+    }
+    .form-rating label {
+      font-size: var(--font-label);
+      color: var(--color-light-grey-04);
+      letter-spacing: var(--ls-label);
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      .form-submit-row { flex-direction: column; }
+      .form-rating input[type="radio"] { width: 8vw; height: 8vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">QTHC</a>
+      <ul class="nav-links" role="list">
+        <li><a href="rasha.html" class="nav-link">The RASHA</a></li>
+        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+        <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+        <li><a href="operator.html" class="nav-link">The Operator</a></li>
+        <li><a href="science.html" class="nav-link">Science &amp; Pricing</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" role="dialog" aria-label="Mobile navigation">
+    <a href="rasha.html" class="overlay-link">The RASHA</a>
+    <a href="treatments.html" class="overlay-link">Treatments</a>
+    <a href="testimonials.html" class="overlay-link">Testimonials</a>
+    <a href="operator.html" class="overlay-link">The Operator</a>
+    <a href="science.html" class="overlay-link">Science</a>
+    <a href="faq.html" class="overlay-link">FAQ</a>
+    <a href="contact.html" class="overlay-link">Contact</a>
+  </div>
+
+  <!-- ── Page Hero ────────────────────────────────────────── -->
+  <header class="page-hero section-dark">
+    <p class="page-label">Before your visit</p>
+    <h1 class="page-title animate-in">
+      <span class="title-mask"><span class="title-line">New Client</span></span>
+      <span class="title-mask"><span class="title-line">Questionnaire</span></span>
+    </h1>
+    <p class="page-desc fade-up">
+      Please complete this short questionnaire before your first session.
+      Your answers help us understand your goals, current wellbeing, and the best way to
+      tailor your RASHA experience. It takes approximately 10 minutes to complete.
+    </p>
+  </header>
+
+  <div class="disclaimer-banner section-dark" style="text-align:left;">
+    &#9679;&nbsp; All information shared is treated in strict confidence and in accordance with our
+    <a href="legislation.html" style="color:var(--color-sand);">privacy policy</a>.
+    It is shared only with the operator facilitating your session.
+  </div>
+
+  <!-- ── Form ─────────────────────────────────────────────── -->
+  <!-- NOTE: To activate form submission, update the action attribute with your
+       Formspree URL (https://formspree.io) or your email handler endpoint.
+       Replace action="#" with action="https://formspree.io/f/YOUR_ID" -->
+  <form action="#" method="POST" data-validate>
+
+    <!-- Section 1: Personal Details -->
+    <div class="form-block section-dark">
+      <h2 class="form-section-title fade-up">1. About You</h2>
+      <div class="form-grid">
+        <div class="form-group fade-up">
+          <label class="form-label" for="first-name">First Name *</label>
+          <input class="form-input" type="text" id="first-name" name="first_name" required placeholder="Your first name" />
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="last-name">Last Name *</label>
+          <input class="form-input" type="text" id="last-name" name="last_name" required placeholder="Your last name" />
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="email">Email Address *</label>
+          <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com" />
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="phone">Phone Number</label>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+44 7xxx xxxxxx" />
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="age">Age Range</label>
+          <select class="form-select" id="age" name="age_range">
+            <option value="" disabled selected>Select age range</option>
+            <option value="18-25">18 – 25</option>
+            <option value="26-35">26 – 35</option>
+            <option value="36-45">36 – 45</option>
+            <option value="46-55">46 – 55</option>
+            <option value="56-65">56 – 65</option>
+            <option value="66+">66 and over</option>
+            <option value="prefer-not">Prefer not to say</option>
+          </select>
+        </div>
+        <div class="form-group fade-up">
+          <label class="form-label" for="location">Location (Town / City)</label>
+          <input class="form-input" type="text" id="location" name="location" placeholder="e.g. London" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Treatment Selection -->
+    <div class="form-block section-dark">
+      <h2 class="form-section-title fade-up">2. Treatment Choice</h2>
+      <div class="form-group fade-up">
+        <label class="form-label">Which session are you interested in? (Select all that apply)</label>
+        <div class="checkbox-group" style="margin-top:2vw;">
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="intro" />
+            <span class="checkbox-label">Introductory RASHA Session (45 min)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="full" />
+            <span class="checkbox-label">Full RASHA Scalar Energy Session (90 min)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="stress" />
+            <span class="checkbox-label">Stress &amp; Nervous System Reset (60 min)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="sleep" />
+            <span class="checkbox-label">Sleep &amp; Restoration Programme (3 sessions)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="emotional" />
+            <span class="checkbox-label">Emotional &amp; Energetic Clearing (75 min)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="spiritual" />
+            <span class="checkbox-label">Spiritual Alignment &amp; Clarity (90 min)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="maintenance" />
+            <span class="checkbox-label">Monthly Maintenance Programme</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="treatment[]" value="unsure" />
+            <span class="checkbox-label">Not sure — please advise me</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Health & Wellbeing -->
+    <div class="form-block section-dark">
+      <h2 class="form-section-title fade-up">3. Your Health &amp; Wellbeing</h2>
+
+      <div class="form-group fade-up">
+        <label class="form-label" for="main-concern">What is your main reason for booking a session? *</label>
+        <textarea class="form-textarea" id="main-concern" name="main_concern" required
+          placeholder="e.g. I have been struggling with anxiety and poor sleep for two years and want to explore a different approach..."></textarea>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label">Which areas are you hoping to address? (Select all that apply)</label>
+        <div class="checkbox-group" style="margin-top:2vw;">
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="sleep" />
+            <span class="checkbox-label">Sleep &amp; rest</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="stress" />
+            <span class="checkbox-label">Stress &amp; anxiety</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="energy" />
+            <span class="checkbox-label">Energy &amp; vitality</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="emotional" />
+            <span class="checkbox-label">Emotional wellbeing</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="pain" />
+            <span class="checkbox-label">Physical tension or discomfort</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="focus" />
+            <span class="checkbox-label">Focus &amp; mental clarity</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="spiritual" />
+            <span class="checkbox-label">Spiritual development</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="immune" />
+            <span class="checkbox-label">Immune &amp; general health</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="curiosity" />
+            <span class="checkbox-label">General curiosity / exploration</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="goals[]" value="other-goals" />
+            <span class="checkbox-label">Other (please describe below)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label">How would you rate your current overall wellbeing?
+          <span style="color:var(--color-light-grey-04);font-weight:300;">&nbsp;(1 = poor, 10 = excellent)</span>
+        </label>
+        <div class="form-rating" style="margin-top:2vw;flex-wrap:wrap;gap:0.8rem;">
+          <label style="font-size:var(--font-label);color:var(--color-light-grey-04);">Poor</label>
+          <input type="radio" name="wellbeing_rating" value="1" aria-label="1" /><label>1</label>
+          <input type="radio" name="wellbeing_rating" value="2" aria-label="2" /><label>2</label>
+          <input type="radio" name="wellbeing_rating" value="3" aria-label="3" /><label>3</label>
+          <input type="radio" name="wellbeing_rating" value="4" aria-label="4" /><label>4</label>
+          <input type="radio" name="wellbeing_rating" value="5" aria-label="5" /><label>5</label>
+          <input type="radio" name="wellbeing_rating" value="6" aria-label="6" /><label>6</label>
+          <input type="radio" name="wellbeing_rating" value="7" aria-label="7" /><label>7</label>
+          <input type="radio" name="wellbeing_rating" value="8" aria-label="8" /><label>8</label>
+          <input type="radio" name="wellbeing_rating" value="9" aria-label="9" /><label>9</label>
+          <input type="radio" name="wellbeing_rating" value="10" aria-label="10" /><label>10</label>
+          <label style="font-size:var(--font-label);color:var(--color-light-grey-04);">Excellent</label>
+        </div>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label" for="medical-conditions">
+          Do you have any medical conditions, recent diagnoses, or are you taking any regular medications?
+        </label>
+        <textarea class="form-textarea" id="medical-conditions" name="medical_conditions"
+          placeholder="Please share anything relevant. If none, write 'None'. This information is kept strictly confidential."></textarea>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label">Do any of the following apply to you?</label>
+        <div class="checkbox-group" style="margin-top:2vw;">
+          <label class="checkbox-item">
+            <input type="checkbox" name="contraindications[]" value="pregnant" />
+            <span class="checkbox-label">Currently pregnant</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="contraindications[]" value="pacemaker" />
+            <span class="checkbox-label">Pacemaker or implanted electronic device</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="contraindications[]" value="cancer-treatment" />
+            <span class="checkbox-label">Currently undergoing cancer treatment</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="contraindications[]" value="none" />
+            <span class="checkbox-label">None of the above</span>
+          </label>
+        </div>
+        <p class="form-disclaimer">
+          If any of the above apply, please contact us before booking. These are important safety considerations.
+          <a href="contact.html" style="color:var(--color-sand);">Contact us here.</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 4: Previous Experience -->
+    <div class="form-block section-dark">
+      <h2 class="form-section-title fade-up">4. Your Experience with Energy Healing</h2>
+
+      <div class="form-group fade-up">
+        <label class="form-label">Have you had any previous experience with energy or complementary therapies?</label>
+        <div class="checkbox-group" style="margin-top:2vw;">
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="none" />
+            <span class="checkbox-label">No previous experience</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="meditation" />
+            <span class="checkbox-label">Meditation or mindfulness</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="reiki" />
+            <span class="checkbox-label">Reiki or energy healing</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="acupuncture" />
+            <span class="checkbox-label">Acupuncture</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="sound" />
+            <span class="checkbox-label">Sound healing / sound baths</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="rife" />
+            <span class="checkbox-label">RIFE technology</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="rasha" />
+            <span class="checkbox-label">Previous RASHA sessions</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="previous_therapies[]" value="other-therapy" />
+            <span class="checkbox-label">Other (please describe below)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label" for="other-therapy-detail">If other therapies — please describe:</label>
+        <textarea class="form-textarea" id="other-therapy-detail" name="other_therapy_detail"
+          placeholder="Describe any other therapies or practices you have experience with..."></textarea>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label" for="how-heard">How did you hear about us?</label>
+        <select class="form-select" id="how-heard" name="how_heard">
+          <option value="" disabled selected>Please select</option>
+          <option value="word-of-mouth">Word of mouth / personal recommendation</option>
+          <option value="social-media">Social media</option>
+          <option value="search">Internet search</option>
+          <option value="event">Event or talk</option>
+          <option value="existing-client">I am an existing client</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Section 5: Expectations -->
+    <div class="form-block section-dark">
+      <h2 class="form-section-title fade-up">5. Your Intentions &amp; Expectations</h2>
+
+      <div class="form-group fade-up">
+        <label class="form-label" for="intentions">
+          What would you most like to take away from your RASHA session(s)?
+        </label>
+        <textarea class="form-textarea" id="intentions" name="intentions"
+          placeholder="Be as specific or as broad as you like. There are no right or wrong answers — this is about understanding what matters most to you."></textarea>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label" for="expectations">
+          Do you have any specific questions, concerns, or expectations we should be aware of?
+        </label>
+        <textarea class="form-textarea" id="expectations" name="expectations"
+          placeholder="Anything you would like us to know before your session..."></textarea>
+      </div>
+
+      <div class="form-group fade-up" style="margin-top:3vw;">
+        <label class="form-label">Are you open to feedback or suggestions after your session?</label>
+        <div style="display:flex;gap:2vw;margin-top:1.5vw;flex-wrap:wrap;">
+          <label class="checkbox-item">
+            <input type="radio" name="open_to_feedback" value="yes" />
+            <span class="checkbox-label">Yes, very much so</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="open_to_feedback" value="session-only" />
+            <span class="checkbox-label">Prefer just the session for now</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="open_to_feedback" value="unsure" />
+            <span class="checkbox-label">Not sure</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6: Consent & Submit -->
+    <div class="form-submit-row section-dark">
+      <div style="flex:1;min-width:300px;">
+        <div class="form-group fade-up">
+          <label class="checkbox-item" style="align-items:flex-start;gap:1.5rem;">
+            <input type="checkbox" name="consent_data" required style="margin-top:0.3rem;flex-shrink:0;" />
+            <span class="checkbox-label">
+              I consent to Quantum Tech Healing Centre storing and processing the information
+              I have provided in order to facilitate my session. I understand this information
+              will be treated in strict confidence and in accordance with the
+              <a href="legislation.html" style="color:var(--color-sand);">privacy policy</a>. *
+            </span>
+          </label>
+        </div>
+        <div class="form-group fade-up" style="margin-top:2vw;">
+          <label class="checkbox-item" style="align-items:flex-start;gap:1.5rem;">
+            <input type="checkbox" name="consent_terms" required style="margin-top:0.3rem;flex-shrink:0;" />
+            <span class="checkbox-label">
+              I understand that the RASHA machine is a wellness device and not a medical treatment.
+              It does not diagnose, treat, cure or prevent any medical condition. I have read
+              and understood the <a href="legislation.html" style="color:var(--color-sand);">Legislation page</a>. *
+            </span>
+          </label>
+        </div>
+        <p class="form-disclaimer" style="margin-top:2vw;">
+          * Required fields. Your form will be sent directly to the operator at QTHC.
+          We aim to respond within 48 hours.
+        </p>
+      </div>
+      <div class="fade-up" style="align-self:flex-end;">
+        <button type="submit" class="btn btn-primary" style="font-size:var(--font-cta);">
+          Submit Questionnaire &rarr;
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">Quantum Tech<br>Healing Centre</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
+          <li><a href="treatments.html" class="footer-link">Treatments</a></li>
+          <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
+          <li><a href="operator.html" class="footer-link">The Operator</a></li>
+          <li><a href="science.html" class="footer-link">Science &amp; Pricing</a></li>
+          <li><a href="questionnaire.html" class="footer-link">Questionnaire</a></li>
+          <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a href="legislation.html" class="footer-link">Legislation</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li class="footer-link">United Kingdom</li>
+          <li><a href="mailto:info@qthc.co.uk" class="footer-link">info@qthc.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2025 Quantum Tech Healing Centre. All rights reserved.</p>
+      <p class="footer-disclaimer">
+        Data processed under GDPR. <a href="legislation.html" style="color:var(--color-dark-grey);text-decoration:underline;">See full policy.</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
