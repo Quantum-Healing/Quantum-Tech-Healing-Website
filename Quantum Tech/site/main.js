@@ -208,7 +208,7 @@
   const barEl    = document.getElementById('intro-loader-bar');
 
   const TOTAL    = slides.length;
-  const DURATION = 120; // ms each slide is shown — fast flash effect
+  const DURATION = 2500; // ms each slide is shown — slow gallery like template
   let   current  = 0;
   let   timer    = null;
 
