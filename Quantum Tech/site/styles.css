@@ -288,7 +288,7 @@ p, .body {
 }
 
 .nav-logo {
-  font-size: var(--font-cta);
+  font-size: 1.6vw;
   font-weight: 600;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
@@ -307,7 +307,7 @@ p, .body {
 }
 
 .nav-link {
-  font-size: var(--font-label);
+  font-size: 1.2vw;
   font-weight: 500;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
@@ -416,7 +416,7 @@ p, .body {
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .hero-eyebrow {
-  font-size: var(--font-label);
+  font-size: 1.5vw;
   font-weight: 500;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
@@ -430,7 +430,7 @@ p, .body {
 .hero-eyebrow::before {
   content: '';
   display: block;
-  width: 2vw;
+  width: 4vw;
   height: 1px;
   background: var(--color-light-grey-04);
 }
@@ -1132,7 +1132,7 @@ p, .body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: var(--font-label);
+  font-size: 1.5vw;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--color-light-grey-04);
@@ -1140,7 +1140,7 @@ p, .body {
 }
 
 .scroll-line {
-  width: 3vw;
+  width: 6vw;
   height: 1px;
   background: var(--color-light-grey-04);
   position: relative;
