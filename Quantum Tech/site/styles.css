@@ -1111,7 +1111,6 @@ p, .body {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 0.55s ease;
 }
 .intro-slide.active {
   opacity: 1;

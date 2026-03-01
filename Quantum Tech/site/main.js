@@ -208,7 +208,7 @@
   const barEl    = document.getElementById('intro-loader-bar');
 
   const TOTAL    = slides.length;
-  const DURATION = 1400; // ms each slide is shown
+  const DURATION = 120; // ms each slide is shown — fast flash effect
   let   current  = 0;
   let   timer    = null;
 
@@ -266,6 +266,6 @@
     img.src = slide.dataset.bg;
   });
 
-  // Fallback: start anyway after 3s if preload stalls
-  setTimeout(() => { if (loaded < TOTAL) startSlideshow(); }, 3000);
+  // Fallback: start anyway after 4s if preload stalls
+  setTimeout(() => { if (loaded < TOTAL) startSlideshow(); }, 4000);
 })();
