@@ -288,7 +288,7 @@ p, .body {
 }
 
 .nav-logo {
-  font-size: var(--font-cta);
+  font-size: 1.3vw;
   font-weight: 600;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
@@ -307,7 +307,7 @@ p, .body {
 }
 
 .nav-link {
-  font-size: var(--font-label);
+  font-size: 1vw;
   font-weight: 500;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
