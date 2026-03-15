@@ -1655,3 +1655,154 @@ p, .body {
     padding: var(--section-pad-v-sm) var(--margin-h);
   }
 }
+
+
+/* ============================================================
+   SCROLL-DRIVEN INTRO OVERLAY
+   Full-screen image grid inspired by nrly.co — columns drift
+   at different speeds for a parallax depth effect.
+   ============================================================ */
+
+/* ── Wrapper ──────────────────────────────────────────────── */
+#intro-scroll {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  overflow: hidden;
+  background: var(--color-dark-grey);
+  cursor: ns-resize;
+  user-select: none;
+}
+
+#intro-scroll.is-exiting {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ── Column grid ──────────────────────────────────────────── */
+.intro-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.3vw;
+  /* Extend beyond edges so scrolling never shows bare background */
+  left: -0.5vw;
+  right: -0.5vw;
+}
+
+.intro-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3vw;
+  will-change: transform;
+}
+
+/* ── Individual image panels ──────────────────────────────── */
+.intro-img {
+  flex-shrink: 0;
+  width: 100%;
+  /* Portrait aspect ratio — same as nrly.co's 125% */
+  padding-top: 130%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--color-dark-grey-06);
+  position: relative;
+}
+
+.intro-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.25);
+}
+
+/* ── Text overlay ─────────────────────────────────────────── */
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 6vw var(--margin-h);
+  pointer-events: none;
+  z-index: 10;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 0.7) 0%,
+    transparent 55%
+  );
+}
+
+.intro-overlay-title {
+  font-size: clamp(2.4rem, 6vw, 8rem);
+  font-weight: 300;
+  letter-spacing: var(--ls-heading);
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--color-light-grey);
+  margin-bottom: 3vw;
+}
+
+.intro-overlay-hint {
+  font-size: var(--font-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-light-grey-04);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: intro-hint-pulse 2s ease-in-out infinite;
+}
+
+.intro-overlay-hint::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 4vw;
+  background: var(--color-light-grey-04);
+  animation: intro-hint-line 2s ease-in-out infinite;
+}
+
+@keyframes intro-hint-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes intro-hint-line {
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50% { transform: scaleY(1.4); opacity: 1; }
+}
+
+/* ── Progress bar ─────────────────────────────────────────── */
+.intro-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 20;
+}
+
+.intro-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-sand);
+  transition: width 0.05s linear;
+}
+
+/* ── Mobile adjustments ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .intro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .intro-overlay-title {
+    font-size: clamp(2.4rem, 10vw, 5rem);
+  }
+}

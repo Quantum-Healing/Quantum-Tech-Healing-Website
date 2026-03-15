@@ -194,3 +194,105 @@
     });
   });
 })();
+
+
+/* ── Scroll-Driven Intro ──────────────────────────────────── */
+(function initIntroScroll() {
+  const intro = document.getElementById('intro-scroll');
+  if (!intro) return;
+
+  const cols         = intro.querySelectorAll('.intro-col');
+  const progressFill = document.getElementById('intro-progress-fill');
+
+  // Total virtual scroll distance before the intro exits
+  // ~1.5× the viewport height feels natural
+  const SCROLL_TOTAL = window.innerHeight * 1.5;
+  let virtualScroll  = 0;
+  let rafId          = null;
+  let done           = false;
+
+  // Prevent native body scroll while intro is active
+  document.body.style.overflow = 'hidden';
+
+  function update() {
+    if (done) return;
+
+    const progress = Math.min(virtualScroll / SCROLL_TOTAL, 1);
+
+    // Translate each column based on its speed
+    cols.forEach((col) => {
+      const speed = parseFloat(col.dataset.speed) || 1;
+      // Move upward — negative Y translate
+      const translateY = -(virtualScroll * speed);
+      col.style.transform = `translateY(${translateY}px)`;
+    });
+
+    // Update progress bar
+    if (progressFill) {
+      progressFill.style.width = `${progress * 100}%`;
+    }
+
+    // Exit when fully scrolled
+    if (progress >= 1) {
+      done = true;
+      intro.classList.add('is-exiting');
+
+      // After transition completes, remove intro and restore scroll
+      intro.addEventListener('transitionend', () => {
+        intro.remove();
+        document.body.style.overflow = '';
+        // Re-run scroll animation observer on newly visible elements
+        document.querySelectorAll('.animate-in, .fade-up, .title-mask').forEach((el) => {
+          if (!el.classList.contains('is-visible')) {
+            el.getBoundingClientRect(); // force layout
+          }
+        });
+      }, { once: true });
+    }
+  }
+
+  // Wheel handler
+  function onWheel(e) {
+    if (done) return;
+    e.preventDefault();
+    virtualScroll = Math.max(0, virtualScroll + Math.abs(e.deltaY));
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(update);
+  }
+
+  // Touch handler
+  let touchStartY = 0;
+  function onTouchStart(e) {
+    touchStartY = e.touches[0].clientY;
+  }
+  function onTouchMove(e) {
+    if (done) return;
+    e.preventDefault();
+    const delta = touchStartY - e.touches[0].clientY;
+    touchStartY = e.touches[0].clientY;
+    if (delta > 0) {
+      virtualScroll = Math.max(0, virtualScroll + Math.abs(delta) * 2);
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(update);
+    }
+  }
+
+  // Keyboard handler (arrow down / space / page down)
+  function onKeyDown(e) {
+    if (done) return;
+    if (['ArrowDown', 'Space', 'PageDown', 'End'].includes(e.code)) {
+      e.preventDefault();
+      virtualScroll = Math.max(0, virtualScroll + window.innerHeight * 0.3);
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(update);
+    }
+  }
+
+  intro.addEventListener('wheel',      onWheel,      { passive: false });
+  intro.addEventListener('touchstart', onTouchStart, { passive: true });
+  intro.addEventListener('touchmove',  onTouchMove,  { passive: false });
+  document.addEventListener('keydown', onKeyDown);
+
+  // Initial render
+  update();
+})();
