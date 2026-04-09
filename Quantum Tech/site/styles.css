@@ -1670,7 +1670,7 @@ p, .body {
   z-index: 9000;
   overflow: hidden;
   background: var(--color-dark-grey);
-  cursor: ns-resize;
+  cursor: pointer;
   user-select: none;
 }
 
@@ -1696,8 +1696,16 @@ p, .body {
   display: flex;
   flex-direction: column;
   gap: 0.3vw;
-  will-change: transform;
 }
+
+@keyframes introScrollUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.intro-col[data-speed="0.7"]  { animation: introScrollUp 35s linear infinite; }
+.intro-col[data-speed="1.0"]  { animation: introScrollUp 25s linear infinite; }
+.intro-col[data-speed="0.85"] { animation: introScrollUp 29s linear infinite; }
+.intro-col[data-speed="1.15"] { animation: introScrollUp 21s linear infinite; }
 
 /* ── Individual image panels ──────────────────────────────── */
 .intro-img {
@@ -1706,7 +1714,7 @@ p, .body {
   /* Portrait aspect ratio — same as nrly.co's 125% */
   padding-top: 130%;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   background-color: var(--color-dark-grey-06);
   position: relative;
