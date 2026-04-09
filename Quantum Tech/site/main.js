@@ -196,12 +196,34 @@
 })();
 
 
-/* ── Intro: auto-scroll columns, click/scroll/key to exit ─── */
+/* ── Intro: infinite looping scroll, click to exit ───────── */
 (function initIntroScroll() {
   const intro = document.getElementById('intro-scroll');
   if (!intro) return;
 
+  const cols        = intro.querySelectorAll('.intro-col');
+  let virtualScroll = 0;
+  let rafId         = null;
+  // Single-set heights calculated after layout (content is doubled for loop)
+  let loopHeights   = [];
+
   document.body.style.overflow = 'hidden';
+
+  // Calculate loop heights after images are in the DOM
+  function calcLoopHeights() {
+    loopHeights = Array.from(cols).map(col => col.scrollHeight / 2);
+  }
+
+  function update() {
+    cols.forEach((col, i) => {
+      const speed      = parseFloat(col.dataset.speed) || 1;
+      const loopH      = loopHeights[i] || 1;
+      const raw        = virtualScroll * speed;
+      // Modulo keeps it looping seamlessly
+      const looped     = ((raw % loopH) + loopH) % loopH;
+      col.style.transform = `translateY(-${looped}px)`;
+    });
+  }
 
   function exit() {
     if (intro.classList.contains('is-exiting')) return;
@@ -215,13 +237,41 @@
     }, { once: true });
   }
 
-  intro.addEventListener('click', exit);
-  intro.addEventListener('wheel',     (e) => { e.preventDefault(); exit(); }, { passive: false });
-  intro.addEventListener('touchmove', (e) => { e.preventDefault(); exit(); }, { passive: false });
-  document.addEventListener('keydown', (e) => {
-    if (['ArrowDown', 'Space', 'PageDown', 'Enter'].includes(e.code)) {
-      e.preventDefault();
-      exit();
+  // Scroll moves the columns; click exits
+  intro.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    virtualScroll += Math.abs(e.deltaY);
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(update);
+  }, { passive: false });
+
+  let touchStartY = 0;
+  intro.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+  intro.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const delta = touchStartY - e.touches[0].clientY;
+    touchStartY = e.touches[0].clientY;
+    if (delta > 0) {
+      virtualScroll += Math.abs(delta) * 2;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(update);
     }
+  }, { passive: false });
+
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'Space', 'PageDown'].includes(e.code)) {
+      e.preventDefault();
+      virtualScroll += window.innerHeight * 0.3;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(update);
+    }
+  });
+
+  intro.addEventListener('click', exit);
+
+  // Init after layout settles
+  requestAnimationFrame(() => {
+    calcLoopHeights();
+    update();
   });
 })();
