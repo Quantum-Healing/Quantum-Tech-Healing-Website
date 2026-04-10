@@ -10,38 +10,57 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    .programmes-layout {
-      display: grid;
-      grid-template-columns: 1fr 30vw;
-      gap: var(--grid-gap);
+    .programmes-wrap {
       padding: 0 var(--margin-h) 12vw;
+    }
+
+    /* ── Info box (was sidebar) ───────────────────────────── */
+    .info-box {
+      background: #ffffff;
+      padding: 4vw 5vw;
+      margin-bottom: 6vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3vw;
       align-items: start;
     }
-    .programmes-main { min-width: 0; }
-    .programmes-sidebar {
-      position: sticky;
-      top: 7vw;
-      max-height: calc(100vh - 9vw);
-      overflow-y: auto;
-      padding: 3vw;
-      background: #ffffff;
-      border: none;
-    }
-    .sidebar-quote {
-      font-size: var(--font-h4);
+    .info-box-quote {
+      font-size: var(--font-h3);
       font-weight: 300;
       letter-spacing: var(--ls-heading);
-      line-height: 1.4;
+      line-height: 1.3;
       color: var(--color-dark-grey);
-      margin-bottom: 3vw;
+      grid-column: 1 / 2;
     }
-    .sidebar-note {
-      font-size: var(--font-body);
+    .info-box-body {
+      grid-column: 2 / 4;
+      display: flex;
+      flex-direction: column;
+      gap: 2vw;
+    }
+    .info-box-section-title {
+      font-size: var(--font-body-lg);
+      font-weight: 600;
+      color: var(--color-dark-grey);
+      margin-bottom: 0.5em;
+    }
+    .info-box-text {
+      font-size: var(--font-body-lg);
       color: var(--color-dark-grey-06);
       line-height: 1.7;
     }
-    .sidebar-note a { color: var(--color-dark-grey); text-decoration: underline; }
+    .info-box-divider {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin: 0;
+    }
+    .info-box-ctas {
+      display: flex;
+      gap: 1.5vw;
+      flex-wrap: wrap;
+    }
 
+    /* ── Disclaimer ───────────────────────────────────────── */
     .disclaimer-box {
       border: 1px solid var(--color-light-grey-02);
       padding: 3vw;
@@ -59,12 +78,13 @@
       font-weight: 500;
     }
 
+    /* ── Categories ───────────────────────────────────────── */
     .prog-category {
       border-top: 1px solid var(--color-light-grey-02);
       padding: 4vw 0;
     }
     .prog-category-title {
-      font-size: var(--font-body-lg);
+      font-size: var(--font-h4);
       font-weight: 600;
       letter-spacing: var(--ls-label);
       text-transform: uppercase;
@@ -72,7 +92,7 @@
       margin-bottom: 1.2em;
     }
     .prog-category-sub {
-      font-size: var(--font-label);
+      font-size: var(--font-body);
       color: var(--color-sand);
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -82,15 +102,15 @@
     .prog-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.4vw 3vw;
+      gap: 0.6vw 4vw;
       list-style: none;
       padding: 0;
       margin: 0;
     }
     .prog-list li {
-      font-size: var(--font-body);
+      font-size: var(--font-body-lg);
       color: var(--color-light-grey-06);
-      line-height: 2;
+      line-height: 2.2;
       border-bottom: 1px solid var(--color-light-grey-02);
       padding-bottom: 0.3em;
     }
@@ -100,11 +120,13 @@
     }
 
     @media (max-width: 900px) {
-      .programmes-layout { grid-template-columns: 1fr; }
-      .programmes-sidebar { position: static; }
+      .info-box { grid-template-columns: 1fr; }
+      .info-box-quote { grid-column: 1; }
+      .info-box-body { grid-column: 1; }
       .prog-list { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
+      .info-box-ctas { flex-direction: column; }
       .prog-list { grid-template-columns: 1fr; }
     }
   </style>
@@ -156,12 +178,44 @@
     </p>
   </header>
 
+  <!-- ── Info Box ─────────────────────────────────────────── -->
+  <div class="section-dark">
+    <div class="programmes-wrap">
+      <div class="info-box fade-up">
+        <p class="info-box-quote">&ldquo;When you reset the frequency, you reset the life.&rdquo;</p>
+        <div class="info-box-body">
+          <div>
+            <p class="info-box-text">
+              These programmes are available as part of your RASHA session. Speak to Dr. Soong during your
+              consultation to identify which protocols are most relevant to your needs.
+            </p>
+          </div>
+          <hr class="info-box-divider" />
+          <div>
+            <p class="info-box-section-title">Treatment Sessions</p>
+            <p class="info-box-text">
+              Each session is tailored to the individual. Based on your assessment, Dr. Soong will select
+              between 4 and 6 programmes per session — chosen to serve the specific needs and energetic
+              profile of each client.
+            </p>
+            <p class="info-box-text" style="margin-top:1em;">
+              Before your interview, you are welcome to browse this directory and note any programmes you
+              feel drawn to. This gives your consultation a meaningful starting point — and the journey
+              begins from there.
+            </p>
+          </div>
+          <div class="info-box-ctas">
+            <a href="contact.html" class="btn" style="background:var(--color-dark-grey);color:#fff;border-color:var(--color-dark-grey);">Book a Consultation</a>
+            <a href="pricing.html" class="btn btn-outline" style="border-color:var(--color-dark-grey-04);color:var(--color-dark-grey);">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Main Layout ────────────────────────────────────────── -->
   <section class="section-dark">
-    <div class="programmes-layout">
-
-      <!-- ── Main Content ────────────────────────────────────── -->
-      <div class="programmes-main">
+    <div class="programmes-wrap">
 
         <!-- Disclaimer -->
         <div class="disclaimer-box fade-up">
@@ -447,36 +501,6 @@
             <li>Vision &mdash; Poor</li>
           </ul>
         </div>
-
-      </div><!-- /programmes-main -->
-
-      <!-- ── Sidebar ──────────────────────────────────────── -->
-      <aside class="programmes-sidebar fade-up">
-        <p class="sidebar-quote">&ldquo;When you reset the frequency, you reset the life.&rdquo;</p>
-        <p class="sidebar-note">
-          These programmes are available as part of your RASHA session. Speak to Dr. Soong during your
-          consultation to identify which protocols are most relevant to your needs.
-        </p>
-        <div style="margin-top:2vw;padding-top:2vw;border-top:1px solid #e5e5e5;">
-          <p class="sidebar-note" style="font-weight:600;color:var(--color-dark-grey);margin-bottom:1em;">Treatment Sessions</p>
-          <p class="sidebar-note">
-            Each session is tailored to the individual. Based on your assessment, Dr. Soong will select
-            between 4 and 6 programmes per session — chosen to serve the specific needs and energetic
-            profile of each client.
-          </p>
-          <p class="sidebar-note" style="margin-top:1em;">
-            Before your interview, you are welcome to browse this directory and note any programmes you
-            feel drawn to. This gives your consultation a meaningful starting point — and the journey
-            begins from there.
-          </p>
-        </div>
-        <div style="margin-top:3vw;">
-          <a href="contact.html" class="btn" style="width:100%;justify-content:center;text-align:center;background:var(--color-dark-grey);color:#fff;border-color:var(--color-dark-grey);">Book a Consultation</a>
-        </div>
-        <div style="margin-top:1.5vw;">
-          <a href="pricing.html" class="btn btn-outline" style="width:100%;justify-content:center;text-align:center;border-color:var(--color-dark-grey-04);color:var(--color-dark-grey);">View Pricing</a>
-        </div>
-      </aside>
 
     </div>
   </section>
