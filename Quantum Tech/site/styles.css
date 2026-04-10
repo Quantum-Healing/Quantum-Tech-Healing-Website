@@ -1696,8 +1696,16 @@ p, .body {
   display: flex;
   flex-direction: column;
   gap: 0.3vw;
-  will-change: transform;
 }
+
+@keyframes introScrollUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.intro-col[data-speed="0.7"]  { animation: introScrollUp 40s linear infinite; }
+.intro-col[data-speed="1.0"]  { animation: introScrollUp 28s linear infinite; }
+.intro-col[data-speed="0.85"] { animation: introScrollUp 33s linear infinite; }
+.intro-col[data-speed="1.15"] { animation: introScrollUp 24s linear infinite; }
 
 /* ── Individual image panels ──────────────────────────────── */
 .intro-img {
@@ -1738,7 +1746,7 @@ p, .body {
 }
 
 .intro-overlay-title {
-  font-size: clamp(2.4rem, 6vw, 8rem);
+  font-size: clamp(3rem, 11vw, 16rem);
   font-weight: 300;
   letter-spacing: var(--ls-heading);
   text-transform: uppercase;
@@ -1803,6 +1811,6 @@ p, .body {
   }
 
   .intro-overlay-title {
-    font-size: clamp(2.4rem, 10vw, 5rem);
+    font-size: clamp(2.8rem, 13vw, 6rem);
   }
 }

@@ -186,6 +186,105 @@
       .teaser-4 .teaser-item:nth-child(4) { border-right: none; }
       .cta-strip .cta-sub { max-width: 85vw; }
     }
+
+    /* ── Impact Section ───────────────────────────────────── */
+    .impact-section {
+      padding: 14vw var(--margin-h);
+      display: flex;
+      flex-direction: column;
+      gap: 10vw;
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .impact-h1 {
+      font-size: clamp(3rem, 9vw, 13rem);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      text-transform: uppercase;
+      line-height: 1.0;
+      margin-bottom: 3vw;
+    }
+    .impact-lead {
+      font-size: var(--font-h3);
+      font-weight: 300;
+      color: var(--color-light-grey-06);
+      max-width: 70vw;
+      line-height: 1.3;
+      margin-bottom: 2vw;
+    }
+    .impact-release {
+      font-size: var(--font-h4);
+      font-weight: 400;
+      color: var(--color-sand);
+      letter-spacing: 0.02em;
+    }
+    .impact-secondary {
+      border-left: 1px solid var(--color-light-grey-02);
+      padding-left: var(--margin-h);
+      max-width: 60vw;
+    }
+    .impact-secondary-line {
+      font-size: var(--font-h3);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      text-transform: uppercase;
+      margin-bottom: 2vw;
+    }
+    .impact-secondary-body {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: var(--lh-body);
+    }
+    .impact-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--grid-gap);
+    }
+    .impact-body p {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: var(--lh-body);
+    }
+    .impact-cta-row {
+      margin-top: 3vw;
+      grid-column: 1 / -1;
+    }
+    .impact-cta-btn { font-size: var(--font-body-lg); }
+    .impact-closing {
+      border-top: 1px solid var(--color-light-grey-02);
+      padding-top: 6vw;
+    }
+    .impact-closing p {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: 1.8;
+    }
+    .impact-closing-line {
+      font-size: var(--font-h3) !important;
+      font-weight: 300;
+      color: var(--color-light-grey) !important;
+      letter-spacing: var(--ls-heading);
+      margin-bottom: 1vw;
+    }
+    .impact-closing-tag {
+      font-size: var(--font-h4) !important;
+      color: var(--color-sand) !important;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: var(--ls-label);
+      margin-bottom: 3vw;
+    }
+    .impact-rasha-tag {
+      margin-top: 4vw;
+      font-size: var(--font-h4) !important;
+      color: var(--color-light-grey) !important;
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+    }
+    @media (max-width: 600px) {
+      .impact-lead { max-width: 90vw; }
+      .impact-secondary { max-width: 90vw; }
+      .impact-body { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -259,9 +358,53 @@
 
     <div class="intro-overlay">
       <p class="intro-overlay-title">Quantum Tech<br>Healing Centre</p>
-      <p class="intro-overlay-hint">Scroll to explore &nbsp;·&nbsp; Click to enter</p>
+      <p class="intro-overlay-hint">Click to enter</p>
     </div>
   </div>
+
+  <!-- ── Impact Section ─────────────────────────────────── -->
+  <section class="impact-section section-dark">
+
+    <div class="impact-opening fade-up">
+      <h2 class="impact-h1">Are you tired<br>of suffering?</h2>
+      <p class="impact-lead">Done with pain that won&rsquo;t move, weight that won&rsquo;t lift, a mind that won&rsquo;t quiet?</p>
+      <p class="impact-release">This is where stored pain finally gets released &mdash; not managed. <em>Released.</em></p>
+    </div>
+
+    <div class="impact-secondary fade-up">
+      <p class="impact-secondary-line">Suffering shouldn&rsquo;t be your baseline.</p>
+      <p class="impact-secondary-body">Pain, inflammation, emotional weight &mdash; these are signals, not sentences.<br>When you reset the frequency, you reset the life.</p>
+    </div>
+
+    <div class="impact-body fade-up">
+      <p>
+        Step into a realm of advanced pure targeted healing frequencies, direct in the quantum field on scalar energy.
+        It will be a transformative experience &mdash; your energetic bio-field will energetically reset &amp; elevate.
+      </p>
+      <p>
+        We gently reprogram your mind &amp; body towards balance, where you may find relief from all types of suffering.
+        From physical pain, emotional pain, to even releasing mental blockages &mdash; including sufferings of trauma,
+        depression &amp; anxiety.
+      </p>
+      <div class="impact-cta-row">
+        <a href="treatments.html" class="btn btn-outline impact-cta-btn">View our programmes guide &rarr;</a>
+      </div>
+    </div>
+
+    <div class="impact-closing fade-up">
+      <p class="impact-closing-line">Don&rsquo;t wait to be ready. Don&rsquo;t suffer another day more.</p>
+      <p class="impact-closing-tag">Change your frequency, change your life.</p>
+      <p>Vibrate at a higher level where your lower energy resonance blockages start dissipating.</p>
+      <p><strong>This is serious energy work.</strong></p>
+      <p>This is your investment &mdash; you need to have an open heart and mind.</p>
+      <p>We are selective. Not all clients will be suitable and need to be interviewed. We are not apologetic.</p>
+      <div class="impact-cta-row">
+        <a href="contact.html" class="btn">Book your interview for suitability</a>
+      </div>
+      <p class="impact-rasha-tag">The RASHA experience &mdash; <em>Feel the difference.</em></p>
+    </div>
+
+  </section>
 
   <!-- ── Navigation ──────────────────────────────────────── -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
