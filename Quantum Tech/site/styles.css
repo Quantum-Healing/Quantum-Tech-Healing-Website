@@ -1747,7 +1747,7 @@ p, .body {
 
 .intro-overlay-title {
   font-size: clamp(3rem, 11vw, 16rem);
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: var(--ls-heading);
   text-transform: uppercase;
   line-height: 1.05;
