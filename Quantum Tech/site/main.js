@@ -196,6 +196,25 @@
 })();
 
 
+/* ── Randomise intro images on each page load ────────────── */
+(function randomiseIntroImages() {
+  const cols = document.querySelectorAll('#intro-scroll .intro-col');
+  if (!cols.length) return;
+  cols.forEach(col => {
+    const imgs = Array.from(col.querySelectorAll('.intro-img'));
+    const half = Math.floor(imgs.length / 2);
+    const set  = imgs.slice(0, half);
+    // Fisher-Yates shuffle
+    for (let i = set.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [set[i], set[j]] = [set[j], set[i]];
+    }
+    col.innerHTML = '';
+    set.forEach(img => col.appendChild(img));
+    set.forEach(img => col.appendChild(img.cloneNode(true)));
+  });
+})();
+
 /* ── Intro: auto-scroll columns, click/key to exit ──────── */
 (function initIntroScroll() {
   const intro = document.getElementById('intro-scroll');

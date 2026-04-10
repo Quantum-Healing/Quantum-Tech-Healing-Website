@@ -12,7 +12,7 @@
   <style>
     .programmes-layout {
       display: grid;
-      grid-template-columns: 1fr 28vw;
+      grid-template-columns: 1fr 30vw;
       gap: var(--grid-gap);
       padding: 0 var(--margin-h) 12vw;
       align-items: start;
@@ -22,23 +22,23 @@
       position: sticky;
       top: 8vw;
       padding: 3vw;
-      border: 1px solid var(--color-light-grey-02);
+      background: #ffffff;
+      border: none;
     }
     .sidebar-quote {
       font-size: var(--font-h4);
       font-weight: 300;
       letter-spacing: var(--ls-heading);
       line-height: 1.4;
-      color: var(--color-light-grey);
+      color: var(--color-dark-grey);
       margin-bottom: 3vw;
     }
     .sidebar-note {
-      font-size: var(--font-label);
-      color: var(--color-light-grey-04);
+      font-size: var(--font-body);
+      color: var(--color-dark-grey-06);
       line-height: 1.7;
-      letter-spacing: 0.02em;
     }
-    .sidebar-note a { color: var(--color-sand); }
+    .sidebar-note a { color: var(--color-dark-grey); text-decoration: underline; }
 
     .disclaimer-box {
       border: 1px solid var(--color-light-grey-02);
@@ -46,8 +46,8 @@
       margin-bottom: 6vw;
     }
     .disclaimer-box p {
-      font-size: var(--font-label);
-      color: var(--color-light-grey-04);
+      font-size: var(--font-body);
+      color: var(--color-light-grey-06);
       line-height: 1.8;
       margin-bottom: 1.2em;
     }
@@ -62,12 +62,12 @@
       padding: 4vw 0;
     }
     .prog-category-title {
-      font-size: var(--font-label);
+      font-size: var(--font-body-lg);
       font-weight: 600;
       letter-spacing: var(--ls-label);
       text-transform: uppercase;
-      color: var(--color-light-grey-04);
-      margin-bottom: 0.8em;
+      color: var(--color-light-grey);
+      margin-bottom: 1.2em;
     }
     .prog-category-sub {
       font-size: var(--font-label);
@@ -459,10 +459,10 @@
           Additional and experimental programmes are available beyond this directory.
         </p>
         <div style="margin-top:3vw;">
-          <a href="contact.html" class="btn" style="width:100%;justify-content:center;text-align:center;">Book a Consultation</a>
+          <a href="contact.html" class="btn" style="width:100%;justify-content:center;text-align:center;background:var(--color-dark-grey);color:#fff;border-color:var(--color-dark-grey);">Book a Consultation</a>
         </div>
         <div style="margin-top:1.5vw;">
-          <a href="pricing.html" class="btn btn-outline" style="width:100%;justify-content:center;text-align:center;">View Pricing</a>
+          <a href="pricing.html" class="btn btn-outline" style="width:100%;justify-content:center;text-align:center;border-color:var(--color-dark-grey-04);color:var(--color-dark-grey);">View Pricing</a>
         </div>
       </aside>
 
