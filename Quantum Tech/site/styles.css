@@ -896,6 +896,7 @@ p, .body {
   font-size: var(--font-h4);
   font-weight: 400;
   letter-spacing: var(--ls-heading);
+  color: var(--color-light-grey);
 }
 
 .faq-question .q-icon {
