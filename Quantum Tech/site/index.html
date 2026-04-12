@@ -187,6 +187,49 @@
       .cta-strip .cta-sub { max-width: 85vw; }
     }
 
+    /* ── Photo Gallery ────────────────────────────────────── */
+    .gallery-section {
+      padding: var(--section-pad-v) var(--margin-h);
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3vw;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 18vw;
+      gap: 0.4vw;
+    }
+    .gallery-grid .g-img {
+      overflow: hidden;
+      background: var(--color-dark-grey-02);
+    }
+    .gallery-grid .g-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    .gallery-grid .g-img:hover img {
+      transform: scale(1.04);
+    }
+    /* Featured spanning cells */
+    .gallery-grid .g-wide  { grid-column: span 2; }
+    .gallery-grid .g-tall  { grid-row: span 2; }
+    .gallery-grid .g-large { grid-column: span 2; grid-row: span 2; }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 40vw; }
+      .gallery-grid .g-wide  { grid-column: span 1; }
+      .gallery-grid .g-tall  { grid-row: span 1; }
+      .gallery-grid .g-large { grid-column: span 1; grid-row: span 1; }
+      .gallery-header { flex-direction: column; align-items: flex-start; gap: 2vw; }
+    }
+
     /* ── Impact Section ───────────────────────────────────── */
     .impact-section {
       padding: 14vw var(--margin-h);
@@ -446,7 +489,7 @@
   <section class="section-hero section-dark" aria-label="Hero">
     <!-- Background image placeholder — replace src with your photo -->
     <div class="hero-bg" aria-hidden="true">
-      <img src="images/WhatsApp Image 2026-04-11 at 23.15.04.jpeg" alt="" class="hero-bg-image" />
+      <div class="img-placeholder hero-bg-image" style="height:100%;border-radius:0;">Photo of centre</div>
       <div class="hero-bg-gradient"></div>
     </div>
 
@@ -567,7 +610,7 @@
       </div>
     </div>
     <div class="rasha-image">
-      <img src="images/WhatsApp Image 2026-04-11 at 23.08.38.jpeg" alt="The RASHA machine — scalar energy healing device" style="width:100%;height:100%;object-fit:cover;min-height:40vw;display:block;" />
+      <img src="images/rasha-machine.jpg" alt="The RASHA machine — scalar energy healing device" style="width:100%;height:100%;object-fit:cover;min-height:40vw;display:block;" />
     </div>
   </section>
 
@@ -578,6 +621,107 @@
     Every session with the RASHA is an invitation to remember that.
     <em class="label text-label" style="display:block;margin-top:2vw;">Quantum Tech Healing Centre</em>
   </div>
+
+  <!-- ── Photo Gallery ──────────────────────────────────────── -->
+  <section class="gallery-section section-dark" aria-label="Centre photography">
+    <div class="gallery-header fade-up">
+      <div>
+        <p class="label text-label mb-sm">Our Centre &amp; Sessions</p>
+        <h2 class="h3" style="font-weight:300;letter-spacing:var(--ls-heading);">A glimpse inside the experience</h2>
+      </div>
+      <a href="testimonials.html" class="btn-arrow" style="color:var(--color-light-grey-06);">
+        Watch testimonials
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Row 1 -->
+      <div class="g-img g-large fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00.jpeg" alt="Quantum Tech Healing Centre" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (1).jpeg" alt="Healing session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (2).jpeg" alt="RASHA technology" />
+      </div>
+      <div class="g-img g-tall fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (3).jpeg" alt="Session experience" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (4).jpeg" alt="Energy healing" />
+      </div>
+      <!-- Row 2 -->
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (5).jpeg" alt="Scalar frequency" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (6).jpeg" alt="Quantum healing" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (7).jpeg" alt="Treatment room" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14.jpeg" alt="Healing centre" />
+      </div>
+      <!-- Row 3 -->
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14 (1).jpeg" alt="RASHA session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14 (2).jpeg" alt="Energy session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14 (3).jpeg" alt="Biofield healing" />
+      </div>
+      <div class="g-img g-tall fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.50.37.jpeg" alt="Quantum session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.52.28.jpeg" alt="Healing frequency" />
+      </div>
+      <!-- Row 4 -->
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.52.42.jpeg" alt="Scalar energy" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.59.14.jpeg" alt="Energy work" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.21.36.jpeg" alt="Quantum field" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02.jpeg" alt="Centre session" />
+      </div>
+      <!-- Row 5 -->
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (1).jpeg" alt="Healing experience" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (2).jpeg" alt="RASHA machine" />
+      </div>
+      <div class="g-img g-large fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (3).jpeg" alt="Transformation session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (4).jpeg" alt="Energy reset" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (5).jpeg" alt="Quantum wellness" />
+      </div>
+      <!-- April 11 images -->
+      <div class="g-img g-tall fade-up">
+        <img src="images/WhatsApp Image 2026-04-11 at 23.08.38.jpeg" alt="Centre atmosphere" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-11 at 23.10.42.jpeg" alt="Session space" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-11 at 23.15.04.jpeg" alt="Healing environment" />
+      </div>
+    </div>
+  </section>
 
   <!-- ── Section Teasers ─────────────────────────────────── -->
   <nav class="teaser-4 section-dark" aria-label="Site sections">
