@@ -1697,6 +1697,8 @@ p, .body {
   display: flex;
   flex-direction: column;
   gap: 0.3vw;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 @keyframes introScrollUp {
