@@ -200,17 +200,31 @@
 (function randomiseIntroImages() {
   const cols = document.querySelectorAll('#intro-scroll .intro-col');
   if (!cols.length) return;
+
+  // Collect ALL unique images from every column (originals only — first half)
+  const allImgs = [];
   cols.forEach(col => {
     const imgs = Array.from(col.querySelectorAll('.intro-img'));
     const half = Math.floor(imgs.length / 2);
-    const set  = imgs.slice(0, half);
-    // Fisher-Yates shuffle
-    for (let i = set.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [set[i], set[j]] = [set[j], set[i]];
-    }
+    imgs.slice(0, half).forEach(img => allImgs.push(img));
+  });
+
+  // Fisher-Yates shuffle of the entire pool
+  for (let i = allImgs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allImgs[i], allImgs[j]] = [allImgs[j], allImgs[i]];
+  }
+
+  // Redistribute evenly across columns, extras go to the first columns
+  const total = allImgs.length;
+  let idx = 0;
+  cols.forEach((col, c) => {
+    const count = Math.floor(total / cols.length) + (c < total % cols.length ? 1 : 0);
+    const set = allImgs.slice(idx, idx + count);
+    idx += count;
     col.innerHTML = '';
     set.forEach(img => col.appendChild(img));
+    // Duplicate each set for seamless infinite scroll
     set.forEach(img => col.appendChild(img.cloneNode(true)));
   });
 })();
