@@ -3,12 +3,170 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing — Quantum Tech Healing Centre</title>
-  <meta name="description" content="Pricing for RASHA quantum scalar energy sessions and treatment programmes at Quantum Tech Healing Centre." />
+  <title>Your Investment — Quantum Tech Healing Centre</title>
+  <meta name="description" content="Investment options for RASHA quantum healing sessions and exclusive programmes at Quantum Tech Healing Centre, Solihull." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .investment-notice {
+      padding: 6vw var(--margin-h) 4vw;
+      border-bottom: 1px solid var(--color-light-grey-02);
+      display: flex;
+      flex-direction: column;
+      gap: 3vw;
+      max-width: 70vw;
+    }
+    .investment-notice p {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: 1.8;
+    }
+    .investment-notice strong {
+      color: var(--color-light-grey);
+      font-weight: 500;
+    }
+    .notice-box {
+      border-left: 2px solid var(--color-accent);
+      padding: 2vw 2.5vw;
+      background: rgba(200, 168, 130, 0.05);
+    }
+    .notice-box p {
+      color: var(--color-light-grey-06);
+      font-size: var(--font-body);
+      line-height: 1.7;
+    }
+
+    /* ── Pricing cards ──────────────────────────────────────── */
+    .pricing-section {
+      padding: 0 var(--margin-h) 10vw;
+    }
+    .pricing-label {
+      font-size: var(--font-label);
+      font-weight: 500;
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 6vw;
+      padding-top: 6vw;
+      border-top: 1px solid var(--color-light-grey-02);
+      display: block;
+    }
+    .pricing-card {
+      border: 1px solid var(--color-light-grey-02);
+      padding: 4vw 4.5vw;
+      margin-bottom: 2vw;
+      position: relative;
+      transition: border-color 0.3s ease;
+    }
+    .pricing-card:hover {
+      border-color: var(--color-accent);
+    }
+    .pricing-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4vw;
+      margin-bottom: 2vw;
+      flex-wrap: wrap;
+    }
+    .pricing-card-name {
+      font-size: var(--font-h3);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      text-transform: uppercase;
+      color: var(--color-light-grey);
+      line-height: 1.2;
+      flex: 1;
+    }
+    .pricing-card-price {
+      font-size: var(--font-h3);
+      font-weight: 300;
+      color: var(--color-accent);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .pricing-card-meta {
+      font-size: var(--font-label);
+      color: var(--color-light-grey-04);
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+      margin-bottom: 2vw;
+    }
+    .pricing-card-body {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: 1.75;
+      margin-bottom: 2vw;
+      max-width: 65vw;
+    }
+    .pricing-card-tag {
+      font-size: var(--font-body);
+      font-style: italic;
+      color: var(--color-sand);
+      border-top: 1px solid var(--color-light-grey-02);
+      padding-top: 1.5vw;
+      margin-top: 1.5vw;
+    }
+    .pricing-card-addons {
+      margin-top: 2vw;
+      padding-top: 2vw;
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .pricing-card-addons p {
+      font-size: var(--font-body);
+      color: var(--color-light-grey-04);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 0.8vw;
+    }
+    .pricing-card-addons ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5vw;
+    }
+    .pricing-card-addons li {
+      font-size: var(--font-body);
+      color: var(--color-light-grey-06);
+      line-height: 1.6;
+    }
+    .pricing-card-addons li::before {
+      content: '— ';
+      color: var(--color-accent);
+    }
+    .pricing-card-vip {
+      border-color: var(--color-accent);
+      background: rgba(200,168,130,0.04);
+    }
+    .pricing-card-vip .pricing-card-name {
+      color: var(--color-accent);
+    }
+    .final-tagline {
+      text-align: center;
+      padding: 8vw var(--margin-h);
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .final-tagline p {
+      font-size: var(--font-h3);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      text-transform: uppercase;
+      color: var(--color-light-grey);
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .investment-notice { max-width: 100%; }
+      .pricing-card-top { flex-direction: column; gap: 1.5vw; }
+      .pricing-card-body { max-width: 100%; }
+      .pricing-card { padding: 6vw 5vw; }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +179,7 @@
         <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
         <li><a href="operator.html" class="nav-link">The Operator / Creator</a></li>
         <li><a href="science.html" class="nav-link">Science</a></li>
-        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
         <li><a href="faq.html" class="nav-link">FAQ</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -44,100 +202,175 @@
 
   <!-- ── Page Hero ────────────────────────────────────────── -->
   <header class="page-hero section-dark">
-    <p class="page-label">Investment in your wellbeing</p>
+    <p class="page-label">Exclusive access</p>
     <h1 class="page-title animate-in">
-      <span class="title-mask"><span class="title-line">Pricing</span></span>
+      <span class="title-mask"><span class="title-line">Your</span></span>
+      <span class="title-mask"><span class="title-line">Investment</span></span>
     </h1>
     <p class="page-desc fade-up">
-      All sessions are by appointment only. Prices will be confirmed soon &mdash; contact us
-      for current pricing and availability.
+      All clients are selected following a personal interview with Dr Soong.
+      These sessions are private, focused, and built entirely around you.
     </p>
   </header>
 
-  <!-- ── Price List ───────────────────────────────────────── -->
+  <!-- ── Selection Process Notice ─────────────────────────── -->
   <section class="section-dark">
-    <div class="section-label">
-      <span class="label">Pricing</span>
-      <span class="label" style="color:var(--color-light-grey-02);">All prices in GBP</span>
+    <div class="investment-notice fade-up">
+      <p>
+        <strong>All clients are selected after the interview.</strong> You may be added to a waiting list.
+        Dr Soong focuses on exclusivity &mdash; giving her deep focus and delivering the best results
+        through a private, one-to-one experience.
+      </p>
+      <div class="notice-box">
+        <p>
+          We may need to postpone times if there are urgent client intakes. This is common for clients
+          with aggressive diagnoses, terminal illness, or those suffering deep pain seeking urgent care.
+          Your understanding is appreciated.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <table class="price-table fade-up">
-      <thead>
-        <tr>
-          <th>Treatment</th>
-          <th>Duration</th>
-          <th class="price">Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            Introductory RASHA Session
-            <p style="font-size:var(--font-label);color:var(--color-light-grey-04);margin-top:0.5vw;font-weight:400;letter-spacing:0.02em;">First-time clients only</p>
-          </td>
-          <td style="color:var(--color-light-grey-06);font-size:var(--font-body);">45 min</td>
-          <td class="price">[Price TBC]</td>
-        </tr>
-        <tr>
-          <td>
-            Full RASHA Scalar Energy Session
-          </td>
-          <td style="color:var(--color-light-grey-06);font-size:var(--font-body);">90 min</td>
-          <td class="price">[Price TBC]</td>
-        </tr>
-        <tr>
-          <td>
-            Stress &amp; Nervous System Reset
-          </td>
-          <td style="color:var(--color-light-grey-06);font-size:var(--font-body);">60 min</td>
-          <td class="price">[Price TBC]</td>
-        </tr>
-        <tr>
-          <td>
-            Sleep &amp; Restoration Programme
-            <p style="font-size:var(--font-label);color:var(--color-light-grey-04);margin-top:0.5vw;font-weight:400;letter-spacing:0.02em;">3-session programme</p>
-          </td>
-          <td style="color:var(--color-light-grey-06);font-size:var(--font-body);">3 × 90 min</td>
-          <td class="price">[Price TBC]</td>
-        </tr>
-        <tr>
-          <td>
-            Emotional &amp; Energetic Clearing
-          </td>
-          <td style="color:var(--color-light-grey-06);font-size:var(--font-body);">75 min</td>
-          <td class="price">[Price TBC]</td>
-        </tr>
-        <tr>
-          <td>
-            Spiritual Alignment &amp; Clarity
-          </td>
-          <td style="color:var(--color-light-grey-06);font-size:var(--font-body);">90 min</td>
-          <td class="price">[Price TBC]</td>
-        </tr>
-        <tr>
-          <td>
-            Monthly Maintenance Programme
-            <p style="font-size:var(--font-label);color:var(--color-light-grey-04);margin-top:0.5vw;font-weight:400;letter-spacing:0.02em;">Returning clients only</p>
-          </td>
-          <td style="color:var(--color-light-grey-06);font-size:var(--font-body);">Monthly</td>
-          <td class="price">[Price TBC]</td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- ── Exclusive Client Programmes ──────────────────────── -->
+  <section class="section-dark">
+    <div class="pricing-section">
+      <span class="pricing-label fade-up">Exclusive Client Programmes</span>
 
-    <div class="disclaimer-banner">
-      Prices will be confirmed soon. <a href="contact.html" style="color:var(--color-sand);">Contact us</a> for current pricing and availability.
-      All sessions are by appointment only. A deposit may be required to secure bookings.
+      <!-- Programme 1 -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-card-top">
+          <h2 class="pricing-card-name">Quantum Healing Code<br>Transformation Course</h2>
+          <span class="pricing-card-price">&pound;2,997</span>
+        </div>
+        <p class="pricing-card-meta">12 Sessions &nbsp;&bull;&nbsp; 90&ndash;100 minutes each</p>
+        <p class="pricing-card-body">
+          A deep, structured journey through quantum healing. Each session builds on the last &mdash;
+          clearing blockages, resetting your energetic field, and aligning your mind and body
+          with the frequency of wholeness.
+        </p>
+        <p class="pricing-card-tag">&ldquo;Align your breath, unlock the blockages in your life.&rdquo;</p>
+      </div>
+
+      <!-- Programme 2 -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-card-top">
+          <h2 class="pricing-card-name">Quantum Wealth<br>Manifestation Code</h2>
+          <span class="pricing-card-price">&pound;2,997</span>
+        </div>
+        <p class="pricing-card-body">
+          Shift procrastination and barriers to entry. Align with your abundance. Unlock your heart
+          and mind to new motivation, drive, better relationships, more money, more flow &mdash; increased
+          business and income creation, higher performance and quality of life.
+        </p>
+        <p class="pricing-card-tag">&ldquo;Prosperity begins with frequency.&rdquo;</p>
+      </div>
+
+      <!-- Programme 3 -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-card-top">
+          <h2 class="pricing-card-name">5th Dimensional<br>Acceleration</h2>
+          <span class="pricing-card-price">&pound;3,997</span>
+        </div>
+        <p class="pricing-card-body">
+          Faster results through higher dimensional work. For those ready to move beyond the ordinary
+          and access expanded states of consciousness, energy, and possibility.
+        </p>
+        <p class="pricing-card-tag">&ldquo;Activate your lightbody. Ascend your timeline.&rdquo;</p>
+      </div>
+
+      <!-- Programme 4 - VIP -->
+      <div class="pricing-card pricing-card-vip fade-up">
+        <div class="pricing-card-top">
+          <h2 class="pricing-card-name">VIP 11th Dimension<br>Accelerator Retreat</h2>
+          <span class="pricing-card-price">&pound;9,997</span>
+        </div>
+        <p class="pricing-card-meta">1 week intensive &nbsp;&bull;&nbsp; or divided across 2 weeks &nbsp;&bull;&nbsp; Accommodation included</p>
+        <p class="pricing-card-body">
+          Intensive work with Dr Soong in the highest dimension and the highest frequency. This is the
+          most elevated experience available at QTHC &mdash; encompassing her signature RTT therapy, advanced
+          coaching, private meditations, personal readings, refined quantum field work, and deep
+          spiritual and energetic transformation.<br><br>
+          Let go of the past. Plan for the future. Walk out completely transformed &mdash; mind, body,
+          and energy field. Boutique accommodation is included. The possibilities of miraculous
+          transformation are real.<br><br>
+          Dr Soong accepts a maximum of 1&ndash;2 clients per month at this level.
+          Larger group teachings also considered &mdash; please enquire for a quote.
+        </p>
+        <p class="pricing-card-tag">&ldquo;Beyond the beyond. For those who lead the way.&rdquo;</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── One-Time Trial Sessions ───────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div class="pricing-section">
+      <span class="pricing-label fade-up">Exclusive Trial Sessions</span>
+
+      <!-- Trial 1 -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-card-top">
+          <h2 class="pricing-card-name">Energetic Detox &amp; Chakra Unblocking<br>Destress Session</h2>
+          <span class="pricing-card-price">&pound;170</span>
+        </div>
+        <p class="pricing-card-meta">1 hour &nbsp;&bull;&nbsp; Single session</p>
+        <p class="pricing-card-body">
+          Your first step into quantum healing. A focused session designed to release surface-level
+          energetic blockages, reduce stress, and bring the body into a calmer, clearer state.
+        </p>
+        <p class="pricing-card-tag">&ldquo;Feel the shift in one breath.&rdquo;</p>
+        <div class="pricing-card-addons">
+          <p>Add-Ons</p>
+          <ul>
+            <li>Integration call after your session</li>
+            <li>Customised pure frequency recording to continue your healing after treatment ends &mdash; <strong style="color:var(--color-accent);">&pound;300</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Trial 2 -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-card-top">
+          <h2 class="pricing-card-name">Deep Spiritual Energetic Detox<br>&amp; Chakra Unblocking Energy Reset</h2>
+          <span class="pricing-card-price">&pound;320</span>
+        </div>
+        <p class="pricing-card-meta">1.5&ndash;2 hours &nbsp;&bull;&nbsp; Single session &nbsp;&bull;&nbsp; Includes detox oils</p>
+        <p class="pricing-card-body">
+          Go deeper. This session works at a profound level &mdash; clearing what has accumulated over
+          years. Energetically out of this world. Release the darkness, the drain, and allow the
+          energetic light force back into your body and life.
+        </p>
+        <p class="pricing-card-tag">&ldquo;Remove the darkness. Remove the drain. Feel the energetic light force return.&rdquo;</p>
+        <div class="pricing-card-addons">
+          <p>Add-On</p>
+          <ul>
+            <li>Custom frequency recording &mdash; personalised for you &mdash; <strong style="color:var(--color-accent);">&pound;300</strong></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Final Tagline ─────────────────────────────────────── -->
+  <section class="section-dark">
+    <div class="final-tagline fade-up">
+      <p>&ldquo;Not everyone is ready. But you are.&rdquo;</p>
     </div>
   </section>
 
   <!-- ── CTA ──────────────────────────────────────────────── -->
   <section class="section-sand">
     <div class="page-hero" style="min-height:auto;padding-top:8vw;background:var(--color-sand);">
-      <h2 class="page-title fade-up" style="color:var(--color-dark-grey);">Book a session</h2>
+      <p class="page-label" style="color:var(--color-dark-grey-04);">Begin your journey</p>
+      <h2 class="page-title fade-up" style="color:var(--color-dark-grey);">Book your interview</h2>
+      <p class="page-desc fade-up" style="color:var(--color-dark-grey-06);">
+        All new clients begin with a personal interview. This ensures Dr Soong can give you
+        the focus and results you deserve.
+      </p>
       <div class="hero-ctas mt-md fade-up">
         <a href="questionnaire.html" class="btn" style="background:var(--color-dark-grey);color:var(--color-sand);border-color:var(--color-dark-grey);">
-          Questionnaire
+          Complete Questionnaire
         </a>
         <a href="contact.html" class="btn btn-outline" style="border-color:var(--color-dark-grey-04);color:var(--color-dark-grey);">
           Contact Us
@@ -155,7 +388,7 @@
       <div>
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-links">
-          <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
+          <li><a href="rasha.html" class="footer-link">The RASHA Technology</a></li>
           <li><a href="treatments.html" class="footer-link">Treatments &amp; Programmes</a></li>
           <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
           <li><a href="operator.html" class="footer-link">The Operator / Creator</a></li>

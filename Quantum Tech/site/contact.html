@@ -51,55 +51,58 @@
     </h1>
     <p class="page-desc fade-up">
       We welcome all enquiries — whether you are ready to book your first session,
-      have questions about the RASHA machine, or simply want to find out more.
+      have questions about the RASHA technology, or simply want to find out more.
       We typically respond within 24&ndash;48 hours.
     </p>
   </header>
 
   <!-- ── Contact Details ──────────────────────────────────── -->
   <section class="section-dark">
-    <div class="contact-details">
-      <div class="contact-item fade-up">
-        <p class="contact-label">Address</p>
-        <p class="contact-value">
+    <div style="padding: var(--section-pad-v-sm) var(--margin-h); border-top: 1px solid var(--color-light-grey-02); display: flex; flex-direction: column; gap: 4vw; max-width: 60vw;">
+
+      <div class="fade-up">
+        <p class="contact-label" style="font-size:var(--font-label);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-light-grey-04);margin-bottom:1.2vw;">Address</p>
+        <p style="font-size:var(--font-h4);font-weight:300;color:var(--color-light-grey);line-height:1.8;">
           Quantum Tech Healing<br>
           Station Approach Boutique Stays<br>
           654 Streetsbrook Road<br>
-          Solihull<br>
-          B91 1LB<br>
+          Solihull, B91 1LB<br>
           United Kingdom
         </p>
       </div>
-      <div class="contact-item fade-up">
-        <p class="contact-label">Email &amp; WhatsApp</p>
-        <p class="contact-value">
-          <a href="mailto:quantumtechhealingcentre@gmail.com">quantumtechhealingcentre@gmail.com</a><br>
-          <br>
-          <a href="https://wa.me/447833291552" target="_blank" rel="noopener noreferrer" style="color:var(--color-sand);">
-            WhatsApp: +44 7833 291552
-          </a>
+
+      <div class="fade-up">
+        <p class="contact-label" style="font-size:var(--font-label);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-light-grey-04);margin-bottom:1.2vw;">Email &amp; WhatsApp</p>
+        <p style="font-size:var(--font-h4);font-weight:300;line-height:2;">
+          <a href="mailto:quantumtechhealingcentre@gmail.com" style="color:var(--color-light-grey);text-decoration:none;border-bottom:1px solid var(--color-light-grey-04);">quantumtechhealingcentre@gmail.com</a><br>
+          <a href="https://wa.me/447833291552" target="_blank" rel="noopener noreferrer" style="color:var(--color-sand);text-decoration:none;">WhatsApp: +44 7833 291552</a>
         </p>
-        <p class="body mt-sm" style="color:var(--color-light-grey-04);font-size:var(--font-label);">
-          Email or WhatsApp is the best way to reach us. We aim to respond within 48 hours.
-        </p>
+        <p style="font-size:var(--font-label);color:var(--color-light-grey-04);margin-top:0.8vw;">We aim to respond within 48 hours.</p>
       </div>
-      <div class="contact-item fade-up">
-        <p class="contact-label">Opening Hours</p>
-        <p class="contact-value">
-          Strictly appointments only
-        </p>
-        <p class="body mt-sm" style="color:var(--color-light-grey-04);font-size:var(--font-label);">
-          No walk-ins. Please contact us via email or WhatsApp to book your session.
-        </p>
+
+      <div class="fade-up">
+        <p class="contact-label" style="font-size:var(--font-label);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-light-grey-04);margin-bottom:1.2vw;">Opening Hours</p>
+        <p style="font-size:var(--font-h4);font-weight:300;color:var(--color-light-grey);line-height:1.8;">Strictly appointments only</p>
+        <p style="font-size:var(--font-label);color:var(--color-light-grey-04);margin-top:0.8vw;">No walk-ins. Book via email or WhatsApp.</p>
       </div>
+
     </div>
   </section>
 
-  <!-- ── Map placeholder ──────────────────────────────────── -->
-  <div class="map-placeholder section-dark fade-up">
-    <!-- Replace this div with a Google Maps iframe when ready:
-         <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen loading="lazy"></iframe> -->
-    Map — location to be added
+  <!-- ── Google Map ────────────────────────────────────────── -->
+  <div class="section-dark" style="padding: 0 var(--margin-h) 6vw;">
+    <div class="fade-up" style="width:100%;height:480px;overflow:hidden;border:1px solid var(--color-light-grey-02);">
+      <iframe
+        src="https://maps.google.com/maps?q=654+Streetsbrook+Road,+Solihull,+B91+1LB,+United+Kingdom&output=embed"
+        width="100%"
+        height="480"
+        style="border:0;display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Quantum Tech Healing Centre location">
+      </iframe>
+    </div>
   </div>
 
   <!-- ── Contact Form ──────────────────────────────────────── -->
@@ -108,8 +111,7 @@
       <span class="label">Send us a message</span>
     </div>
 
-    <!-- NOTE: To activate form, update action with your Formspree URL or email handler -->
-    <form class="form-section" action="#" method="POST" data-validate>
+    <form class="form-section" action="mailto:quantumtechhealingcentre@gmail.com" method="POST" enctype="text/plain">
       <div class="form-grid">
         <div class="form-group fade-up">
           <label class="form-label" for="contact-name">Your Name *</label>
@@ -120,8 +122,8 @@
           <input class="form-input" type="email" id="contact-email" name="email" required placeholder="your@email.com" />
         </div>
         <div class="form-group fade-up">
-          <label class="form-label" for="contact-phone">Phone Number (optional)</label>
-          <input class="form-input" type="tel" id="contact-phone" name="phone" placeholder="+44 7xxx xxxxxx" />
+          <label class="form-label" for="contact-phone">Phone Number (including country code) *</label>
+          <input class="form-input" type="tel" id="contact-phone" name="phone" required placeholder="+44 7xxx xxxxxx" />
         </div>
         <div class="form-group fade-up">
           <label class="form-label" for="contact-subject">Subject</label>
@@ -129,7 +131,7 @@
             <option value="" disabled selected>What is your enquiry about?</option>
             <option value="booking">Booking a session</option>
             <option value="treatments">Questions about treatments</option>
-            <option value="rasha">Questions about the RASHA machine</option>
+            <option value="rasha">Questions about the RASHA technology</option>
             <option value="pricing">Pricing enquiry</option>
             <option value="testimonial">Sharing a testimonial</option>
             <option value="other">Other</option>
@@ -184,7 +186,7 @@
       <div>
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-links">
-          <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
+          <li><a href="rasha.html" class="footer-link">The RASHA Technology</a></li>
           <li><a href="treatments.html" class="footer-link">Treatments &amp; Programmes</a></li>
           <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
           <li><a href="operator.html" class="footer-link">The Operator / Creator</a></li>
