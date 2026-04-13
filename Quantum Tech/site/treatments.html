@@ -9,6 +9,61 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Programmes Guide ────────────────────────────────── */
+    .programmes-wrap { padding: 0 var(--margin-h) 12vw; }
+    .disclaimer-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--color-light-grey-02);
+      padding: 3vw 3.5vw;
+      margin-bottom: 6vw;
+    }
+    .disclaimer-warning { color: var(--color-sand); font-weight: 500; margin-top: 1em; }
+    .prog-category { border-top: 1px solid var(--color-light-grey-02); padding: 5vw 0; }
+    .prog-category-title {
+      font-size: var(--font-h4); font-weight: 600;
+      letter-spacing: var(--ls-label); text-transform: uppercase;
+      color: var(--color-accent); margin-bottom: 1.2em;
+    }
+    .prog-category-sub {
+      font-size: var(--font-body); color: var(--color-sand);
+      letter-spacing: 0.04em; text-transform: uppercase;
+      margin-bottom: 2vw; font-weight: 500;
+    }
+    .prog-list {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.6vw 4vw; list-style: none; padding: 0; margin: 0;
+    }
+    .prog-list li {
+      font-size: var(--font-body-lg); color: var(--color-light-grey-06);
+      line-height: 2.2; border-bottom: 1px solid var(--color-light-grey-02); padding-bottom: 0.3em;
+    }
+    .prog-list li::before { content: '—  '; color: var(--color-accent); }
+    .info-box {
+      background: #ffffff; padding: 2vw 2.5vw; margin-bottom: 6vw;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5vw; align-items: start;
+    }
+    .info-box-quote {
+      font-size: var(--font-body-lg); font-weight: 300;
+      letter-spacing: var(--ls-heading); line-height: 1.3;
+      color: var(--color-dark-grey); grid-column: 1 / 2;
+    }
+    .info-box-body { grid-column: 2 / 4; display: flex; flex-direction: column; gap: 1vw; }
+    .info-box-section-title { font-size: var(--font-body); font-weight: 600; color: var(--color-dark-grey); margin-bottom: 0.3em; }
+    .info-box-text { font-size: var(--font-body); color: var(--color-dark-grey-06); line-height: 1.6; }
+    .info-box-divider { border: none; border-top: 1px solid #e5e5e5; margin: 0; }
+    .info-box-ctas { display: flex; gap: 1.5vw; flex-wrap: wrap; margin-top: 1vw; }
+    @media (max-width: 900px) {
+      .info-box { grid-template-columns: 1fr; }
+      .info-box-quote { grid-column: 1; }
+      .info-box-body { grid-column: 1; }
+      .prog-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .info-box-ctas { flex-direction: column; }
+      .prog-list { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,8 +72,7 @@
       <a href="index.html" class="nav-logo">QTHC</a>
       <ul class="nav-links" role="list">
         <li><a href="rasha.html" class="nav-link">The RASHA</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
-        <li><a href="programmes.html" class="nav-link">Programmes</a></li>
+        <li><a href="treatments.html" class="nav-link">Treatments &amp; Programmes</a></li>
         <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
         <li><a href="operator.html" class="nav-link">The Operator / Creator</a></li>
         <li><a href="science.html" class="nav-link">Science</a></li>
@@ -34,8 +88,7 @@
 
   <div class="nav-overlay" role="dialog" aria-label="Mobile navigation">
     <a href="rasha.html" class="overlay-link">The RASHA</a>
-    <a href="treatments.html" class="overlay-link">Treatments</a>
-    <a href="programmes.html" class="overlay-link">Programmes</a>
+    <a href="treatments.html" class="overlay-link">Treatments &amp; Programmes</a>
     <a href="testimonials.html" class="overlay-link">Testimonials</a>
     <a href="operator.html" class="overlay-link">The Operator / Creator</a>
     <a href="science.html" class="overlay-link">Science</a>
@@ -145,24 +198,24 @@
     </div>
 
     <div class="card-grid" style="background:var(--color-off-white);padding-top:0;" data-stagger="0.1">
-      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
-        <span class="card-number" style="color:var(--color-dark-grey-04);">Before</span>
+      <div class="card fade-up" style="border-color:var(--color-accent);border-top:3px solid var(--color-accent);">
+        <span class="card-number" style="color:var(--color-accent);">Before</span>
         <h3 class="card-title" style="color:var(--color-dark-grey);">Initial Consultation</h3>
         <p class="card-body" style="color:var(--color-dark-grey-06);">
           Every new client begins with a brief consultation. Your goals, current health situation,
           and any concerns are listened to carefully. Sessions are then calibrated accordingly.
         </p>
       </div>
-      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
-        <span class="card-number" style="color:var(--color-dark-grey-04);">During</span>
+      <div class="card fade-up" style="border-color:var(--color-accent);border-top:3px solid var(--color-accent);">
+        <span class="card-number" style="color:var(--color-accent);">During</span>
         <h3 class="card-title" style="color:var(--color-dark-grey);">Attentive Monitoring</h3>
         <p class="card-body" style="color:var(--color-dark-grey-06);">
           The operator remains present throughout every session, monitoring the RASHA system
           and your responses, adjusting settings gently as needed to support your experience.
         </p>
       </div>
-      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
-        <span class="card-number" style="color:var(--color-dark-grey-04);">After</span>
+      <div class="card fade-up" style="border-color:var(--color-accent);border-top:3px solid var(--color-accent);">
+        <span class="card-number" style="color:var(--color-accent);">After</span>
         <h3 class="card-title" style="color:var(--color-dark-grey);">Guided Integration</h3>
         <p class="card-body" style="color:var(--color-dark-grey-06);">
           After your session, time is always made to discuss your experience, offer any guidance
@@ -456,6 +509,205 @@
     </div>
   </section>
 
+  <!-- ── Programmes Guide ─────────────────────────────────── -->
+  <section class="section-dark">
+    <div class="section-label">
+      <span class="label">R.A.S.H.A Technology</span>
+    </div>
+    <div style="padding:6vw var(--margin-h) 2vw;">
+      <h2 class="page-title fade-up" style="color:var(--color-light-grey);">Programmes Guide</h2>
+      <p class="body-lg text-muted fade-up" style="max-width:60vw;margin-top:2vw;">
+        A directory of frequency-based protocols developed by the R.A.S.H.A Technology expert team &mdash;
+        available at Quantum Tech Healing Centre.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Info Box ─────────────────────────────────────────── -->
+  <div class="section-light">
+    <div class="programmes-wrap">
+      <div class="info-box fade-up">
+        <p class="info-box-quote">
+          Each programme is assigned during a personal consultation &mdash; not selected from a menu.
+        </p>
+        <div class="info-box-body">
+          <div>
+            <p class="info-box-section-title">How programmes are selected</p>
+            <p class="info-box-text">
+              During your initial consultation, Dr. Soong listens to your goals, health history, and
+              current concerns. From there, she selects the most relevant programme or combination of
+              programmes from the RASHA library — calibrating each session individually.
+            </p>
+          </div>
+          <hr class="info-box-divider" />
+          <div>
+            <p class="info-box-section-title">Use this directory as a reference</p>
+            <p class="info-box-text">
+              Before your consultation, you are welcome to browse this directory and note any programmes you
+              feel drawn to. This gives your session a meaningful starting point — and the journey
+              begins from there.
+            </p>
+          </div>
+          <div class="info-box-ctas">
+            <a href="contact.html" class="btn" style="background:var(--color-dark-grey);color:#fff;border-color:var(--color-dark-grey);">Book a Consultation</a>
+            <a href="pricing.html" class="btn btn-outline" style="border-color:var(--color-dark-grey-04);color:var(--color-dark-grey);">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Programme Categories ────────────────────────────── -->
+  <section class="section-dark">
+    <div class="programmes-wrap">
+
+      <div class="disclaimer-box fade-up">
+        <p>
+          The following is a directory of the R.A.S.H.A Technology programme library currently available at
+          Quantum Tech Healing Centre. These programmes have been developed to work alongside the body&rsquo;s own
+          regulatory intelligence &mdash; supporting relaxation, internal balance, and energetic coherence across
+          a broad range of conditions and experiences.
+        </p>
+        <p>
+          This list is provided for informational purposes only. It does not represent medical treatment,
+          diagnosis, or a guarantee of outcome. All sessions are complementary in nature and are designed
+          to work in support of &mdash; not in replacement of &mdash; qualified medical care.
+        </p>
+        <p class="disclaimer-warning">
+          &#9888; The naming of a condition or disease within this directory does not imply that Quantum Tech
+          Healing Centre treats, cures, diagnoses, or manages that condition. These programme names are
+          drawn directly from the R.A.S.H.A Technology operational manual and reflect the frequency-based
+          protocols developed by the technology&rsquo;s creators.
+        </p>
+        <p>
+          New programme upgrades are added continuously. This represents our current base library.
+          Additional and experimental programmes are available &mdash; speak to Dr. Soong during your
+          consultation for the full current directory.
+        </p>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Neurological &amp; Brain</p>
+        <ul class="prog-list">
+          <li>Alzheimer&rsquo;s</li><li>Aneurysm</li><li>Brain Aneurysm</li>
+          <li>Brain Concussions</li><li>Brain Tumour</li><li>Cerebral Hypoxia</li>
+          <li>Chromosome Disorders</li><li>Communication Disorders</li><li>Concussion</li>
+          <li>Consciousness &amp; Higher Sensory Perception</li><li>Craniocerebral Trauma</li><li>Deafness</li>
+          <li>Dementia</li><li>Direct Cognition</li><li>Dizziness</li>
+          <li>Down&rsquo;s Syndrome</li><li>Epilepsy &amp; Seizures</li><li>Hallucinations</li>
+          <li>Head Injury Follow-Up</li><li>Headaches &amp; Migraines</li><li>Intelligence &amp; Brain Recharge</li>
+          <li>Multiple Sclerosis</li><li>Muscular Dystrophy</li><li>Mutism</li>
+          <li>Nerve Disorders &amp; Neuropathy</li><li>Non-Verbal Learning Disorder</li><li>Paralysis</li>
+          <li>Parkinson&rsquo;s Disease</li><li>Spinal Cord Injuries</li><li>TBI &amp; Concussion</li>
+          <li>Tinnitus</li><li>Trigeminal Neuralgia</li><li>Vertigo</li>
+        </ul>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Cardiovascular &amp; Circulatory</p>
+        <ul class="prog-list">
+          <li>Arrhythmia &mdash; Heart</li><li>Blood Clot Prevention</li><li>Blood Coagulation Disorders</li>
+          <li>Blood Diseases</li><li>Cardiovascular Disease</li><li>Circulation Disturbances</li>
+          <li>Deep Vein Thrombosis</li><li>Heart Blockage</li><li>High Blood Pressure</li>
+          <li>Hypertension</li><li>Hypotension</li><li>Low Blood Pressure</li>
+          <li>Lymphatic Diseases</li><li>Lymphoedema</li><li>Myocardial Infarction</li>
+          <li>Myocarditis</li><li>Pericarditis</li><li>Prevent Heart Failure &amp; Cardiomyopathy</li>
+          <li>Stroke Follow-Up</li><li>Tachycardia</li><li>Varicose Veins</li>
+        </ul>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Mental Health &amp; Emotional Well-Being</p>
+        <ul class="prog-list">
+          <li>Addiction</li><li>Alcoholism</li><li>Anxiety</li>
+          <li>Anxiety &mdash; Advanced Protocol</li><li>Attention Deficit Disorder</li><li>Autism</li>
+          <li>Bipolar &mdash; Schizophrenia &mdash; Paranoid</li><li>Combat Disorder</li><li>Depression</li>
+          <li>Depressive Disorders</li><li>Eating Disorder</li><li>Gulf War Syndrome</li>
+          <li>Insomnia</li><li>Phobic Anxiety Disorder</li><li>Post-Traumatic Stress Disorder</li>
+          <li>Stress</li><li>Trauma</li>
+        </ul>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Immune System, Infection &amp; Viral</p>
+        <ul class="prog-list">
+          <li>AIDS &mdash; HIV</li><li>Allergies</li><li>Autoimmune Diseases</li>
+          <li>Bacterial Infections &mdash; General</li><li>Bacterial Infections &amp; Mycosis</li><li>Candida Albicans</li>
+          <li>COVID &amp; SARS</li><li>Flu Vaccine Support</li><li>Food Poisoning</li>
+          <li>Fungus &amp; Mould</li><li>Herpes Simplex</li><li>Infections &mdash; General</li>
+          <li>Influenza</li><li>Influenza with Respiratory Involvement</li><li>Lyme Disease</li>
+          <li>Lymphoma &mdash; T-Cell Cutaneous</li><li>Morgellons Disease</li><li>Mycosis</li>
+          <li>Pneumonia</li><li>Sinus Bacteria</li><li>Sinusitis &mdash; Multiple Protocols</li>
+          <li>Viral Complex</li>
+        </ul>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Metabolic, Endocrine &amp; Digestive</p>
+        <ul class="prog-list">
+          <li>Acidosis</li><li>Adrenal Gland Dis-Ease</li><li>Adrenal Gland Stimulation</li>
+          <li>Anaemia</li><li>Bladder &amp; Prostate Problems</li><li>Bladder Exstrophy</li>
+          <li>Chronic Fatigue Syndrome</li><li>Chronic Obstructive Pulmonary Disease</li><li>Colon Problems</li>
+          <li>Crohn&rsquo;s Disease</li><li>Diabetes</li><li>Digestive System Diseases</li>
+          <li>Endocrine Boost</li><li>Endometriosis</li><li>Fatigue</li>
+          <li>Gastrointestinal Disease</li><li>Gout</li><li>Hypogonadism</li>
+          <li>Hyperthyroid</li><li>Hypothyroid</li><li>Intestinal Diseases</li>
+          <li>Intestinal Inflammation</li><li>Kidneys</li><li>Liver Cirrhosis</li>
+          <li>Liver Diseases</li><li>Lung Diseases</li><li>Pancreatic Disease</li>
+          <li>Pancreatitis</li><li>Perimenopause Symptoms</li><li>Prostate</li>
+          <li>Ulcers &mdash; Gastric &amp; Ventricular</li><li>Urinary Tract Infections</li><li>Vitamin A Deficiency</li>
+          <li>Vitamin B Deficiency</li><li>Vitamin B12 Deficiency</li><li>Vitamin D Deficiency</li>
+          <li>Weight Management</li>
+        </ul>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Pain, Inflammation &amp; Physical Recovery</p>
+        <ul class="prog-list">
+          <li>Arthritis &mdash; General</li><li>Arthritis &mdash; Advanced Protocol</li><li>Asthma &mdash; Multiple Protocols</li>
+          <li>Bone Regeneration</li><li>BioRegeneration Healing</li><li>BioRegenesis</li>
+          <li>Breathing &mdash; Deep</li><li>Cancer Support</li><li>Cancer &mdash; Experimental Frequencies</li>
+          <li>Cancer &mdash; Glioblastoma</li><li>Cancer &mdash; Malignant Thymoma</li><li>Cataract</li>
+          <li>Dental &mdash; General</li><li>Eye Disorders</li><li>Eye Glaucoma</li>
+          <li>Eye Inflammation</li><li>Glaucoma</li><li>Inflammation</li>
+          <li>Joint Pain</li><li>Joint Pain &mdash; Knee</li><li>Melanoma</li>
+          <li>Morphogenetic Phantom Pain</li><li>Muscular Recovery</li><li>Nerves &mdash; Healing</li>
+          <li>Pain Release</li><li>Periodontal Disease</li><li>Peyronie&rsquo;s Disease</li>
+          <li>Photosensitivity Skin Disorders</li><li>Respiratory Support</li><li>Sedation &amp; Pain Release</li>
+          <li>Skin Diseases</li><li>Spina Bifida</li><li>Tumour &mdash; Breast</li>
+        </ul>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Detoxification &amp; Environmental Protection</p>
+        <p class="prog-category-sub">Including possibilities of long COVID symptoms</p>
+        <ul class="prog-list">
+          <li>5G &mdash; Electrosmog &amp; Geopathic Protection</li><li>Deuterium Reduction</li><li>Detox</li>
+          <li>EMF Protection &mdash; Home &amp; Buildings</li><li>EMF &amp; Geopathic Radiation</li><li>Glyphosate</li>
+          <li>Heavy Metal Toxicity</li><li>Hydrolase</li><li>Mercury Toxicity</li>
+          <li>Nanotechnology</li><li>Plant Poisoning</li><li>Radiation</li>
+        </ul>
+      </div>
+
+      <div class="prog-category fade-up">
+        <p class="prog-category-title">Frequency, Wellness &amp; Energetic Optimisation</p>
+        <p class="prog-category-sub">Evolution possibilities &amp; human enhancement</p>
+        <ul class="prog-list">
+          <li>Acne</li><li>Base 12 Earth Frequency</li><li>Base 12 Eternal Encryption</li>
+          <li>Base 12 Morphologic Communication</li><li>Base 12 Relaxation &amp; Stress Release</li><li>Base 12 Sleep Frequency</li>
+          <li>Energy Vitality</li><li>Eternal Planetary Frequencies</li><li>Female Sexual Dysfunction</li>
+          <li>Heat Flashes</li><li>HydroAcoustic Healing Tones</li><li>Impotence &amp; Erectile Dysfunction</li>
+          <li>Infertility</li><li>Lymph Support</li><li>Manifestation of Wealth</li>
+          <li>Menstruation Disturbances</li><li>Pineal Gland Stimulation</li><li>Relaxation &amp; Stress Relief</li>
+          <li>Remove Procrastination &amp; Blockages</li><li>Reverse Aging</li><li>Sacred Sexuality</li>
+          <li>Sexual &amp; Erectile Dysfunction</li><li>Sha Ka&rsquo;Ra Harmonisation</li><li>Sleep Support</li>
+          <li>Source Spiral Frequencies</li><li>Vision &mdash; Poor</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ── Footer ───────────────────────────────────────────── -->
   <footer class="footer" role="contentinfo">
     <div class="footer-grid">
@@ -466,8 +718,7 @@
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-links">
           <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
-          <li><a href="treatments.html" class="footer-link">Treatments</a></li>
-          <li><a href="programmes.html" class="footer-link">Programmes</a></li>
+          <li><a href="treatments.html" class="footer-link">Treatments &amp; Programmes</a></li>
           <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
           <li><a href="operator.html" class="footer-link">The Operator / Creator</a></li>
           <li><a href="science.html" class="footer-link">Science</a></li>
