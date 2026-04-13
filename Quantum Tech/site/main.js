@@ -190,7 +190,7 @@
   document.querySelectorAll('[data-stagger]').forEach((parent) => {
     const delay = parseFloat(parent.dataset.stagger) || 0.1;
     Array.from(parent.children).forEach((child, i) => {
-      child.style.transitionDelay = `${i * delay}s`;
+      child.style.transitionDelay = `${Math.min(i * delay, 0.5)}s`;
     });
   });
 })();

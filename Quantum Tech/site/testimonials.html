@@ -142,6 +142,11 @@
       color: rgba(200,190,160,0.6);
     }
 
+    /* Faster fade for cards */
+    .t-card.fade-up {
+      transition-duration: 0.35s !important;
+    }
+
     @media (max-width: 900px) {
       .t-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 3vw; }
       .t-card { padding: 5vw 4vw; gap: 3vw; }
@@ -226,7 +231,7 @@
       <span class="label" style="color:var(--color-light-grey-02);">More being added regularly</span>
     </div>
 
-    <div class="t-grid" data-stagger="0.05">
+    <div class="t-grid" data-stagger="0.02">
 
       <div class="t-card fade-up">
         <span class="t-open">&ldquo;</span>
@@ -280,7 +285,7 @@
       <span class="label" style="color:var(--color-light-grey-02);">Public figures, practitioners &amp; users worldwide</span>
     </div>
 
-    <div class="t-grid" data-stagger="0.04">
+    <div class="t-grid" data-stagger="0.02">
 
       <div class="t-card fade-up">
         <span class="t-open">&ldquo;</span>
