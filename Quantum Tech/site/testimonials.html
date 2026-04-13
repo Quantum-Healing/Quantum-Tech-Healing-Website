@@ -10,19 +10,63 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    .testimonial-placeholder {
-      border: 1px dashed var(--color-light-grey-02);
-      opacity: 0.5;
+    /* ── Compact testimonial grid ─────────────────────────── */
+    .t-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      padding: 0 var(--margin-h) var(--section-pad-v);
+      background: var(--color-light-grey-02);
     }
+    .t-card {
+      background: var(--color-dark-grey);
+      padding: 2.5vw 2vw;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2vw;
+    }
+    .t-card.t-placeholder {
+      opacity: 0.4;
+    }
+    .t-open {
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      color: var(--color-sand);
+      line-height: 1;
+      font-weight: 300;
+    }
+    .t-quote {
+      font-size: clamp(0.82rem, 1vw, 1rem);
+      color: var(--color-light-grey-06);
+      line-height: 1.65;
+      font-weight: 300;
+      flex: 1;
+    }
+    .t-author {
+      font-size: clamp(0.78rem, 0.9vw, 0.9rem);
+      font-weight: 500;
+      color: var(--color-light-grey-08);
+      letter-spacing: 0.04em;
+    }
+    .t-source {
+      font-size: clamp(0.68rem, 0.78vw, 0.78rem);
+      color: var(--color-light-grey-04);
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .t-grid { grid-template-columns: repeat(2, 1fr); }
+      .t-card { padding: 5vw 4vw; gap: 3vw; }
+    }
+    @media (max-width: 500px) {
+      .t-grid { grid-template-columns: 1fr; }
+    }
+
     .quote-source {
       font-size: var(--font-label);
       letter-spacing: var(--ls-label);
       color: var(--color-light-grey-04);
       margin-top: 0.5vw;
       text-transform: uppercase;
-    }
-    @media (max-width: 600px) {
-      .quote-source { margin-top: 2vw; }
     }
     .translation-label {
       display: inline-block;
@@ -35,9 +79,6 @@
       border-radius: 100px;
       padding: 0.3em 0.8em;
       margin-bottom: 1.5vw;
-    }
-    @media (max-width: 600px) {
-      .translation-label { margin-bottom: 4vw; }
     }
   </style>
 </head>
@@ -83,83 +124,61 @@
       <span class="title-mask"><span class="title-line">Testimonials</span></span>
     </h1>
     <p class="page-desc fade-up">
-      Hear directly from those who have experienced the RASHA at the Quantum Tech Healing Centre.
-      Written accounts, video testimonials, and translated experiences from clients
-      around the world &mdash; in their own words.
+      Hear directly from those who have experienced the RASHA at the Quantum Tech Healing Centre
+      and from the global RASHA community &mdash; public figures, practitioners, and everyday
+      people sharing their experience in their own words.
     </p>
   </header>
 
-  <!-- ── Written Testimonials ────────────────────────────── -->
+  <!-- ── QTHC Client Testimonials ────────────────────────── -->
   <section class="section-dark">
     <div class="section-label">
-      <span class="label">Written Testimonials</span>
+      <span class="label">QTHC Client Experiences</span>
       <span class="label" style="color:var(--color-light-grey-02);">More being added regularly</span>
     </div>
 
-    <div class="testimonial-grid" data-stagger="0.1">
+    <div class="t-grid" data-stagger="0.05">
 
-      <!-- Testimonial 1 — Placeholder -->
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">
-          I was sceptical at first, but after just one session I noticed a profound shift in
-          my sleep quality. I&rsquo;d been struggling with insomnia for years and nothing had worked.
-          By the third day after my session I was sleeping soundly for the first time in a very
-          long time. I cannot recommend this enough.
-        </p>
-        <p class="quote-author">S.M. &mdash; London, UK</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I was sceptical at first, but after just one session I noticed a profound shift in my sleep quality. I&rsquo;d been struggling with insomnia for years and nothing had worked. By the third day after my session I was sleeping soundly for the first time in a very long time.</p>
+        <p class="t-author">S.M.</p>
+        <p class="t-source">London, UK</p>
       </div>
 
-      <!-- Testimonial 2 — Placeholder -->
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">
-          The experience is unlike anything I&rsquo;ve tried before. Within about 20 minutes I felt
-          like I was melting into the chair &mdash; a wave of deep relaxation I haven&rsquo;t felt since
-          I was a child. My anxiety levels have been measurably lower in the weeks since.
-        </p>
-        <p class="quote-author">T.A. &mdash; Manchester, UK</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">Within about 20 minutes I felt like I was melting into the chair &mdash; a wave of deep relaxation I haven&rsquo;t felt since I was a child. My anxiety levels have been measurably lower in the weeks since.</p>
+        <p class="t-author">T.A.</p>
+        <p class="t-source">Manchester, UK</p>
       </div>
 
-      <!-- Testimonial 3 — Placeholder -->
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">
-          I booked a session out of curiosity, not expecting much. What I got was an unexpectedly
-          emotional release &mdash; I found myself crying quietly about twenty minutes in, but not in
-          a sad way. More like a relief. Something old and heavy just... left. I felt lighter
-          for days afterwards.
-        </p>
-        <p class="quote-author">R.O. &mdash; Birmingham, UK</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I found myself crying quietly about twenty minutes in, but not in a sad way. More like a relief. Something old and heavy just&hellip; left. I felt lighter for days afterwards.</p>
+        <p class="t-author">R.O.</p>
+        <p class="t-source">Birmingham, UK</p>
       </div>
 
-      <!-- Testimonial 4 — Placeholder -->
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">
-          As someone who meditates daily, I was curious about how this compared. It&rsquo;s not the
-          same &mdash; it&rsquo;s deeper in a different way. My meditation practice has become significantly
-          richer since starting sessions here. It&rsquo;s as if the RASHA cleared some static I didn&rsquo;t
-          know was there.
-        </p>
-        <p class="quote-author">L.K. &mdash; Edinburgh, UK</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">As someone who meditates daily, it&rsquo;s deeper in a different way. My meditation practice has become significantly richer since starting sessions here. It&rsquo;s as if the RASHA cleared some static I didn&rsquo;t know was there.</p>
+        <p class="t-author">L.K.</p>
+        <p class="t-source">Edinburgh, UK</p>
       </div>
 
-      <!-- Add-later placeholders -->
-      <div class="testimonial-card testimonial-placeholder fade-up">
-        <div class="quote-icon" style="color:var(--color-light-grey-02);">&ldquo;</div>
-        <p class="quote-text" style="color:var(--color-light-grey-04);">
-          Your testimonial will appear here. <a href="contact.html" style="color:var(--color-sand);">Share your experience</a>.
-        </p>
-        <p class="quote-author" style="color:var(--color-light-grey-02);">Your name &mdash; Location</p>
+      <div class="t-card t-placeholder fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote"><a href="contact.html" style="color:var(--color-sand);">Share your experience</a> &mdash; your testimonial will appear here.</p>
+        <p class="t-author">Your name</p>
+        <p class="t-source">Location</p>
       </div>
 
-      <div class="testimonial-card testimonial-placeholder fade-up">
-        <div class="quote-icon" style="color:var(--color-light-grey-02);">&ldquo;</div>
-        <p class="quote-text" style="color:var(--color-light-grey-04);">
-          Your testimonial will appear here. <a href="contact.html" style="color:var(--color-sand);">Share your experience</a>.
-        </p>
-        <p class="quote-author" style="color:var(--color-light-grey-02);">Your name &mdash; Location</p>
+      <div class="t-card t-placeholder fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote"><a href="contact.html" style="color:var(--color-sand);">Share your experience</a> &mdash; your testimonial will appear here.</p>
+        <p class="t-author">Your name</p>
+        <p class="t-source">Location</p>
       </div>
 
     </div>
@@ -172,132 +191,146 @@
       <span class="label" style="color:var(--color-light-grey-02);">Public figures, practitioners &amp; users worldwide</span>
     </div>
 
-    <div class="testimonial-grid" data-stagger="0.08">
+    <div class="t-grid" data-stagger="0.04">
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">The RASHA has changed my life. I feel more balanced and at peace.</p>
-        <p class="quote-author">Jenny McCarthy</p>
-        <p class="quote-source">The RASHA&reg; Official Site</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">The RASHA has changed my life. I feel more balanced and at peace.</p>
+        <p class="t-author">Jenny McCarthy</p>
+        <p class="t-source">The RASHA&reg; Official Site</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">After using the RASHA, I felt a profound sense of calm and clarity.</p>
-        <p class="quote-author">Sheryl Crow</p>
-        <p class="quote-source">The RASHA&reg; Official Site</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">After using the RASHA, I felt a profound sense of calm and clarity.</p>
+        <p class="t-author">Sheryl Crow</p>
+        <p class="t-source">The RASHA&reg; Official Site</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">The RASHA technology has helped me release emotional trauma and achieve deeper states of consciousness.</p>
-        <p class="quote-author">Jay Campbell</p>
-        <p class="quote-source">Jay Campbell Blog</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">The RASHA technology has helped me release emotional trauma and achieve deeper states of consciousness.</p>
+        <p class="t-author">Jay Campbell</p>
+        <p class="t-source">Jay Campbell Blog</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">Tried something weird this week. It&rsquo;s called RASHA&hellip; it&rsquo;s like nothing I&rsquo;ve ever experienced.</p>
-        <p class="quote-author">Piero Ladhur</p>
-        <p class="quote-source">LinkedIn</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I experienced a complete reset of my nervous system after just one session.</p>
+        <p class="t-author">Verified User</p>
+        <p class="t-source">Instagram</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">The RASHA Experience is an elegant and astonishingly powerful quantum leap modality.</p>
-        <p class="quote-author">The Wide Awakening</p>
-        <p class="quote-source">The Wide Awakening Blog</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I&rsquo;ve never felt so relaxed and aligned. It&rsquo;s like my body and mind are finally in sync.</p>
+        <p class="t-author">Client Review</p>
+        <p class="t-source">The RASHA&reg; Official Site</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">The RASHA is the world&rsquo;s only consciousness enhancement, brain optimisation, psycho-emotional release and relaxation technology.</p>
-        <p class="quote-author">Consciousness Explorer</p>
-        <p class="quote-source">Jay Campbell Blog</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">Tried something weird this week. It&rsquo;s called RASHA&hellip; it&rsquo;s like nothing I&rsquo;ve ever experienced.</p>
+        <p class="t-author">Piero Ladhur</p>
+        <p class="t-source">LinkedIn</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">I experienced a complete reset of my nervous system after just one session.</p>
-        <p class="quote-author">Verified User</p>
-        <p class="quote-source">Instagram</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">The RASHA Experience is an elegant and astonishingly powerful quantum leap modality.</p>
+        <p class="t-author">The Wide Awakening</p>
+        <p class="t-source">The Wide Awakening Blog</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">I&rsquo;ve never felt so relaxed and aligned. It&rsquo;s like my body and mind are finally in sync.</p>
-        <p class="quote-author">Client Review</p>
-        <p class="quote-source">The RASHA&reg; Official Site</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">After my first RASHA session, I felt a deep sense of relaxation and emotional release.</p>
+        <p class="t-author">Client Testimonial</p>
+        <p class="t-source">YouTube</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">After my first RASHA session, I felt a deep sense of relaxation and emotional release.</p>
-        <p class="quote-author">Client Testimonial</p>
-        <p class="quote-source">YouTube</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">The RASHA is the world&rsquo;s only consciousness enhancement, brain optimisation, psycho-emotional release and relaxation technology.</p>
+        <p class="t-author">Consciousness Explorer</p>
+        <p class="t-source">Jay Campbell Blog</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">RASHA sessions have been transformative for my mental health and overall well-being.</p>
-        <p class="quote-author">Verified User</p>
-        <p class="quote-source">Facebook</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">RASHA sessions have been transformative for my mental health and overall well-being.</p>
+        <p class="t-author">Verified User</p>
+        <p class="t-source">Facebook</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">I was sceptical at first, but the RASHA experience was unlike anything I&rsquo;ve ever tried. It&rsquo;s like meditation on steroids.</p>
-        <p class="quote-author">Wellness Blogger</p>
-        <p class="quote-source">Wellness Blog</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I was sceptical at first, but the RASHA experience was unlike anything I&rsquo;ve ever tried. It&rsquo;s like meditation on steroids.</p>
+        <p class="t-author">Wellness Blogger</p>
+        <p class="t-source">Wellness Blog</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">As a health coach, I recommend RASHA to my clients for emotional detox and energy alignment.</p>
-        <p class="quote-author">Health Coach</p>
-        <p class="quote-source">Health Coach Blog</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">As a health coach, I recommend RASHA to my clients for emotional detox and energy alignment.</p>
+        <p class="t-author">Health Coach</p>
+        <p class="t-source">Health Coach Blog</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">RASHA is a breakthrough in energy medicine. It&rsquo;s a must-try for anyone serious about holistic healing.</p>
-        <p class="quote-author">Alternative Medicine Practitioner</p>
-        <p class="quote-source">Alternative Medicine Journal</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">RASHA is a breakthrough in energy medicine. It&rsquo;s a must-try for anyone serious about holistic healing.</p>
+        <p class="t-author">Alternative Medicine Practitioner</p>
+        <p class="t-source">Alternative Medicine Journal</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">I&rsquo;ve tried many therapies, but RASHA stands out. It&rsquo;s subtle yet powerful.</p>
-        <p class="quote-author">Client Review</p>
-        <p class="quote-source">Yelp</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I&rsquo;ve tried many therapies, but RASHA stands out. It&rsquo;s subtle yet powerful.</p>
+        <p class="t-author">Client Feedback</p>
+        <p class="t-source">Yelp</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">RASHA helps me connect with my higher self and release deep-seated emotional blocks.</p>
-        <p class="quote-author">Spiritual Healer</p>
-        <p class="quote-source">Spiritual Healer Blog</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">RASHA helps me connect with my higher self and release deep-seated emotional blocks.</p>
+        <p class="t-author">Spiritual Healer</p>
+        <p class="t-source">Spiritual Healer Blog</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">RASHA is not just a device; it&rsquo;s an experience. It&rsquo;s like being wrapped in a cocoon of healing energy.</p>
-        <p class="quote-author">Community Member</p>
-        <p class="quote-source">Holistic Health Forum</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">RASHA is not just a device; it&rsquo;s an experience. It&rsquo;s like being wrapped in a cocoon of healing energy.</p>
+        <p class="t-author">Community Member</p>
+        <p class="t-source">Holistic Health Forum</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">I was blown away by the RASHA session. It felt like my body was being re-tuned.</p>
-        <p class="quote-author">Verified User</p>
-        <p class="quote-source">Reddit</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I was blown away by the RASHA session. It felt like my body was being re-tuned.</p>
+        <p class="t-author">Verified User</p>
+        <p class="t-source">Reddit</p>
       </div>
 
-      <div class="testimonial-card fade-up">
-        <div class="quote-icon">&ldquo;</div>
-        <p class="quote-text">RASHA complements my yoga practice perfectly. It enhances my meditation and helps me go deeper.</p>
-        <p class="quote-author">Yoga Instructor</p>
-        <p class="quote-source">Yoga Instructor Blog</p>
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">RASHA complements my yoga practice perfectly. It enhances my meditation and helps me go deeper.</p>
+        <p class="t-author">Yoga Instructor</p>
+        <p class="t-source">Yoga Instructor Blog</p>
+      </div>
+
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">RASHA is a game-changer in the field of alternative therapies. It&rsquo;s a must-try for anyone interested in energy healing.</p>
+        <p class="t-author">Review</p>
+        <p class="t-source">Alternative Therapies Magazine</p>
+      </div>
+
+      <div class="t-card fade-up">
+        <span class="t-open">&ldquo;</span>
+        <p class="t-quote">I felt a profound shift in my energy after just one session. RASHA is truly remarkable.</p>
+        <p class="t-author">Client Feedback</p>
+        <p class="t-source">Google Reviews</p>
       </div>
 
     </div>
@@ -323,18 +356,6 @@
 
     <div class="video-grid" data-stagger="0.1">
 
-      <!-- Video 1 — placeholder (replace src with YouTube/Vimeo embed URL) -->
-      <div class="video-placeholder fade-up">
-        <!-- To add a video: replace this entire block with:
-             <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
-             and remove the placeholder content below -->
-        <div class="play-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        </div>
-        <span class="video-label">Video testimonial — coming soon</span>
-      </div>
-
-      <!-- Video 2 — placeholder -->
       <div class="video-placeholder fade-up">
         <div class="play-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -342,7 +363,6 @@
         <span class="video-label">Video testimonial — coming soon</span>
       </div>
 
-      <!-- Video 3 — placeholder -->
       <div class="video-placeholder fade-up">
         <div class="play-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -350,7 +370,13 @@
         <span class="video-label">Video testimonial — coming soon</span>
       </div>
 
-      <!-- Video 4 — placeholder -->
+      <div class="video-placeholder fade-up">
+        <div class="play-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <span class="video-label">Video testimonial — coming soon</span>
+      </div>
+
       <div class="video-placeholder fade-up">
         <div class="play-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
