@@ -288,12 +288,13 @@ p, .body {
 }
 
 .nav-logo {
-  font-size: var(--font-cta);
+  font-size: clamp(0.8rem, 1.125vw, 1.125rem);
   font-weight: 600;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--color-light-grey);
   transition: opacity var(--duration-fast) var(--ease);
+  margin-left: -2vw;
 }
 
 .nav-logo:hover {
@@ -307,7 +308,7 @@ p, .body {
 }
 
 .nav-link {
-  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+  font-size: clamp(0.8rem, 1.125vw, 1.125rem);
   font-weight: 500;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
