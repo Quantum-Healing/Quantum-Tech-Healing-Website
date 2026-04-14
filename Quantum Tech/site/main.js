@@ -243,3 +243,100 @@
     }
   });
 })();
+
+
+/* ── Background Music ─────────────────────────────────────── */
+(function initMusic() {
+  const SRC         = 'My Audio.mp3';
+  const STORE_KEY   = 'qthc_audio';
+  const DEFAULT_VOL = 0.25; // 25% — ambient level, adjust here
+
+  const audio = document.createElement('audio');
+  audio.src     = SRC;
+  audio.loop    = true;
+  audio.volume  = DEFAULT_VOL;
+  audio.preload = 'auto';
+  document.body.appendChild(audio);
+
+  // ── Restore position & mute state across page navigations ──
+  const saved = JSON.parse(sessionStorage.getItem(STORE_KEY) || '{}');
+  if (saved.time)  audio.currentTime = saved.time;
+  const wasMuted = saved.muted === true;
+
+  window.addEventListener('beforeunload', () => {
+    sessionStorage.setItem(STORE_KEY, JSON.stringify({
+      time:  audio.currentTime,
+      muted: audio.muted
+    }));
+  });
+
+  // ── Attempt autoplay; fall back to first interaction ───────
+  audio.muted = wasMuted;
+  audio.play().catch(() => {
+    // Browser blocked autoplay — play silently on first click
+    audio.muted = true;
+    audio.play().catch(() => {});
+    const unlock = () => {
+      audio.muted = wasMuted;
+      if (audio.paused) audio.play().catch(() => {});
+      document.removeEventListener('click', unlock);
+    };
+    document.addEventListener('click', unlock, { once: true });
+  });
+
+  // ── Mute / unmute toggle button ────────────────────────────
+  const btn = document.createElement('button');
+  btn.setAttribute('aria-label', 'Toggle music');
+  Object.assign(btn.style, {
+    position:       'fixed',
+    bottom:         '1.8rem',
+    right:          '2rem',
+    zIndex:         '9999',
+    width:          '42px',
+    height:         '42px',
+    borderRadius:   '50%',
+    background:     'rgba(13,14,19,0.82)',
+    border:         '1px solid rgba(255,255,255,0.14)',
+    cursor:         'pointer',
+    display:        'flex',
+    alignItems:     'center',
+    justifyContent: 'center',
+    backdropFilter: 'blur(12px)',
+    transition:     'border-color 0.2s ease, opacity 0.2s ease',
+    outline:        'none',
+    padding:        '0'
+  });
+
+  const ICON_ON  = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+    stroke="rgba(200,168,130,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+  </svg>`;
+
+  const ICON_OFF = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+    stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <line x1="23" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="23" y2="15"/>
+  </svg>`;
+
+  const updateIcon = () => { btn.innerHTML = audio.muted ? ICON_OFF : ICON_ON; };
+  updateIcon();
+
+  btn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    if (!audio.muted && audio.paused) audio.play().catch(() => {});
+    updateIcon();
+  });
+
+  btn.addEventListener('mouseenter', () => {
+    btn.style.borderColor = 'rgba(200,168,130,0.45)';
+    btn.style.opacity = '1';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.borderColor = 'rgba(255,255,255,0.14)';
+  });
+
+  document.body.appendChild(btn);
+})();
