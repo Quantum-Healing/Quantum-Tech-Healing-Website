@@ -45,6 +45,31 @@
       .credential-item { flex-direction: column; gap: 2vw; }
       .cred-label { min-width: unset; }
     }
+
+    /* ── Operator Collage ─────────────────────────────────── */
+    .op-collage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 28vw;
+      gap: 0.4vw;
+    }
+    .op-collage-cell {
+      overflow: hidden;
+      background: var(--color-dark-grey-02);
+    }
+    .op-collage-cell.wide { grid-column: span 2; }
+    .op-collage-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    .op-collage-cell:hover img { transform: scale(1.04); }
+    @media (max-width: 600px) {
+      .op-collage { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 45vw; }
+      .op-collage-cell.wide { grid-column: span 1; }
+    }
   </style>
 </head>
 <body>
@@ -219,17 +244,44 @@
     </div>
   </section>
 
-  <!-- ── Images of centre ─────────────────────────────────── -->
-  <section class="section-dark">
-    <div class="section-label">
-      <span class="label">The Centre</span>
+  <!-- ── Operator Photo Collage ───────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div style="padding:4vw var(--margin-h) 2vw;">
+      <p class="label text-label fade-up">Dr Angela Soong</p>
     </div>
-    <div style="padding:var(--section-pad-v-sm) var(--margin-h);display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--grid-gap);">
-      <div class="img-placeholder fade-up" style="aspect-ratio:3/4;border-radius:0.5vw;">Centre — photo 1</div>
-      <div class="img-placeholder fade-up" style="aspect-ratio:3/4;border-radius:0.5vw;">Centre — photo 2</div>
-      <div class="img-placeholder fade-up" style="aspect-ratio:3/4;border-radius:0.5vw;">Centre — photo 3</div>
+    <div class="op-collage">
+      <!-- Row 1: wide + normal -->
+      <div class="op-collage-cell wide fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 01.56.16.jpeg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 01.58.52.jpeg" alt="Dr Angela Soong" />
+      </div>
+      <!-- Row 2: three equal -->
+      <div class="op-collage-cell fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 02.10.42.jpeg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 02.17.33.jpeg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 02.17.58.jpeg" alt="Dr Angela Soong" />
+      </div>
+      <!-- Row 3: normal + wide -->
+      <div class="op-collage-cell fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 02.18.28.jpeg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell wide fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 02.23.16 (1).jpeg" alt="Dr Angela Soong" />
+      </div>
+      <!-- Row 4: wide + normal -->
+      <div class="op-collage-cell wide fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 02.23.16.jpeg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operators/WhatsApp Image 2026-04-14 at 02.24.16.jpeg" alt="Dr Angela Soong" />
+      </div>
     </div>
-    <p class="disclaimer-banner">Photos of the Quantum Tech Healing Centre — to be added by the operator.</p>
   </section>
 
   <!-- ── Creator Origin ──────────────────────────────────── -->
