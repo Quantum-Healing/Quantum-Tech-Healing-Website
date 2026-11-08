@@ -1214,6 +1214,19 @@ p, .body {
   max-width: 45vw;
 }
 
+/* Split heroes need room for the heading and copy at every viewport size. */
+.split-page-hero { display:grid; grid-template-columns:3fr 2fr; min-height:480px; border-bottom:1px solid var(--color-light-grey-02); }
+.split-page-hero-content { min-height:0; padding:calc(var(--nav-height) + 4vw) 4vw 4vw var(--margin-h); border-bottom:0; justify-content:center; }
+.split-page-hero-content .page-title { font-size:clamp(3rem,6vw,7rem); }
+.split-page-hero-content .page-desc { max-width:100%; }
+.split-page-hero-image { min-height:100%; overflow:hidden; background:#0d0e13; }
+@media (max-width:700px) {
+  .split-page-hero { grid-template-columns:1fr; }
+  .split-page-hero-content { padding:calc(var(--nav-height) + 2rem) var(--margin-h) 2rem; }
+  .split-page-hero-content .page-title { font-size:clamp(2.6rem,11vw,5rem); }
+  .split-page-hero-image { height:55vw; min-height:220px; }
+}
+
 /* ── Disclaimer Banner ────────────────────────────────────── */
 .disclaimer-banner {
   padding: 2vw var(--margin-h);
