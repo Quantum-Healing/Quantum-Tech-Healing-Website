@@ -174,6 +174,13 @@
       padding: 0.3em 0.8em;
       margin-bottom: 1.5vw;
     }
+    .featured-videos { padding: 5vw var(--margin-h) 7vw; border-top: 1px solid var(--color-light-grey-02); }
+    .featured-videos-label { color: var(--color-sand); font-size: var(--font-label); letter-spacing: var(--ls-label); text-transform: uppercase; margin-bottom: 2vw; }
+    .featured-videos-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5vw; }
+    .featured-video { margin: 0; padding: 1vw; background: #1c1f2e; border: 1px solid #3a3d52; border-radius: 4px; }
+    .featured-video video { display: block; width: 100%; aspect-ratio: 480 / 848; object-fit: contain; background: #0d0e14; }
+    .featured-video figcaption { color: var(--color-light-grey-06); font-size: clamp(.8rem, 1vw, 1rem); padding: 1rem .3rem .3rem; }
+    @media (max-width: 700px) { .featured-videos-grid { grid-template-columns: 1fr; gap: 1rem; } .featured-video { padding: .6rem; } .featured-videos { padding-top: 2rem; } }
   </style>
 </head>
 <body>
@@ -221,6 +228,17 @@
       people sharing their experience in their own words.
     </p>
   </header>
+
+  <section class="featured-videos section-dark" aria-label="Client video testimonials">
+    <p class="featured-videos-label">Watch their stories</p>
+    <div class="featured-videos-grid">
+      <figure class="featured-video"><video controls preload="metadata" playsinline aria-label="Client video testimonial one"><source src="videos/whatsapp-03-17.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption>Client experience 01</figcaption></figure>
+      <figure class="featured-video"><video controls preload="metadata" playsinline aria-label="Client video testimonial 2"><source src="videos/sarj.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption>Client experience 02</figcaption></figure>
+      <figure class="featured-video"><video controls preload="metadata" playsinline aria-label="Client video testimonial 3"><source src="videos/WhatsApp%20Video%202026-11-08%20at%2000.09.50.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption>Client experience 03</figcaption></figure>
+      <figure class="featured-video"><video controls preload="metadata" playsinline aria-label="Client video testimonial four"><source src="videos/sarj2.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption>Client experience 04</figcaption></figure>
+      <figure class="featured-video"><video controls preload="metadata" playsinline aria-label="Client video testimonial five"><source src="videos/nina.mp4" type="video/mp4">Your browser does not support video playback.</video><figcaption>Client experience 05</figcaption></figure>
+    </div>
+  </section>
 
   <!-- ── QTHC Client Testimonials ────────────────────────── -->
   <section class="section-dark">
