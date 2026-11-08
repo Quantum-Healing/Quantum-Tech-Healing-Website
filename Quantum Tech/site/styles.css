@@ -288,12 +288,13 @@ p, .body {
 }
 
 .nav-logo {
-  font-size: 1.3vw;
+  font-size: clamp(0.8rem, 1.125vw, 1.125rem);
   font-weight: 600;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--color-light-grey);
   transition: opacity var(--duration-fast) var(--ease);
+  margin-left: -2vw;
 }
 
 .nav-logo:hover {
@@ -303,11 +304,11 @@ p, .body {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5vw;
+  gap: 2vw;
 }
 
 .nav-link {
-  font-size: 1vw;
+  font-size: clamp(0.8rem, 1.125vw, 1.125rem);
   font-weight: 500;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
@@ -416,7 +417,7 @@ p, .body {
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .hero-eyebrow {
-  font-size: 1.5vw;
+  font-size: var(--font-label);
   font-weight: 500;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
@@ -430,7 +431,7 @@ p, .body {
 .hero-eyebrow::before {
   content: '';
   display: block;
-  width: 4vw;
+  width: 2vw;
   height: 1px;
   background: var(--color-light-grey-04);
 }
@@ -896,6 +897,7 @@ p, .body {
   font-size: var(--font-h4);
   font-weight: 400;
   letter-spacing: var(--ls-heading);
+  color: var(--color-light-grey);
 }
 
 .faq-question .q-icon {
@@ -1072,98 +1074,6 @@ p, .body {
   border-bottom: 1px solid var(--color-dark-grey-02);
 }
 
-/* ── Site Intro Overlay ───────────────────────────────────── */
-#site-intro {
-  position: fixed;
-  inset: 0;
-  z-index: 9990;
-  background: #0d0d0d;
-  transition: opacity 0.9s ease;
-}
-#site-intro.outro {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#intro-loader {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: rgba(255,255,255,0.1);
-  z-index: 2;
-  transition: opacity 0.4s ease;
-}
-#intro-loader.hidden { opacity: 0; }
-#intro-loader-bar {
-  height: 100%;
-  width: 0%;
-  background: rgba(255,255,255,0.7);
-  transition: width 0.3s ease;
-}
-
-#intro-slides {
-  position: absolute;
-  inset: 0;
-}
-.intro-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.55s ease;
-}
-.intro-slide.active {
-  opacity: 1;
-}
-
-.intro-corner {
-  position: absolute;
-  font-size: 1.2vw;
-  color: rgba(255,255,255,0.5);
-  font-weight: 300;
-  line-height: 1;
-  z-index: 3;
-}
-.intro-corner--tl { top: 2.5vw;    left: 2.5vw;  }
-.intro-corner--tr { top: 2.5vw;    right: 2.5vw; }
-.intro-corner--bl { bottom: 2.5vw; left: 2.5vw;  }
-.intro-corner--br { bottom: 2.5vw; right: 2.5vw; }
-
-#intro-counter {
-  position: absolute;
-  bottom: 2.8vw;
-  left: 3vw;
-  font-size: 0.75vw;
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.55);
-  font-family: 'Space Grotesk', sans-serif;
-  z-index: 3;
-}
-
-#intro-thumbs {
-  position: absolute;
-  bottom: 2.5vw;
-  right: 3vw;
-  display: flex;
-  gap: 0.4vw;
-  z-index: 3;
-}
-.intro-thumb {
-  width: 4vw;
-  height: 2.5vw;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.35;
-  transition: opacity 0.3s ease;
-  cursor: default;
-}
-.intro-thumb.active {
-  opacity: 1;
-  outline: 1px solid rgba(255,255,255,0.5);
-  outline-offset: 2px;
-}
-
 .footer-logo {
   font-size: var(--font-h3);
   font-weight: 300;
@@ -1224,7 +1134,7 @@ p, .body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.5vw;
+  font-size: var(--font-label);
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--color-light-grey-04);
@@ -1232,7 +1142,7 @@ p, .body {
 }
 
 .scroll-line {
-  width: 6vw;
+  width: 3vw;
   height: 1px;
   background: var(--color-light-grey-04);
   position: relative;
@@ -1745,5 +1655,166 @@ p, .body {
   .pull-quote {
     font-size: var(--font-h3);
     padding: var(--section-pad-v-sm) var(--margin-h);
+  }
+}
+
+
+/* ============================================================
+   SCROLL-DRIVEN INTRO OVERLAY
+   Full-screen image grid inspired by nrly.co — columns drift
+   at different speeds for a parallax depth effect.
+   ============================================================ */
+
+/* ── Wrapper ──────────────────────────────────────────────── */
+#intro-scroll {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  overflow: hidden;
+  background: var(--color-dark-grey);
+  cursor: pointer;
+  user-select: none;
+}
+
+#intro-scroll.is-exiting {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ── Column grid ──────────────────────────────────────────── */
+.intro-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.3vw;
+  /* Extend beyond edges so scrolling never shows bare background */
+  left: -0.5vw;
+  right: -0.5vw;
+}
+
+.intro-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3vw;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@keyframes introScrollUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.intro-col[data-speed="0.7"]  { animation: introScrollUp 40s linear infinite; }
+.intro-col[data-speed="1.0"]  { animation: introScrollUp 28s linear infinite; }
+.intro-col[data-speed="0.85"] { animation: introScrollUp 33s linear infinite; }
+.intro-col[data-speed="1.15"] { animation: introScrollUp 24s linear infinite; }
+
+/* ── Individual image panels ──────────────────────────────── */
+.intro-img {
+  flex-shrink: 0;
+  width: 100%;
+  /* Portrait aspect ratio — same as nrly.co's 125% */
+  padding-top: 130%;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: var(--color-dark-grey-06);
+  position: relative;
+}
+
+.intro-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.25);
+}
+
+/* ── Text overlay ─────────────────────────────────────────── */
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 6vw var(--margin-h);
+  pointer-events: none;
+  z-index: 10;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 0.7) 0%,
+    transparent 55%
+  );
+}
+
+.intro-overlay-title {
+  font-size: clamp(3rem, 11vw, 16rem);
+  font-weight: 600;
+  letter-spacing: var(--ls-heading);
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--color-light-grey);
+  margin-bottom: 3vw;
+}
+
+.intro-overlay-hint {
+  font-size: var(--font-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-light-grey-04);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: intro-hint-pulse 2s ease-in-out infinite;
+}
+
+.intro-overlay-hint::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 4vw;
+  background: var(--color-light-grey-04);
+  animation: intro-hint-line 2s ease-in-out infinite;
+}
+
+@keyframes intro-hint-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes intro-hint-line {
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50% { transform: scaleY(1.4); opacity: 1; }
+}
+
+/* ── Progress bar ─────────────────────────────────────────── */
+.intro-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 20;
+}
+
+.intro-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-sand);
+  transition: width 0.05s linear;
+}
+
+/* ── Mobile adjustments ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .intro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .intro-overlay-title {
+    font-size: clamp(2.8rem, 13vw, 6rem);
   }
 }

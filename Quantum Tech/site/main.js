@@ -190,82 +190,153 @@
   document.querySelectorAll('[data-stagger]').forEach((parent) => {
     const delay = parseFloat(parent.dataset.stagger) || 0.1;
     Array.from(parent.children).forEach((child, i) => {
-      child.style.transitionDelay = `${i * delay}s`;
+      child.style.transitionDelay = `${Math.min(i * delay, 0.5)}s`;
     });
   });
 })();
 
 
-/* ── Site Intro Slideshow ────────────────────────────────── */
-(function initSiteIntro() {
-  const intro    = document.getElementById('site-intro');
+/* ── Randomise intro images on each page load ────────────── */
+(function randomiseIntroImages() {
+  const cols = document.querySelectorAll('#intro-scroll .intro-col');
+  if (!cols.length) return;
+  cols.forEach(col => {
+    const imgs = Array.from(col.querySelectorAll('.intro-img'));
+    const half = Math.floor(imgs.length / 2);
+    const set  = imgs.slice(0, half);
+    // Fisher-Yates shuffle
+    for (let i = set.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [set[i], set[j]] = [set[j], set[i]];
+    }
+    col.innerHTML = '';
+    set.forEach(img => col.appendChild(img));
+    set.forEach(img => col.appendChild(img.cloneNode(true)));
+  });
+})();
+
+/* ── Intro: auto-scroll columns, click/key to exit ──────── */
+(function initIntroScroll() {
+  const intro = document.getElementById('intro-scroll');
   if (!intro) return;
 
-  const slides   = Array.from(intro.querySelectorAll('.intro-slide'));
-  const thumbsEl = document.getElementById('intro-thumbs');
-  const curEl    = document.getElementById('intro-cur');
-  const loaderEl = document.getElementById('intro-loader');
-  const barEl    = document.getElementById('intro-loader-bar');
-
-  const TOTAL    = slides.length;
-  const DURATION = 1400; // ms each slide is shown
-  let   current  = 0;
-  let   timer    = null;
-
-  // Prevent body scroll during intro
   document.body.style.overflow = 'hidden';
 
-  // Set background images on slides and build thumbnail strip
-  slides.forEach((slide) => {
-    const src = slide.dataset.bg;
-    slide.style.backgroundImage = `url(${src})`;
-
-    const thumb = document.createElement('div');
-    thumb.className = 'intro-thumb';
-    thumb.style.backgroundImage = `url(${src})`;
-    thumbsEl.appendChild(thumb);
-  });
-
-  const thumbs = Array.from(thumbsEl.querySelectorAll('.intro-thumb'));
-
-  function activate(index) {
-    slides[current].classList.remove('active');
-    thumbs[current].classList.remove('active');
-    current = index;
-    slides[current].classList.add('active');
-    thumbs[current].classList.add('active');
-    curEl.textContent = String(current + 1).padStart(2, '0');
-  }
-
-  function advance() {
-    if (current < TOTAL - 1) {
-      activate(current + 1);
-    } else {
-      clearInterval(timer);
-      intro.classList.add('outro');
+  function exit() {
+    if (intro.classList.contains('is-exiting')) return;
+    intro.classList.add('is-exiting');
+    intro.addEventListener('transitionend', () => {
+      intro.remove();
       document.body.style.overflow = '';
-      intro.addEventListener('transitionend', () => intro.remove(), { once: true });
+      document.querySelectorAll('.animate-in, .fade-up, .title-mask').forEach((el) => {
+        if (!el.classList.contains('is-visible')) el.getBoundingClientRect();
+      });
+    }, { once: true });
+  }
+
+  intro.addEventListener('click', exit);
+  intro.addEventListener('wheel',     (e) => { e.preventDefault(); exit(); }, { passive: false });
+  intro.addEventListener('touchmove', (e) => { e.preventDefault(); exit(); }, { passive: false });
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'Space', 'PageDown', 'Enter'].includes(e.code)) {
+      e.preventDefault(); exit();
     }
-  }
+  });
+})();
 
-  function startSlideshow() {
-    loaderEl.classList.add('hidden');
-    activate(0);
-    timer = setInterval(advance, DURATION);
-  }
 
-  // Preload all images and track progress on the loading bar
-  let loaded = 0;
-  slides.forEach((slide) => {
-    const img = new Image();
-    img.onload = img.onerror = () => {
-      loaded++;
-      barEl.style.width = (loaded / TOTAL * 100) + '%';
-      if (loaded === TOTAL) startSlideshow();
-    };
-    img.src = slide.dataset.bg;
+/* ── Background Music ─────────────────────────────────────── */
+(function initMusic() {
+  const SRC         = 'My Audio.mp3';
+  const STORE_KEY   = 'qthc_audio';
+  const DEFAULT_VOL = 0.25; // 25% — ambient level, adjust here
+
+  const audio = document.createElement('audio');
+  audio.src     = SRC;
+  audio.loop    = true;
+  audio.volume  = DEFAULT_VOL;
+  audio.preload = 'auto';
+  document.body.appendChild(audio);
+
+  // ── Restore position & mute state across page navigations ──
+  const saved = JSON.parse(sessionStorage.getItem(STORE_KEY) || '{}');
+  if (saved.time)  audio.currentTime = saved.time;
+  const wasMuted = saved.muted === true;
+
+  window.addEventListener('beforeunload', () => {
+    sessionStorage.setItem(STORE_KEY, JSON.stringify({
+      time:  audio.currentTime,
+      muted: audio.muted
+    }));
   });
 
-  // Fallback: start anyway after 3s if preload stalls
-  setTimeout(() => { if (loaded < TOTAL) startSlideshow(); }, 3000);
+  // ── Attempt autoplay; fall back to first interaction ───────
+  audio.muted = wasMuted;
+  audio.play().catch(() => {
+    // Browser blocked autoplay — play silently on first click
+    audio.muted = true;
+    audio.play().catch(() => {});
+    const unlock = () => {
+      audio.muted = wasMuted;
+      if (audio.paused) audio.play().catch(() => {});
+      document.removeEventListener('click', unlock);
+    };
+    document.addEventListener('click', unlock, { once: true });
+  });
+
+  // ── Mute / unmute toggle button ────────────────────────────
+  const btn = document.createElement('button');
+  btn.setAttribute('aria-label', 'Toggle music');
+  Object.assign(btn.style, {
+    position:       'fixed',
+    bottom:         '1.8rem',
+    right:          '2rem',
+    zIndex:         '9999',
+    width:          '42px',
+    height:         '42px',
+    borderRadius:   '50%',
+    background:     'rgba(13,14,19,0.82)',
+    border:         '1px solid rgba(255,255,255,0.14)',
+    cursor:         'pointer',
+    display:        'flex',
+    alignItems:     'center',
+    justifyContent: 'center',
+    backdropFilter: 'blur(12px)',
+    transition:     'border-color 0.2s ease, opacity 0.2s ease',
+    outline:        'none',
+    padding:        '0'
+  });
+
+  const ICON_ON  = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+    stroke="rgba(200,168,130,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+  </svg>`;
+
+  const ICON_OFF = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+    stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <line x1="23" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="23" y2="15"/>
+  </svg>`;
+
+  const updateIcon = () => { btn.innerHTML = audio.muted ? ICON_OFF : ICON_ON; };
+  updateIcon();
+
+  btn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    if (!audio.muted && audio.paused) audio.play().catch(() => {});
+    updateIcon();
+  });
+
+  btn.addEventListener('mouseenter', () => {
+    btn.style.borderColor = 'rgba(200,168,130,0.45)';
+    btn.style.opacity = '1';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.borderColor = 'rgba(255,255,255,0.14)';
+  });
+
+  document.body.appendChild(btn);
 })();

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Operator — Quantum Tech Healing Centre</title>
-  <meta name="description" content="Meet the operator behind Quantum Tech Healing Centre — trained RASHA practitioner dedicated to quantum wellness in the UK." />
+  <title>The Operator &amp; The Creator — Quantum Tech Healing Centre</title>
+  <meta name="description" content="Meet the operator behind Quantum Tech Healing Centre and discover the origin story of RASHA — created by Jere Rivera-Dugenio following a profound near-death experience." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,6 +45,29 @@
       .credential-item { flex-direction: column; gap: 2vw; }
       .cred-label { min-width: unset; }
     }
+
+    /* ── Operator Collage ─────────────────────────────────── */
+    .op-collage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4vw;
+    }
+    .op-collage-cell {
+      overflow: hidden;
+      background: #0d0e13;
+    }
+    .op-collage-cell.wide { grid-column: span 2; }
+    .op-collage-cell img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    .op-collage-cell:hover img { transform: scale(1.04); }
+    @media (max-width: 600px) {
+      .op-collage { grid-template-columns: repeat(2, 1fr); }
+      .op-collage-cell.wide { grid-column: span 1; }
+    }
   </style>
 </head>
 <body>
@@ -54,10 +77,11 @@
       <a href="index.html" class="nav-logo">QTHC</a>
       <ul class="nav-links" role="list">
         <li><a href="rasha.html" class="nav-link">The RASHA</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+        <li><a href="treatments.html" class="nav-link">Treatments &amp; Programmes</a></li>
         <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-        <li><a href="operator.html" class="nav-link">The Operator</a></li>
-        <li><a href="science.html" class="nav-link">Science &amp; Pricing</a></li>
+        <li><a href="operator.html" class="nav-link">The Operator / Creator</a></li>
+        <li><a href="science.html" class="nav-link">Science</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
         <li><a href="faq.html" class="nav-link">FAQ</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -69,138 +93,321 @@
 
   <div class="nav-overlay" role="dialog" aria-label="Mobile navigation">
     <a href="rasha.html" class="overlay-link">The RASHA</a>
-    <a href="treatments.html" class="overlay-link">Treatments</a>
+    <a href="treatments.html" class="overlay-link">Treatments &amp; Programmes</a>
     <a href="testimonials.html" class="overlay-link">Testimonials</a>
-    <a href="operator.html" class="overlay-link">The Operator</a>
+    <a href="operator.html" class="overlay-link">The Operator / Creator</a>
     <a href="science.html" class="overlay-link">Science</a>
+    <a href="pricing.html" class="overlay-link">Pricing</a>
     <a href="faq.html" class="overlay-link">FAQ</a>
     <a href="contact.html" class="overlay-link">Contact</a>
   </div>
 
   <!-- ── Page Hero ────────────────────────────────────────── -->
   <header class="page-hero section-dark">
-    <p class="page-label">The person behind the centre</p>
+    <p class="page-label">The Operator &amp; The Creator</p>
     <h1 class="page-title animate-in">
-      <span class="title-mask"><span class="title-line">Meet the</span></span>
-      <span class="title-mask"><span class="title-line">Operator</span></span>
+      <span class="title-mask"><span class="title-line">The People</span></span>
+      <span class="title-mask"><span class="title-line">Behind RASHA</span></span>
     </h1>
     <p class="page-desc fade-up">
       Every RASHA session at the Quantum Tech Healing Centre is facilitated by a trained,
-      experienced operator. Our operator brings a unique combination of technical knowledge,
-      intuitive guidance, and a deep personal commitment to the wellbeing of every client.
+      experienced operator. On this page you will also find the origin story of RASHA itself —
+      and the remarkable individual whose experience brought it into existence.
     </p>
   </header>
 
   <!-- ── Operator Profile ─────────────────────────────────── -->
-  <section class="operator-layout section-dark">
-    <div class="operator-photo">
-      <div class="photo-placeholder" style="height:100%;min-height:50vw;border-radius:0;">
-        Operator photo — to be added
-      </div>
-    </div>
+  <section class="operator-layout section-dark" style="grid-template-columns:1fr;">
     <div class="operator-info">
       <p class="label text-label mb-sm fade-up">Founder &amp; Lead Operator</p>
       <h2 class="h2 fade-up" style="text-transform:uppercase;letter-spacing:var(--ls-display);">
-        [Name to be added]
+        Dr Angela Soong
       </h2>
       <div class="fade-up" style="margin-top:3vw;">
         <p class="body-lg text-muted">
-          [This section will be updated with the operator&rsquo;s personal bio, background, and journey
-          into quantum wellness. Please provide your story and we will craft it into the page.]
+          Most practitioners guide sessions. Dr Angela Soong directs outcomes.
         </p>
         <p class="body-lg text-muted mt-sm">
-          For now, here is a template outline: the operator&rsquo;s interest in healing technologies
-          began with a personal experience that conventional medicine could not fully address.
-          This led to years of exploring complementary and energy-based approaches, culminating
-          in training to become a certified RASHA operator.
+          As founder of the Quantum Tech Healing Centre, Dr Soong operates at the level of
+          quantum field interaction, scalar energy recalibration, and subconscious reprogramming.
+          This is not surface-level healing. This is source-level transformation.
         </p>
         <p class="body-lg text-muted mt-sm">
-          Every client who enters the centre is treated with the same care and intention — as
-          an individual with a unique energy field and a unique story. The operator&rsquo;s role is
-          to hold a safe, supportive space for whatever the RASHA technology brings to the surface.
+          Holding dual Doctorates in Quantum Tech Healing and Wealth Creation, and recognised
+          as a Humanitarian and UN Peace Ambassador, she is far from an ordinary operator.
+          Advanced qualifications in Rapid Transformational Therapy, Hypnotherapy, and Mindset
+          Coaching mean she understands precisely how the mind works &mdash; and how to move it.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          Where most modalities treat symptoms, Dr Soong works at the energetic blueprint.
+          She uniquely integrates quantum physics principles, energy healing systems, consciousness
+          and frequency work, and abundance alignment into a single coherent approach. The
+          technology supports the process. The operator delivers the result.
         </p>
       </div>
 
       <div class="credentials-list fade-up">
         <div class="credential-item">
-          <span class="cred-label">Training</span>
-          <span class="cred-value">[Certification / training details — to be added]</span>
-        </div>
-        <div class="credential-item">
-          <span class="cred-label">Experience</span>
-          <span class="cred-value">[Years of experience and background — to be added]</span>
-        </div>
-        <div class="credential-item">
-          <span class="cred-label">Approach</span>
-          <span class="cred-value">
-            Holistic, client-centred, and grounded in both the science of quantum field theory
-            and a deep respect for the wisdom of the body&rsquo;s own healing intelligence.
+          <span class="cred-label">Roles</span>
+          <span class="cred-value" style="display:flex;flex-direction:column;gap:0.6vw;">
+            <span>Quantum Healing Specialist</span>
+            <span>RASHA Technology Practitioner</span>
+            <span>UN Peace Ambassador</span>
+            <span>Global Transformation Leader</span>
           </span>
         </div>
         <div class="credential-item">
+          <span class="cred-label">Doctorates</span>
+          <span class="cred-value">Quantum Tech Healing &mdash; Wealth Creation</span>
+        </div>
+        <div class="credential-item">
+          <span class="cred-label">Qualifications</span>
+          <span class="cred-value">Rapid Transformational Therapy &mdash; Hypnotherapy &mdash; Mindset Coaching</span>
+        </div>
+        <div class="credential-item">
           <span class="cred-label">Location</span>
-          <span class="cred-value">United Kingdom &mdash; [Specific location to be added]</span>
+          <span class="cred-value">United Kingdom</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Philosophy Section ───────────────────────────────── -->
+  <!-- ── Operator Statement ───────────────────────────────── -->
   <section class="section-dark">
     <div class="pull-quote fade-up">
       <span class="quote-mark">&ldquo;</span>
-      [A personal quote from the operator about their approach to healing, the RASHA, and what
-      drives them — to be added when the operator provides their own words.]
-      <em class="label text-label" style="display:block;margin-top:2vw;">[Operator Name], QTHC</em>
+      It is a place of no time or space and where all information can exist.
+      <em class="label text-label" style="display:block;margin-top:2vw;">Dr Angela Soong</em>
     </div>
   </section>
 
-  <!-- ── Approach Cards ───────────────────────────────────── -->
+  <!-- ── Why Dr Angela Soong ──────────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div class="info-block">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">Why Dr Angela Soong</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          Precision. Not guesswork. Science and consciousness working as one.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          Dr Soong works at the quantum and energetic source level &mdash; the point where most
+          modalities simply cannot reach. Her background spans quantum physics principles, energy
+          medicine, consciousness and frequency work, and the mechanics of the mind. She does not
+          guess at what is needed. She reads the field and directs accordingly.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          The results this approach produces are not gradual or partial. They are fast, deep,
+          and lasting &mdash; because the change happens at the level where the pattern originates,
+          not at the surface where it presents. This is the operator advantage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Go-To Expert ─────────────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div class="info-block">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">Why she is the go-to expert</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          Quantum Healing Specialist. RASHA Technology Practitioner.
+          UN Peace Ambassador. Global Transformation Leader.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          These are not titles collected for the sake of it. Each represents a domain of
+          knowledge that Dr Soong has integrated into a single, coherent practice &mdash; one
+          that operates at the intersection of quantum physics, energy healing, consciousness
+          work, frequency medicine, abundance and success alignment, and a deep understanding
+          of how the mind actually functions beneath the surface.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          Holding dual Doctorates in Quantum Tech Healing and Wealth Creation, and recognised
+          internationally as a Humanitarian, she brings both rigour and humanity to this work.
+          She is an expert in the inner workings of the mind &mdash; not in the theoretical
+          sense, but in the applied, outcome-producing sense. With advanced qualifications in
+          Rapid Transformational Therapy, Hypnotherapy, and Mindset Coaching, she understands
+          precisely where people get stuck, why they stay stuck, and how to move them through it.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          She is far from an ordinary operator.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Operator Photo Collage ───────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div style="padding:4vw var(--margin-h) 2vw;">
+      <p class="label text-label fade-up">Dr Angela Soong</p>
+    </div>
+    <div class="op-collage">
+      <!-- Row 1: three equal -->
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 01.56.16-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 01.58.52-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+      <!-- Row 2: three equal -->
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 02.10.42-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 02.17.33-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 02.17.58-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+      <!-- Row 3: three equal -->
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 02.23.16 (1)-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 02.23.16-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+      <div class="op-collage-cell fade-up">
+        <img src="images/operator/WhatsApp Image 2026-04-14 at 02.24.16-800x800.jpg" alt="Dr Angela Soong" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Creator Origin ──────────────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div class="big-text-section">
+      <p class="label text-label mb-sm fade-up">The RASHA Creator</p>
+      <h2 class="big-text fade-up">The Origin of RASHA</h2>
+    </div>
+
+    <div class="info-block">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">A story beyond conventional science</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          There are moments in history where discovery does not follow a logical path.
+          The origin of RASHA is one of them.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          Certain knowledge, when it threatens the interests of those in power, is suppressed.
+          It disappears from the public record. And then &mdash; because it belongs to humanity,
+          not to any institution &mdash; it finds its way back.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-block" style="border-top:1px solid var(--color-light-grey-02);">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">The walk-in</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          Jere Rivera-Dugenio did not arrive at RASHA through study or research.
+          He arrived through an experience that changed everything.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          He experienced a profound near-death event &mdash; what he described as a
+          &ldquo;walk-in&rdquo;: an exchange of soul, by agreement, with another consciousness.
+          The person who came back bore no trace of the person who had entered. Physical markers
+          from years of drug addiction were gone. His character was unrecognisable to those who
+          knew him. What had been there before was simply no longer present.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          What replaced it was harder to explain. Each morning, Dr Jere woke carrying dense,
+          complex quantum physics formulations &mdash; vast files of information that had to be
+          written down before the day could begin. This continued for three years. When it was
+          finally complete, he sat with thousands of pages he did not fully understand himself.
+          It had not come from him. It had come through him.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          He took it to professors. Most could not follow it. He searched further, until he
+          found a team of NASA physicists who recognised what they were looking at. Curious,
+          they followed the information exactly as written &mdash; and built the device by hand.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          Every RASHA unit is still built by hand. There is no mass production. No plan for it.
+          Each device is intended to reach the right operator &mdash; someone called a Guardian.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-block" style="border-top:1px solid var(--color-light-grey-02);">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">A different kind of knowing</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          The knowledge that emerged did not feel learned. It felt remembered.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          Detailed understanding of frequency systems, resonance, energy fields outside
+          conventional measurement, and an informational architecture underlying the human body
+          &mdash; none of it had been studied. All of it arrived whole. Within certain schools
+          of consciousness research this is sometimes described as a walk-in: a sudden and
+          complete expansion in awareness, far beyond the prior state of the individual.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          Whether this represents an evolution of human consciousness, or an intelligence
+          reaching into the human system from somewhere beyond it, is not a question we try
+          to settle here. There is no single answer. And perhaps that is the point.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-block" style="border-top:1px solid var(--color-light-grey-02);">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">The emergence</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          From this experience, RASHA was built. Not to fix the body &mdash; but to
+          communicate with it.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          The system works through sound frequency, pulse electrical stimulation, and a noble
+          gas scalar field &mdash; not by forcing the body into a state, but by delivering
+          informational patterns that allow it to recognise what it has been holding and begin
+          to release it. Incoherent patterns accumulated through stress, trauma, and emotional
+          history are what sit at the root of much illness. RASHA addresses that layer.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          It alters biochemical pathways. It reprograms. It redirects. But none of it through
+          intervention in the chemical sense. It is the body hearing a signal it already
+          knows &mdash; and responding.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Creator Pull Quote ───────────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div class="pull-quote fade-up">
+      <span class="quote-mark">&ldquo;</span>
+      What becomes possible when your system returns to its natural state of balance, clarity,
+      and coherence? The answer is not something you read. It is something you feel.
+    </div>
+  </section>
+
+  <!-- ── The Invitation ───────────────────────────────────── -->
   <section class="section-light">
     <div class="page-hero" style="min-height:auto;padding-top:8vw;background:var(--color-off-white);">
-      <p class="page-label" style="color:var(--color-dark-grey-04);">The approach</p>
-      <h2 class="page-title" style="color:var(--color-dark-grey);">How sessions are run</h2>
+      <p class="page-label" style="color:var(--color-dark-grey-04);">An open perspective</p>
+      <h2 class="page-title" style="color:var(--color-dark-grey);">Arrive as you are.</h2>
+      <p class="page-desc fade-up" style="color:var(--color-dark-grey-06);max-width:55vw;">
+        We do not ask you to hold this story in any particular way. Whether you arrive as a
+        scientist, a seeker, or simply someone who is suffering and open to something
+        different &mdash; the experience is available to you. Come with questions. Come with
+        scepticism. Come with hope. The body does not require belief to respond.
+      </p>
+      <p class="page-desc fade-up" style="color:var(--color-dark-grey-06);max-width:55vw;margin-top:2vw;">
+        Come curious, open minded, open heartedly &mdash; allowing easy absorption of the frequencies
+        and moving through the process without resistance. Transformation is individual, but the
+        success rate increases when you arrive willing.
+      </p>
     </div>
-
-    <div class="card-grid" style="background:var(--color-off-white);padding-top:0;" data-stagger="0.1">
-      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
-        <span class="card-number" style="color:var(--color-dark-grey-04);">Before</span>
-        <h3 class="card-title" style="color:var(--color-dark-grey);">Initial Consultation</h3>
-        <p class="card-body" style="color:var(--color-dark-grey-06);">
-          Every new client begins with a brief consultation. Your goals, current health situation,
-          and any concerns are listened to carefully. Sessions are then calibrated accordingly.
-        </p>
-      </div>
-      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
-        <span class="card-number" style="color:var(--color-dark-grey-04);">During</span>
-        <h3 class="card-title" style="color:var(--color-dark-grey);">Attentive Monitoring</h3>
-        <p class="card-body" style="color:var(--color-dark-grey-06);">
-          The operator remains present throughout every session, monitoring the RASHA system
-          and your responses, adjusting settings gently as needed to support your experience.
-        </p>
-      </div>
-      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
-        <span class="card-number" style="color:var(--color-dark-grey-04);">After</span>
-        <h3 class="card-title" style="color:var(--color-dark-grey);">Guided Integration</h3>
-        <p class="card-body" style="color:var(--color-dark-grey-06);">
-          After your session, time is always made to discuss your experience, offer any guidance
-          on integration, and advise on the best path forward for your continued wellbeing.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Images of centre ─────────────────────────────────── -->
-  <section class="section-dark">
-    <div class="section-label">
-      <span class="label">The Centre</span>
-    </div>
-    <div style="padding:var(--section-pad-v-sm) var(--margin-h);display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--grid-gap);">
-      <div class="img-placeholder fade-up" style="aspect-ratio:3/4;border-radius:0.5vw;">Centre — photo 1</div>
-      <div class="img-placeholder fade-up" style="aspect-ratio:3/4;border-radius:0.5vw;">Centre — photo 2</div>
-      <div class="img-placeholder fade-up" style="aspect-ratio:3/4;border-radius:0.5vw;">Centre — photo 3</div>
-    </div>
-    <p class="disclaimer-banner">Photos of the Quantum Tech Healing Centre — to be added by the operator.</p>
   </section>
 
   <!-- ── CTA ──────────────────────────────────────────────── -->
@@ -230,11 +437,12 @@
       <div>
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-links">
-          <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
-          <li><a href="treatments.html" class="footer-link">Treatments</a></li>
+          <li><a href="rasha.html" class="footer-link">The RASHA Technology</a></li>
+          <li><a href="treatments.html" class="footer-link">Treatments &amp; Programmes</a></li>
           <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
-          <li><a href="operator.html" class="footer-link">The Operator</a></li>
-          <li><a href="science.html" class="footer-link">Science &amp; Pricing</a></li>
+          <li><a href="operator.html" class="footer-link">The Operator / Creator</a></li>
+          <li><a href="science.html" class="footer-link">Science</a></li>
+          <li><a href="pricing.html" class="footer-link">Pricing</a></li>
           <li><a href="questionnaire.html" class="footer-link">Questionnaire</a></li>
           <li><a href="faq.html" class="footer-link">FAQ</a></li>
           <li><a href="contact.html" class="footer-link">Contact</a></li>
@@ -244,8 +452,10 @@
       <div>
         <p class="footer-col-title">Contact</p>
         <ul class="footer-links">
+          <li class="footer-link">Solihull, B91 1LB</li>
           <li class="footer-link">United Kingdom</li>
-          <li><a href="mailto:info@qthc.co.uk" class="footer-link">info@qthc.co.uk</a></li>
+          <li><a href="mailto:quantumtechhealingcentre@gmail.com" class="footer-link">quantumtechhealingcentre@gmail.com</a></li>
+          <li><a href="https://wa.me/447833291552" class="footer-link" target="_blank" rel="noopener">WhatsApp: +44 7833 291552</a></li>
         </ul>
       </div>
     </div>
@@ -259,4 +469,139 @@
 
   <script src="main.js"></script>
 </body>
-</html>
+</html>  <!-- ── Creator Origin ──────────────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div class="big-text-section">
+      <p class="label text-label mb-sm fade-up">The RASHA Creator</p>
+      <h2 class="big-text fade-up">The Origin of RASHA</h2>
+    </div>
+
+    <div class="info-block">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">A story beyond conventional science</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          There are moments in history where discovery does not follow a logical path.
+          The origin of RASHA is one of them.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          Certain knowledge, when it threatens the interests of those in power, is suppressed.
+          It disappears from the public record. And then &mdash; because it belongs to humanity,
+          not to any institution &mdash; it finds its way back.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-block" style="border-top:1px solid var(--color-light-grey-02);">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">The walk-in</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          Jere Rivera-Dugenio did not arrive at RASHA through study or research.
+          He arrived through an experience that changed everything.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          He experienced a profound near-death event &mdash; what he described as a
+          &ldquo;walk-in&rdquo;: an exchange of soul, by agreement, with another consciousness.
+          The person who came back bore no trace of the person who had entered. Physical markers
+          from years of drug addiction were gone. His character was unrecognisable to those who
+          knew him. What had been there before was simply no longer present.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          What replaced it was harder to explain. Each morning, Dr Jere woke carrying dense,
+          complex quantum physics formulations &mdash; vast files of information that had to be
+          written down before the day could begin. This continued for three years. When it was
+          finally complete, he sat with thousands of pages he did not fully understand himself.
+          It had not come from him. It had come through him.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          He took it to professors. Most could not follow it. He searched further, until he
+          found a team of NASA physicists who recognised what they were looking at. Curious,
+          they followed the information exactly as written &mdash; and built the device by hand.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          Every RASHA unit is still built by hand. There is no mass production. No plan for it.
+          Each device is intended to reach the right operator &mdash; someone called a Guardian.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-block" style="border-top:1px solid var(--color-light-grey-02);">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">A different kind of knowing</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          The knowledge that emerged did not feel learned. It felt remembered.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          Detailed understanding of frequency systems, resonance, energy fields outside
+          conventional measurement, and an informational architecture underlying the human body
+          &mdash; none of it had been studied. All of it arrived whole. Within certain schools
+          of consciousness research this is sometimes described as a walk-in: a sudden and
+          complete expansion in awareness, far beyond the prior state of the individual.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          Whether this represents an evolution of human consciousness, or an intelligence
+          reaching into the human system from somewhere beyond it, is not a question we try
+          to settle here. There is no single answer. And perhaps that is the point.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-block" style="border-top:1px solid var(--color-light-grey-02);">
+      <div class="fade-up">
+        <p class="label text-label mb-sm">The emergence</p>
+        <h3 class="h4 text-sand" style="line-height:1.5;letter-spacing:var(--ls-heading);">
+          From this experience, RASHA was built. Not to fix the body &mdash; but to
+          communicate with it.
+        </h3>
+      </div>
+      <div class="fade-up">
+        <p class="body-lg text-muted">
+          The system works through sound frequency, pulse electrical stimulation, and a noble
+          gas scalar field &mdash; not by forcing the body into a state, but by delivering
+          informational patterns that allow it to recognise what it has been holding and begin
+          to release it. Incoherent patterns accumulated through stress, trauma, and emotional
+          history are what sit at the root of much illness. RASHA addresses that layer.
+        </p>
+        <p class="body-lg text-muted mt-sm">
+          It alters biochemical pathways. It reprograms. It redirects. But none of it through
+          intervention in the chemical sense. It is the body hearing a signal it already
+          knows &mdash; and responding.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Creator Pull Quote ───────────────────────────────── -->
+  <section class="section-dark" style="border-top:1px solid var(--color-light-grey-02);">
+    <div class="pull-quote fade-up">
+      <span class="quote-mark">&ldquo;</span>
+      What becomes possible when your system returns to its natural state of balance, clarity,
+      and coherence? The answer is not something you read. It is something you feel.
+    </div>
+  </section>
+
+  <!-- ── The Invitation ───────────────────────────────────── -->
+  <section class="section-light">
+    <div class="page-hero" style="min-height:auto;padding-top:8vw;background:var(--color-off-white);">
+      <p class="page-label" style="color:var(--color-dark-grey-04);">An open perspective</p>
+      <h2 class="page-title" style="color:var(--color-dark-grey);">Arrive as you are.</h2>
+      <p class="page-desc fade-up" style="color:var(--color-dark-grey-06);max-width:55vw;">
+        We do not ask you to hold this story in any particular way. Whether you arrive as a
+        scientist, a seeker, or simply someone who is suffering and open to something
+        different &mdash; the experience is available to you. Come with questions. Come with
+        scepticism. Come with hope. The body does not require belief to respond.
+      </p>
+      <p class="page-desc fade-up" style="color:var(--color-dark-grey-06);max-width:55vw;margin-top:2vw;">
+        Come curious, open minded, open heartedly &mdash; allowing easy absorption of the frequencies
+        and moving through the process without resistance. Transformation is individual, but the
+        success rate increases when you arrive willing.
+      </p>
+    </div>
+  </section>
+
+  

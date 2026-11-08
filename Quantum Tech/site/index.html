@@ -186,34 +186,285 @@
       .teaser-4 .teaser-item:nth-child(4) { border-right: none; }
       .cta-strip .cta-sub { max-width: 85vw; }
     }
+
+    /* ── Photo Gallery ────────────────────────────────────── */
+    .gallery-section {
+      padding: var(--section-pad-v) var(--margin-h);
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3vw;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 18vw;
+      gap: 0.4vw;
+    }
+    .gallery-grid .g-img {
+      overflow: hidden;
+      background: var(--color-dark-grey-02);
+    }
+    .gallery-grid .g-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    .gallery-grid .g-img:hover img {
+      transform: scale(1.04);
+    }
+    /* Featured spanning cells */
+    .gallery-grid .g-wide  { grid-column: span 2; }
+    .gallery-grid .g-tall  { grid-row: span 2; }
+    .gallery-grid .g-large { grid-column: span 2; grid-row: span 2; }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 40vw; }
+      .gallery-grid .g-wide  { grid-column: span 1; }
+      .gallery-grid .g-tall  { grid-row: span 1; }
+      .gallery-grid .g-large { grid-column: span 1; grid-row: span 1; }
+      .gallery-header { flex-direction: column; align-items: flex-start; gap: 2vw; }
+    }
+
+    /* ── Impact Section ───────────────────────────────────── */
+    .impact-section {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .impact-opening {
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 4vw;
+      padding: 4vw var(--margin-h) 12vw;
+    }
+    .impact-h1 {
+      font-size: clamp(3.5rem, 10vw, 15rem);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      text-transform: uppercase;
+      line-height: 1.0;
+      margin-bottom: 0;
+    }
+    .impact-lead {
+      font-size: clamp(1.2rem, 2.8vw, 3.2rem);
+      font-weight: 300;
+      color: var(--color-light-grey-06);
+      max-width: 75vw;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+    .impact-release {
+      font-size: clamp(1rem, 2.2vw, 2.6rem);
+      font-weight: 400;
+      color: var(--color-sand);
+      letter-spacing: 0.02em;
+    }
+    .impact-secondary {
+      border-left: 1px solid var(--color-light-grey-02);
+      padding: 10vw var(--margin-h) 10vw calc(var(--margin-h) + 2vw);
+      max-width: 80vw;
+    }
+    .impact-secondary-line {
+      font-size: var(--font-h3);
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+      text-transform: uppercase;
+      margin-bottom: 2vw;
+    }
+    .impact-secondary-body {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: var(--lh-body);
+    }
+    .impact-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--grid-gap);
+      padding: 10vw var(--margin-h);
+      border-top: 1px solid var(--color-light-grey-02);
+    }
+    .impact-body p {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: var(--lh-body);
+    }
+    .impact-cta-row {
+      margin-top: 3vw;
+      grid-column: 1 / -1;
+    }
+    .impact-cta-btn { font-size: var(--font-body-lg); }
+    .impact-closing {
+      border-top: 1px solid var(--color-light-grey-02);
+      padding: 6vw var(--margin-h) 8vw;
+    }
+    .impact-closing p {
+      font-size: var(--font-body-lg);
+      color: var(--color-light-grey-06);
+      line-height: 1.8;
+    }
+    .impact-closing-line {
+      font-size: var(--font-h3) !important;
+      font-weight: 300;
+      color: var(--color-light-grey) !important;
+      letter-spacing: var(--ls-heading);
+      margin-bottom: 1vw;
+    }
+    .impact-closing-tag {
+      font-size: var(--font-h4) !important;
+      color: var(--color-sand) !important;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: var(--ls-label);
+      margin-bottom: 3vw;
+    }
+    .impact-rasha-tag {
+      margin-top: 4vw;
+      font-size: var(--font-h4) !important;
+      color: var(--color-light-grey) !important;
+      font-weight: 300;
+      letter-spacing: var(--ls-heading);
+    }
+    @media (max-width: 600px) {
+      .impact-opening { padding: 16vw var(--margin-h) 12vw; }
+      .impact-lead { max-width: 90vw; }
+      .impact-secondary { max-width: 90vw; padding: 12vw var(--margin-h); }
+      .impact-body { grid-template-columns: 1fr; padding: 12vw var(--margin-h); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ── Site Intro Overlay ───────────────────────────────── -->
-  <div id="site-intro" aria-hidden="true">
-    <div id="intro-loader"><div id="intro-loader-bar"></div></div>
-    <div id="intro-slides">
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc1/1920/1080"></div>
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc2/1920/1080"></div>
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc3/1920/1080"></div>
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc4/1920/1080"></div>
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc5/1920/1080"></div>
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc6/1920/1080"></div>
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc7/1920/1080"></div>
-      <div class="intro-slide" data-bg="https://picsum.photos/seed/qthc8/1920/1080"></div>
+  <!-- ── Scroll-Driven Intro ─────────────────────────────── -->
+  <div id="intro-scroll" aria-hidden="true">
+    <div class="intro-grid">
+      <!-- Column 1 — speed 0.7 (slowest) -->
+      <div class="intro-col" data-speed="0.7">
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (1).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (2).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (3).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.52.28.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.21.36.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-11 at 23.08.38.jpeg');"></div>
+        <!-- Duplicates for seamless loop -->
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (1).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (2).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (3).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.52.28.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.21.36.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-11 at 23.08.38.jpeg');"></div>
+      </div>
+      <!-- Column 2 — speed 1.0 -->
+      <div class="intro-col" data-speed="1.0">
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (4).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (5).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (6).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (7).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.52.42.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-11 at 23.15.04.jpeg');"></div>
+        <!-- Duplicates for seamless loop -->
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (4).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (5).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (6).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.00 (7).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.52.42.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-11 at 23.15.04.jpeg');"></div>
+      </div>
+      <!-- Column 3 — speed 0.85 -->
+      <div class="intro-col" data-speed="0.85">
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14 (1).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14 (2).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (1).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (2).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-11 at 23.10.42.jpeg');"></div>
+        <!-- Duplicates for seamless loop -->
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14 (1).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14 (2).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (1).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (2).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-11 at 23.10.42.jpeg');"></div>
+      </div>
+      <!-- Column 4 — speed 1.15 (fastest) -->
+      <div class="intro-col" data-speed="1.15">
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14 (3).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.50.37.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.59.14.jpeg');background-position:top right;"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (3).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (4).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (5).jpeg');"></div>
+        <!-- Duplicates for seamless loop -->
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.45.14 (3).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.50.37.jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 19.59.14.jpeg');background-position:top right;"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (3).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (4).jpeg');"></div>
+        <div class="intro-img" style="background-image:url('images/WhatsApp Image 2026-04-09 at 23.30.02 (5).jpeg');"></div>
+      </div>
     </div>
-    <span class="intro-corner intro-corner--tl">+</span>
-    <span class="intro-corner intro-corner--tr">+</span>
-    <span class="intro-corner intro-corner--bl">+</span>
-    <span class="intro-corner intro-corner--br">+</span>
-    <div id="intro-counter">
-      <span id="intro-cur">01</span>
-      <span class="intro-dash"> — </span>
-      <span id="intro-tot">08</span>
+
+    <div class="intro-overlay">
+      <p class="intro-overlay-title">Quantum Tech<br>Healing Centre</p>
+      <p class="intro-overlay-hint">Click to enter</p>
     </div>
-    <div id="intro-thumbs"></div>
   </div>
+
+  <!-- ── Impact Section ─────────────────────────────────── -->
+  <section class="impact-section section-dark">
+
+    <div class="impact-opening fade-up">
+      <h2 class="impact-h1">Are you tired<br>of suffering?</h2>
+      <p class="impact-lead">Done with pain that won&rsquo;t move, weight that won&rsquo;t lift, a mind that won&rsquo;t quiet?</p>
+      <p class="impact-release">This is where stored pain finally gets released &mdash; not managed. <em>Released.</em></p>
+    </div>
+
+    <div class="impact-secondary fade-up">
+      <p class="impact-secondary-line">Suffering shouldn&rsquo;t be your baseline.</p>
+      <p class="impact-secondary-body">Pain, inflammation, emotional weight &mdash; these are signals, not sentences.<br>When you reset the frequency, you reset the life.</p>
+    </div>
+
+    <div class="impact-body fade-up">
+      <p>
+        Step into a realm of advanced pure targeted healing frequencies, direct in the quantum field on scalar energy.
+        It will be a transformative experience &mdash; your energetic bio-field will energetically reset &amp; elevate.
+      </p>
+      <p>
+        We gently reprogram your mind &amp; body towards balance, where you may find relief from all types of suffering.
+        From physical pain, emotional pain, to even releasing mental blockages &mdash; including sufferings of trauma,
+        depression &amp; anxiety.
+      </p>
+      <div class="impact-cta-row">
+        <a href="treatments.html" class="btn btn-outline impact-cta-btn">View our programmes guide &rarr;</a>
+      </div>
+    </div>
+
+    <div class="impact-closing fade-up">
+      <p class="impact-closing-line">Don&rsquo;t wait to be ready. Don&rsquo;t suffer another day more.</p>
+      <p class="impact-closing-tag">Change your frequency, change your life.</p>
+      <p>Vibrate at a higher level where your lower energy resonance blockages start dissipating.</p>
+      <p><strong>This is serious energy work.</strong></p>
+      <p>This is your investment &mdash; you need to have an open heart and mind.</p>
+      <p>We are selective. Not all clients will be suitable and need to be interviewed. We are not apologetic.</p>
+      <div class="impact-cta-row">
+        <a href="contact.html" class="btn">Book your interview for suitability</a>
+      </div>
+      <p class="impact-rasha-tag">The RASHA experience &mdash; <em>Feel the difference.</em></p>
+    </div>
+
+  </section>
 
   <!-- ── Navigation ──────────────────────────────────────── -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -221,10 +472,11 @@
       <a href="index.html" class="nav-logo">QTHC</a>
       <ul class="nav-links" role="list">
         <li><a href="rasha.html" class="nav-link">The RASHA</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+        <li><a href="treatments.html" class="nav-link">Treatments &amp; Programmes</a></li>
         <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-        <li><a href="operator.html" class="nav-link">The Operator</a></li>
-        <li><a href="science.html" class="nav-link">Science &amp; Pricing</a></li>
+        <li><a href="operator.html" class="nav-link">The Operator / Creator</a></li>
+        <li><a href="science.html" class="nav-link">Science</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
         <li><a href="faq.html" class="nav-link">FAQ</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -237,10 +489,11 @@
   <!-- Mobile overlay menu -->
   <div class="nav-overlay" role="dialog" aria-label="Mobile navigation">
     <a href="rasha.html" class="overlay-link">The RASHA</a>
-    <a href="treatments.html" class="overlay-link">Treatments</a>
+    <a href="treatments.html" class="overlay-link">Treatments &amp; Programmes</a>
     <a href="testimonials.html" class="overlay-link">Testimonials</a>
-    <a href="operator.html" class="overlay-link">The Operator</a>
+    <a href="operator.html" class="overlay-link">The Operator / Creator</a>
     <a href="science.html" class="overlay-link">Science</a>
+    <a href="pricing.html" class="overlay-link">Pricing</a>
     <a href="faq.html" class="overlay-link">FAQ</a>
     <a href="contact.html" class="overlay-link">Contact</a>
   </div>
@@ -249,33 +502,22 @@
   <section class="section-hero section-dark" aria-label="Hero">
     <!-- Background image placeholder — replace src with your photo -->
     <div class="hero-bg" aria-hidden="true">
-      <div class="img-placeholder hero-bg-image" style="height:100%;border-radius:0;">Photo of centre</div>
+      <img src="images/Screenshot 2026-04-16 005111.png" alt="Quantum Tech Healing Centre" class="hero-bg-image" />
       <div class="hero-bg-gradient"></div>
     </div>
 
     <div class="hero-content">
       <p class="hero-eyebrow fade-up">Quantum Tech Healing Centre &mdash; United Kingdom</p>
 
-      <h1 class="hero-title" style="font-size:var(--font-h1);">
-        <span class="title-mask animate-in">
-          <span class="title-line">Quantum Tech</span>
-        </span>
-        <span class="title-mask animate-in">
-          <span class="title-line">Healing</span>
-        </span>
-        <span class="title-mask animate-in">
-          <span class="title-line">Centre</span>
-        </span>
-      </h1>
-
-      <p class="hero-subtitle fade-up">
-        Where quantum science meets the wisdom of energy healing.
-        Experience the transformative power of scalar technology —
-        bringing body, mind, and energy field into balance.
-        Imbalances are often linked to many health and wellbeing concerns.
-        Restoring harmony using carefully calibrated frequencies and vibrations
-        may support overall wellness.
-      </p>
+      <div class="hero-straplines">
+        <p class="fade-up" style="font-size:var(--font-h1);font-weight:300;letter-spacing:var(--ls-heading);text-transform:uppercase;line-height:1.1;margin:0 0 0.4em;">Your Advanced healing journey starts here</p>
+        <p class="fade-up" style="font-size:var(--font-h2);font-weight:300;letter-spacing:var(--ls-heading);text-transform:uppercase;line-height:1.15;margin:0 0 0.4em;color:var(--color-light-grey-08);">Awaken your highest frequency, upgrade your life</p>
+        <p class="fade-up" style="font-size:var(--font-h3);font-weight:300;letter-spacing:var(--ls-heading);text-transform:uppercase;line-height:1.2;margin:0 0 0.35em;color:var(--color-light-grey-06);">Private Frequency alignment sessions</p>
+        <p class="fade-up" style="font-size:3.8vw;font-weight:300;letter-spacing:var(--ls-heading);text-transform:uppercase;line-height:1.2;margin:0 0 0.35em;color:var(--color-light-grey-06);">Reprogram your mind-body, optimise through sound resonance</p>
+        <p class="fade-up" style="font-size:var(--font-h4);font-weight:300;letter-spacing:var(--ls-heading);text-transform:uppercase;line-height:1.25;margin:0 0 0.3em;color:var(--color-light-grey-04);">Change your frequency, change your life</p>
+        <p class="fade-up" style="font-size:2.2vw;font-weight:300;letter-spacing:var(--ls-heading);text-transform:uppercase;line-height:1.3;margin:0 0 0.3em;color:var(--color-light-grey-04);">Pain and suffering can dissipate</p>
+        <p class="fade-up" style="font-size:var(--font-body-lg);font-weight:300;letter-spacing:var(--ls-heading);text-transform:uppercase;line-height:1.4;margin:0;color:var(--color-light-grey-04);">Elevate your energy and clarity</p>
+      </div>
 
       <div class="hero-ctas fade-up">
         <a href="contact.html" class="btn btn-primary">Book a Session</a>
@@ -381,9 +623,7 @@
       </div>
     </div>
     <div class="rasha-image">
-      <div class="img-placeholder" style="height:100%;min-height:40vw;border-radius:0;">
-        Photo — RASHA Machine
-      </div>
+      <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (5).jpeg" alt="The RASHA machine — scalar energy healing device" style="width:100%;height:100%;object-fit:cover;min-height:40vw;display:block;" />
     </div>
   </section>
 
@@ -394,6 +634,107 @@
     Every session with the RASHA is an invitation to remember that.
     <em class="label text-label" style="display:block;margin-top:2vw;">Quantum Tech Healing Centre</em>
   </div>
+
+  <!-- ── Photo Gallery ──────────────────────────────────────── -->
+  <section class="gallery-section section-dark" aria-label="Centre photography">
+    <div class="gallery-header fade-up">
+      <div>
+        <p class="label text-label mb-sm">Our Centre &amp; Sessions</p>
+        <h2 class="h3" style="font-weight:300;letter-spacing:var(--ls-heading);">A glimpse inside the experience</h2>
+      </div>
+      <a href="testimonials.html" class="btn-arrow" style="color:var(--color-light-grey-06);">
+        Watch testimonials
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Row 1 -->
+      <div class="g-img g-large fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00.jpeg" alt="Quantum Tech Healing Centre" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (1).jpeg" alt="Healing session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (2).jpeg" alt="RASHA technology" />
+      </div>
+      <div class="g-img g-tall fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (3).jpeg" alt="Session experience" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (4).jpeg" alt="Energy healing" />
+      </div>
+      <!-- Row 2 -->
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (5).jpeg" alt="Scalar frequency" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (6).jpeg" alt="Quantum healing" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.00 (7).jpeg" alt="Treatment room" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14.jpeg" alt="Healing centre" />
+      </div>
+      <!-- Row 3 -->
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14 (1).jpeg" alt="RASHA session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14 (2).jpeg" alt="Energy session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.45.14 (3).jpeg" alt="Biofield healing" />
+      </div>
+      <div class="g-img g-tall fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.50.37.jpeg" alt="Quantum session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.52.28.jpeg" alt="Healing frequency" />
+      </div>
+      <!-- Row 4 -->
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.52.42.jpeg" alt="Scalar energy" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 19.59.14.jpeg" alt="Energy work" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.21.36.jpeg" alt="Quantum field" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02.jpeg" alt="Centre session" />
+      </div>
+      <!-- Row 5 -->
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (1).jpeg" alt="Healing experience" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (2).jpeg" alt="RASHA machine" />
+      </div>
+      <div class="g-img g-large fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (3).jpeg" alt="Transformation session" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (4).jpeg" alt="Energy reset" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-09 at 23.30.02 (5).jpeg" alt="Quantum wellness" />
+      </div>
+      <!-- April 11 images -->
+      <div class="g-img g-tall fade-up">
+        <img src="images/WhatsApp Image 2026-04-11 at 23.08.38.jpeg" alt="Centre atmosphere" />
+      </div>
+      <div class="g-img fade-up">
+        <img src="images/WhatsApp Image 2026-04-11 at 23.10.42.jpeg" alt="Session space" />
+      </div>
+      <div class="g-img g-wide fade-up">
+        <img src="images/WhatsApp Image 2026-04-11 at 23.15.04.jpeg" alt="Healing environment" />
+      </div>
+    </div>
+  </section>
 
   <!-- ── Section Teasers ─────────────────────────────────── -->
   <nav class="teaser-4 section-dark" aria-label="Site sections">
@@ -409,7 +750,7 @@
     </a>
     <a href="science.html" class="teaser-item">
       <span class="teaser-num">03</span>
-      <span class="teaser-title">Science &amp; Pricing</span>
+      <span class="teaser-title">Science</span>
       <span class="teaser-cta">Learn more →</span>
     </a>
     <a href="faq.html" class="teaser-item">
@@ -435,6 +776,14 @@
         you tend to feel well. When it becomes disrupted — through stress, trauma, poor diet or emotional
         upset — this can show up as physical or emotional discomfort.
       </p>
+      <blockquote class="fade-up" style="margin-top:3vw;padding-left:2vw;border-left:2px solid var(--color-dark-grey-04);">
+        <p style="font-size:clamp(1rem,1.4vw,1.4rem);color:var(--color-dark-grey-06);font-style:italic;line-height:1.6;">
+          &ldquo;It is a place of no time or space and where all information can exist.&rdquo;
+        </p>
+        <footer style="margin-top:0.8vw;font-size:clamp(0.8rem,1vw,1rem);color:var(--color-dark-grey-04);letter-spacing:0.05em;">
+          &mdash; Dr A Soong
+        </footer>
+      </blockquote>
       <div class="mt-md fade-up">
         <a href="rasha.html" class="btn btn-sand" style="color:var(--color-dark-grey);background:var(--color-sand);border-color:var(--color-sand);">
           Discover the full story
@@ -470,6 +819,15 @@
           safely and effectively in a modern wellness setting.
         </p>
       </div>
+      <div class="card fade-up" style="border-color:var(--color-dark-grey-02);">
+        <span class="card-number" style="color:var(--color-dark-grey-04);">Energy &amp; Thought</span>
+        <h3 class="card-title" style="color:var(--color-dark-grey);">Are Your Thoughts Energy?</h3>
+        <p class="card-body" style="color:var(--color-dark-grey-06);">
+          Everything that exists into reality begins with a thought. Scalar energy is in the
+          metrics of thought energy. Just because you can&rsquo;t see it doesn&rsquo;t mean it doesn&rsquo;t exist.
+          Energy is shift in profound waves.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -498,11 +856,12 @@
       <div>
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-links">
-          <li><a href="rasha.html" class="footer-link">The RASHA Machine</a></li>
-          <li><a href="treatments.html" class="footer-link">Treatments</a></li>
+          <li><a href="rasha.html" class="footer-link">The RASHA Technology</a></li>
+          <li><a href="treatments.html" class="footer-link">Treatments &amp; Programmes</a></li>
           <li><a href="testimonials.html" class="footer-link">Testimonials</a></li>
-          <li><a href="operator.html" class="footer-link">The Operator</a></li>
-          <li><a href="science.html" class="footer-link">Science &amp; Pricing</a></li>
+          <li><a href="operator.html" class="footer-link">The Operator / Creator</a></li>
+          <li><a href="science.html" class="footer-link">Science</a></li>
+          <li><a href="pricing.html" class="footer-link">Pricing</a></li>
           <li><a href="questionnaire.html" class="footer-link">Questionnaire</a></li>
           <li><a href="faq.html" class="footer-link">FAQ</a></li>
           <li><a href="contact.html" class="footer-link">Contact</a></li>
