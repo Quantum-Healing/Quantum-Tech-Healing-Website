@@ -41,9 +41,15 @@
       color: var(--color-light-grey-06);
       line-height: var(--lh-body);
     }
-    .operator-introduction-video {
+    .operator-videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5vw;
       margin-top: 3vw;
-      max-width: min(100%, 34rem);
+    }
+    .operator-introduction-video {
+      margin: 0;
+      min-width: 0;
     }
     .operator-introduction-video video {
       display: block;
@@ -63,6 +69,7 @@
     @media (max-width: 600px) {
       .credential-item { flex-direction: column; gap: 2vw; }
       .cred-label { min-width: unset; }
+      .operator-videos-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     }
 
     /* ── Operator Collage ─────────────────────────────────── */
@@ -188,13 +195,92 @@
           <span class="cred-value">United Kingdom</span>
         </div>
       </div>
-      <figure class="operator-introduction-video fade-up">
-        <video controls preload="metadata" playsinline aria-label="Dr Angela Soong introduction video">
-          <source src="videos/Angela.mp4" type="video/mp4">
-          Your browser does not support video playback.
-        </video>
-        <figcaption>Dr Angela Soong</figcaption>
-      </figure>
+      <div class="operator-videos-grid">
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong introduction video">
+            <source src="videos/Angela.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 13.51.13">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2013.51.13.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 13.51.13</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 13.51.28">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2013.51.28.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 13.51.28</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 13.51.30">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2013.51.30.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 13.51.30</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 13.51.31">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2013.51.31.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 13.51.31</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 13.51.32">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2013.51.32.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 13.51.32</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 13.59.47">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2013.59.47.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 13.59.47</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 14.04.44">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2014.04.44.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 14.04.44</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 14.08.00">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2014.08.00.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 14.08.00</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 14.13.46">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2014.13.46.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 14.13.46</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Dr Angela Soong operator video 14.22.56">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2014.22.56.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Dr Angela Soong &mdash; 14.22.56</figcaption>
+        </figure>
+        <figure class="operator-introduction-video fade-up">
+          <video controls preload="metadata" playsinline aria-label="Keynote speaking to the United Nations Wolmi and Youth Initiative">
+            <source src="videos/WhatsApp%20Video%202026-11-15%20at%2014.32.09.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+          <figcaption>Keynote speaking to the United Nations Wolmi and Youth Initiative &mdash; segment of the inspirational speech</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
