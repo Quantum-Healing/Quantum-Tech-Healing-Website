@@ -255,7 +255,7 @@
   audio.src     = SRC;
   audio.loop    = true;
   audio.volume  = DEFAULT_VOL;
-  audio.preload = 'auto';
+  audio.preload = 'none';
   document.body.appendChild(audio);
 
   // ── Restore position & mute state across page navigations ──
@@ -272,17 +272,15 @@
 
   // ── Attempt autoplay; fall back to first interaction ───────
   audio.muted = wasMuted;
-  audio.play().catch(() => {
-    // Browser blocked autoplay — play silently on first click
-    audio.muted = true;
-    audio.play().catch(() => {});
+  // Start only after interaction so audio does not compete with page loading.
+  {
     const unlock = () => {
       audio.muted = wasMuted;
-      if (audio.paused) audio.play().catch(() => {});
+      if (!wasMuted && audio.paused) audio.play().catch(() => {});
       document.removeEventListener('click', unlock);
     };
     document.addEventListener('click', unlock, { once: true });
-  });
+  }
 
   // ── Mute / unmute toggle button ────────────────────────────
   const btn = document.createElement('button');
