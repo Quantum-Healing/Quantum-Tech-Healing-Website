@@ -41,6 +41,25 @@
       color: var(--color-light-grey-06);
       line-height: var(--lh-body);
     }
+    .operator-introduction-video {
+      margin-top: 3vw;
+      max-width: min(100%, 34rem);
+    }
+    .operator-introduction-video video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 480 / 848;
+      object-fit: contain;
+      background: #0d0e14;
+      border: 1px solid var(--color-light-grey-02);
+    }
+    .operator-introduction-video figcaption {
+      padding-top: .8rem;
+      color: var(--color-light-grey-06);
+      font-size: var(--font-label);
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+    }
     @media (max-width: 600px) {
       .credential-item { flex-direction: column; gap: 2vw; }
       .cred-label { min-width: unset; }
@@ -169,6 +188,13 @@
           <span class="cred-value">United Kingdom</span>
         </div>
       </div>
+      <figure class="operator-introduction-video fade-up">
+        <video controls preload="metadata" playsinline aria-label="Dr Angela Soong introduction video">
+          <source src="videos/Angela.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+        <figcaption>Dr Angela Soong</figcaption>
+      </figure>
     </div>
   </section>
 
