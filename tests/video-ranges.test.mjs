@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-const source = await readFile(new URL('../Quantum Tech/site/_worker.js', import.meta.url), 'utf8');
+const source = await readFile(new URL('../Quantum Tech/video-worker.js', import.meta.url), 'utf8');
 const { default: worker } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
 const bytes = new Uint8Array(100).map((_, i) => i);
 const env = { ASSETS: { fetch: async (request) => new Response(request.method === 'HEAD' ? null : bytes, {

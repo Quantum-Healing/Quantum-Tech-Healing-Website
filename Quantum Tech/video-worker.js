@@ -1,4 +1,4 @@
-// Cloudflare Pages advanced-mode Worker. Static pages bypass it via _routes.json.
+// Video range handler for the existing Cloudflare Worker. Static pages bypass it.
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -31,8 +31,8 @@ export default {
       if (!matches) return fullResponse();
     }
 
-    // Pages can return the full MP4 even for Range requests. Each published file
-    // is below Pages' 25 MiB limit, so slicing fits the Worker memory allowance.
+    // The static asset service can ignore Range requests. Published videos are
+    // below 25 MiB, so slicing fits the Worker memory allowance.
     const buffer = await response.arrayBuffer();
     const size = buffer.byteLength;
     const start = match[1] ? Number(match[1]) : Math.max(0, size - Number(match[2]));
