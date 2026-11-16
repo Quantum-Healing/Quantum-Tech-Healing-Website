@@ -387,10 +387,15 @@ p, .body {
   justify-content: center;
   gap: 2rem;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow-y: auto;
   transition: opacity var(--duration) var(--ease);
 }
 
 .nav-overlay.open {
+  visibility: visible;
+  pointer-events: auto;
   opacity: 1;
 }
 
@@ -1840,3 +1845,43 @@ p, .body {
     font-size: clamp(2.8rem, 13vw, 6rem);
   }
 }
+
+/* Touch layouts, including small tablets. */
+@media (max-width: 1000px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
+  .nav { min-height: 64px; }
+  .nav-overlay { padding: 80px var(--margin-h) max(24px, env(safe-area-inset-bottom)); gap: .5rem; justify-content: flex-start; }
+  .nav-overlay .overlay-link { font-size: clamp(1.25rem, 4vh, 2.5rem); padding: .25rem; }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  :root {
+    --nav-height: 64px;
+    --font-body: 1rem;
+    --font-body-lg: 1.125rem;
+    --font-label: .75rem;
+    --font-cta: .875rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :root { --nav-height: 64px; --font-body: 1rem; --font-body-lg: 1.125rem; --font-label: .75rem; --font-cta: .875rem; }
+  .label { font-size: .875rem; }
+  .form-input, .form-select, .form-textarea { font-size: 16px; }
+  .btn { min-height: 44px; }
+  .hero-straplines p:nth-child(4) { font-size: clamp(1rem, 3.8vw, 1.5rem) !important; }
+  .hero-straplines p:nth-child(6) { font-size: 1rem !important; }
+  .legal-section h2 { font-size: 1.25rem; }
+  .contact-value { overflow-wrap: anywhere; }
+  .section-hero { min-height: 100svh; }
+  .featured-video video, .operator-introduction-video video { max-height: 75svh; }
+  .intro-col:nth-child(n+3) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .title-line { opacity: 1; transform: none; }
+  .intro-col { animation: none; will-change: auto; }
+}
+
+:focus-visible { outline: 2px solid var(--color-sand); outline-offset: 4px; }

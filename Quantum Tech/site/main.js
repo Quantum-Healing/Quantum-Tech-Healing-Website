@@ -28,6 +28,27 @@
 })();
 
 
+/* ── Prebuffer videos shortly before they enter view ────── */
+(function initVideoPreloading() {
+  const videos = document.querySelectorAll('video[controls]');
+  const connection = navigator.connection;
+  // Keep previews available without buffering entire clips on constrained plans.
+  if (connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType))) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({ target: video, isIntersecting }) => {
+      if (isIntersecting) {
+        video.preload = 'auto';
+      } else if (video.paused) {
+        video.preload = 'metadata';
+      }
+    });
+  }, { rootMargin: '300px 0px' });
+  videos.forEach((video) => observer.observe(video));
+})();
+
+
 /* ── Navigation: scroll shadow + active link ─────────────── */
 (function initNav() {
   const nav = document.querySelector('.nav');
@@ -63,19 +84,32 @@
   const body      = document.body;
   if (!hamburger || !overlay) return;
 
+  overlay.id = overlay.id || 'mobile-navigation';
+  overlay.inert = true;
+  hamburger.setAttribute('aria-controls', overlay.id);
+  hamburger.setAttribute('aria-expanded', 'false');
+
   const open = () => {
+    overlay.inert = false;
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
     hamburger.classList.add('open');
     overlay.style.display = 'flex';
     // Force reflow then add open class for transition
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         overlay.classList.add('open');
+        overlay.querySelector('a')?.focus();
       });
     });
     body.style.overflow = 'hidden';
   };
 
   const close = () => {
+    overlay.inert = true;
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+    hamburger.focus();
     hamburger.classList.remove('open');
     overlay.classList.remove('open');
     body.style.overflow = '';
@@ -97,6 +131,16 @@
   // Close on overlay link click
   overlay.querySelectorAll('.overlay-link').forEach((link) => {
     link.addEventListener('click', close);
+  });
+
+  // Keep keyboard navigation inside the open menu and its toggle.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !hamburger.classList.contains('open')) return;
+    const links = Array.from(overlay.querySelectorAll('a[href]'));
+    const controls = [hamburger, ...links];
+    const current = controls.indexOf(document.activeElement);
+    e.preventDefault();
+    controls[(current + (e.shiftKey ? -1 : 1) + controls.length) % controls.length].focus();
   });
 
   // Close on Escape key
@@ -274,9 +318,9 @@
   audio.muted = wasMuted;
   // Start only after interaction so audio does not compete with page loading.
   {
-    const unlock = () => {
+    const unlock = (e) => {
       audio.muted = wasMuted;
-      if (!wasMuted && audio.paused) audio.play().catch(() => {});
+      if (!e.target.closest('video, .featured-video, .operator-introduction-video') && !wasMuted && audio.paused) audio.play().catch(() => {});
       document.removeEventListener('click', unlock);
     };
     document.addEventListener('click', unlock, { once: true });
@@ -336,5 +380,13 @@
     btn.style.borderColor = 'rgba(255,255,255,0.14)';
   });
 
+  document.querySelectorAll('video').forEach((video) => {
+    video.addEventListener('play', () => {
+      audio.pause();
+      document.querySelectorAll('video').forEach((other) => {
+        if (other !== video) other.pause();
+      });
+    });
+  });
   document.body.appendChild(btn);
 })();
