@@ -4,15 +4,15 @@ These 25 originals were archived outside the website asset directory. Each filen
 
 The videos use Git LFS. Use the download links below or GitHub's Download raw file button to retrieve the media. A source-code ZIP may contain LFS pointer files depending on repository archive settings.
 
-YouTube upload history has not been checked. This list reflects the website archive.
+Four YouTube links have been supplied and added to the website source. The remaining 21 rows await YouTube links. Upload history has not been checked independently.
 
 | File | YouTube URL |
 | --- | --- |
-| [Angela.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/Angela.mp4) | |
+| [Angela.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/Angela.mp4) | https://youtu.be/Bv7OnfOjSPI |
 | [WhatsApp Video 2026-11-08 at 00.09.50.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-08%20at%2000.09.50.mp4) | |
-| [WhatsApp Video 2026-11-08 at 14.41.32.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-08%20at%2014.41.32.mp4) | |
-| [WhatsApp Video 2026-11-08 at 21.44.20.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-08%20at%2021.44.20.mp4) | |
-| [WhatsApp Video 2026-11-08 at 22.56.41.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-08%20at%2022.56.41.mp4) | |
+| [WhatsApp Video 2026-11-08 at 14.41.32.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-08%20at%2014.41.32.mp4) | https://youtu.be/LDdn6axyY3I |
+| [WhatsApp Video 2026-11-08 at 21.44.20.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-08%20at%2021.44.20.mp4) | https://youtu.be/XEScMxR_1Ew |
+| [WhatsApp Video 2026-11-08 at 22.56.41.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-08%20at%2022.56.41.mp4) | https://youtu.be/YCmDpDfJbzA |
 | [WhatsApp Video 2026-11-09 at 01.13.29.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-09%20at%2001.13.29.mp4) | |
 | [WhatsApp Video 2026-11-09 at 01.35.51.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-09%20at%2001.35.51.mp4) | |
 | [WhatsApp Video 2026-11-09 at 17.46.07.mp4](https://media.githubusercontent.com/media/Quantum-Healing/Quantum-Tech-Healing-Website/main/YouTube%20uploads/WhatsApp%20Video%202026-11-09%20at%2017.46.07.mp4) | |

@@ -1885,3 +1885,12 @@ p, .body {
 }
 
 :focus-visible { outline: 2px solid var(--color-sand); outline-offset: 4px; }
+
+/* YouTube videos share the existing portrait video card layout. */
+.youtube-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 480 / 848;
+  border: 0;
+  background: #0d0e14;
+}
